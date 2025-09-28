@@ -3,7 +3,7 @@
  import Link from "next/link";
  import events from "@/data/events.json";
  import Section from "./Section";
- import { CalendarDays, MapPin, Clock, ArrowRight, ArrowLeft } from "lucide-react";
+ import { CalendarDays, MapPin, Clock, ArrowRight, ArrowLeft, ChevronRight } from "lucide-react";
  import { useMemo, useState } from "react";
 
 type EventItem = {
@@ -136,20 +136,7 @@ export default function Events() {
                      <div className="pt-1">
                        <Link href={`/events/${event.id}`}>
                         <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-4 py-1.5 text-sm font-semibold text-neutral-950 transition-all hover:from-brand-400 hover:to-brand-300 focus-ring">
-                          Event Details
-                          <svg
-                            className="h-3 w-3"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 5l7 7-7 7"
-                            />
-                          </svg>
+                          Event Details <ChevronRight size={14} />
                         </span>
                       </Link>
                     </div>

@@ -8,6 +8,7 @@ import Collage from '@/components/Collage';
 import Stats from '@/components/Stats';
 import Projects from '@/components/Projects';
 import Events from '@/components/Events';
+import Team from '@/components/Team';
 
 // Content data is separated for easy CMS replacement later
 const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
@@ -78,6 +79,9 @@ export default function HomePage() {
 
       {/* Upcoming Events */}
       <Events />
+
+      {/* Team */}
+      <Team />
 
       {/* Mission */}
       <Section id="mission">

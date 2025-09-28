@@ -1,0 +1,48 @@
+[
+  {
+    "id": "sarah",
+    "name": "Sarah Mitchell",
+    "role": "Director of Community Outreach",
+    "avatar": "/profile.png",
+    "socials": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com"
+    }
+  },
+  {
+    "id": "aisha",
+    "name": "Aisha Khan",
+    "role": "Volunteer Coordinator",
+    "avatar": "/profile.png",
+    "socials": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "x": "https://twitter.com"
+    }
+  },
+  {
+    "id": "emma",
+    "name": "Emma Rodriguez",
+    "role": "Marketing Specialist",
+    "avatar": "/profile.png",
+    "socials": {
+      "instagram": "https://instagram.com",
+      "linkedin": "https://linkedin.com",
+      "x": "https://twitter.com"
+    }
+  },
+  {
+    "id": "sophia",
+    "name": "Sophia Turner",
+    "role": "Fundraising Manager",
+    "avatar": "/profile.png",
+    "socials": {
+      "facebook": "https://facebook.com",
+      "linkedin": "https://linkedin.com",
+      "x": "https://twitter.com"
+    }
+  }
+]
+
+
