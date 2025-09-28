@@ -1,9 +1,10 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import events from "@/data/events.json";
-import Section from "./Section";
-import { CalendarDays, MapPin, Clock } from "lucide-react";
+ import Image from "next/image";
+ import Link from "next/link";
+ import events from "@/data/events.json";
+ import Section from "./Section";
+ import { CalendarDays, MapPin, Clock, ArrowRight, ArrowLeft } from "lucide-react";
+ import { useMemo, useState } from "react";
 
 type EventItem = {
   id: string;
@@ -17,11 +18,26 @@ type EventItem = {
 };
 
 export default function Events() {
-  const items = events as any[] as EventItem[];
+  const all = events as any[] as EventItem[];
+  const sorted = useMemo(
+    () =>
+      [...all].sort((a, b) => {
+        const ad = new Date((a as any).startDate || 0).getTime();
+        const bd = new Date((b as any).startDate || 0).getTime();
+        return ad - bd; // nearest first
+      }),
+    [all]
+  );
+  const perPage = 2;
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(sorted.length / perPage);
+  const startIdx = page * perPage;
+  const endIdx = Math.min(sorted.length, startIdx + perPage);
+  const items = sorted.slice(startIdx, endIdx);
 
   return (
     <Section className="bg-white" size="dense">
-      <div className="mx-auto max-w-2xl text-center">
+       <div className="mx-auto max-w-2xl text-center">
         <p className="text-sm font-semibold text-brand-700">
           Our recent events
         </p>
@@ -32,6 +48,9 @@ export default function Events() {
           Be part of meaningful change through community engagement and
           impactful initiatives
         </p>
+         <p className="mt-3 text-neutral-600">
+           Showing {startIdx + 1}–{endIdx} of {sorted.length}
+         </p>
       </div>
 
       <div className="mt-8 space-y-4">
@@ -114,8 +133,8 @@ export default function Events() {
                       </div>
                     </div>
 
-                    <div className="pt-1">
-                      <Link href="#">
+                     <div className="pt-1">
+                       <Link href={`/events/${event.id}`}>
                         <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-4 py-1.5 text-sm font-semibold text-neutral-950 transition-all hover:from-brand-400 hover:to-brand-300 focus-ring">
                           Event Details
                           <svg
@@ -137,7 +156,7 @@ export default function Events() {
                   </div>
                 </div>
 
-                {/* Date Section - Desktop only */}
+                 {/* Date Section - Desktop only */}
                 <div
                   className={`relative hidden items-center justify-center p-4 md:flex ${
                     isReversed ? "md:order-1" : "md:order-3"
@@ -165,6 +184,37 @@ export default function Events() {
           );
         })}
       </div>
-    </Section>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <button
+            className="rounded-full px-3 py-1 text-sm ring-1 ring-neutral-300 text-neutral-700 hover:bg-neutral-50 disabled:opacity-50"
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+          >
+            <ArrowLeft size={18} />
+          </button>
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to page ${i + 1}`}
+              onClick={() => setPage(i)}
+              className={`h-2.5 w-8 rounded-full transition-all ${
+                i === page
+                  ? "bg-gradient-to-r from-brand-500 to-brand-400"
+                  : "bg-neutral-300 hover:bg-neutral-400"
+              }`}
+            />
+          ))}
+          <button
+            className="rounded-full px-3 py-1 text-sm ring-1 ring-neutral-300 text-neutral-700 hover:bg-neutral-50 disabled:opacity-50"
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={page === totalPages - 1}
+          >
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      )}
+     </Section>
   );
 }
