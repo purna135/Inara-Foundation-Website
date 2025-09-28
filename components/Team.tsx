@@ -60,7 +60,7 @@ export default function Team() {
                     })}
                   </div>
                   {/* Toggle button with rotation and icon swap */}
-                  <button aria-label={isOpen ? 'Close' : 'Open'} onClick={() => toggle(m.id)} className={`relative bottom-[-5px] right-[-5px] grid h-8 w-10 place-items-center rounded-full bg-brand-600 text-white shadow-md ring-6 ring-white transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                  <button aria-label={isOpen ? 'Close' : 'Open'} onClick={() => toggle(m.id)} className={`relative bottom-[-5px] right-[-5px] grid h-8 w-10 place-items-center rounded-full bg-brand-500 text-white shadow-md ring-6 ring-white transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                     <span className="relative h-4 w-4">
                       <Plus className={`absolute inset-0 m-auto transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} size={18} />
                       <Minus className={`absolute inset-0 m-auto transition-all duration-300 ${isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} size={18} />
@@ -78,7 +78,7 @@ export default function Team() {
       </div>
 
       <div className="mt-8 text-center">
-        <Link href="#"><span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 focus-ring">See all Core Members <ChevronRight size={14} /></span></Link>
+        <Link href="#"><span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-2 text-sm font-semibold text-neutral-950 focus-ring hover:from-brand-300 hover:to-brand-400">See all Core Members <ChevronRight size={14} /></span></Link>
       </div>
     </Section>
   );

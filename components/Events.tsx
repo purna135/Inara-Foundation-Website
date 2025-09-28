@@ -135,7 +135,7 @@ export default function Events() {
 
                      <div className="pt-1">
                        <Link href={`/events/${event.id}`}>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-4 py-1.5 text-sm font-semibold text-neutral-950 transition-all hover:from-brand-400 hover:to-brand-300 focus-ring">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-4 py-1.5 text-sm font-semibold text-neutral-950 transition-all hover:from-brand-300 hover:to-brand-400 focus-ring">
                           Event Details <ChevronRight size={14} />
                         </span>
                       </Link>

@@ -83,52 +83,6 @@ export default function HomePage() {
       {/* Team */}
       <Team />
 
-      {/* Mission */}
-      <Section id="mission">
-        <div className="grid items-start gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="font-display text-3xl sm:text-4xl">Our Mission</h2>
-            <p className="mt-4 text-neutral-300">
-              We aim to make life better for all living beings by enabling people to volunteer, connect, and contribute across initiatives that matter.
-            </p>
-            <ul className="mt-6 space-y-3 text-neutral-300">
-              <li>• Social and animal welfare</li>
-              <li>• Environmental stewardship</li>
-              <li>• Mental health awareness</li>
-              <li>• Support for small businesses</li>
-            </ul>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {[
-              { title: 'Acoinitier', body: 'Interactive sessions that build empathy and connection.' },
-              { title: 'Project Amrit', body: 'Support for traffic officers working in the heat.' },
-              { title: 'Clean Beach India', body: 'Volunteers cleaning and protecting coastlines.' },
-              { title: 'Pride Month', body: 'Creating awareness and celebrating identity.' },
-            ].map((c) => (
-              <div key={c.title} className="surface-card p-6">
-                <h3 className="font-semibold">{c.title}</h3>
-                <p className="mt-2 text-sm text-neutral-600">{c.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Programs preview */}
-      <Section id="programs" className="muted-section">
-        <h2 className="font-display text-3xl sm:text-4xl">Programs</h2>
-        <p className="mt-3 max-w-2xl text-neutral-700">Explore our interactive, fundraiser, collaboration, and virtual initiatives.</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {['Interactive', 'Fundraisers', 'Collaborations', 'Virtual'].map((t) => (
-            <div key={t} className="surface-card p-6">
-              <h3 className="font-semibold">{t}</h3>
-              <p className="mt-2 text-sm text-neutral-600">Meaningful projects that turn compassion into action.</p>
-              <div className="mt-4"><Link href="/programs" className="link-brand">See more →</Link></div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* Call to action */}
       <Section className="relative">
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-500/20 to-brand-400/10 rounded-3xl" />
