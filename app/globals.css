@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* Brand theme using Tailwind v4 @theme */
+@theme {
+  --color-brand-50: #fffaf0;
+  --color-brand-100: #fdf4db;
+  --color-brand-200: #fae3ae;
+  --color-brand-300: #f5cf7c;
+  --color-brand-400: #e9ba54;
+  --color-brand-500: #d4af37; /* Gold */
+  --color-brand-600: #b8962f;
+  --color-brand-700: #967526;
+  --color-brand-800: #6b541b;
+  --color-brand-900: #3d320f;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-display: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-neutral-900 antialiased;
+}
+
+/* Utilities */
+.container-px {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+.section-y {
+  @apply py-14 sm:py-20 lg:py-28;
+}
+
+/* Subtle grid background */
+.bg-grid {
+  /* Subtle sand-gold dot grid for light theme */
+  background-image: radial-gradient(#fae3ae 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+/* Focus ring */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+}
+
+/* Light theme offset defaults to white */
+
+/* Reusable surface styles */
+.surface-card {
+  @apply rounded-2xl border border-neutral-200 bg-white shadow-sm;
+}
+
+.muted-section {
+  @apply bg-neutral-50;
+}
+
+.link-brand {
+  @apply text-brand-600 hover:text-brand-700;
+}
+
+

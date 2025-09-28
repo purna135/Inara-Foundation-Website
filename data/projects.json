@@ -1,0 +1,80 @@
+[
+  {
+    "id": "acointier",
+    "title": "Acoinitier – empathy circles",
+    "type": "Interactive",
+    "summary": "Small-group conversations that build connection and expression for youth.",
+    "cover": "/work-images/Acointier-Inayaat-1.jpeg",
+    "date": "Aug 2024",
+    "location": "Bhubaneswar, Odisha"
+  },
+  {
+    "id": "aiims-xmas",
+    "title": "Christmas at AIIMS",
+    "type": "Interactive",
+    "summary": "Art, music, and gifts with young cancer warriors at AIIMS Bhubaneswar.",
+    "cover": "/work-images/Acointier-Inayaat-2-1.jpeg",
+    "date": "Dec 2023",
+    "location": "AIIMS, Bhubaneswar"
+  },
+  {
+    "id": "amrit",
+    "title": "Project Amrit",
+    "type": "Fundraisers",
+    "summary": "Refreshing support for traffic officers working in the heat across the city.",
+    "cover": "/work-images/acointier-v2-4-1.jpeg",
+    "raised": "",
+    "goal": "",
+    "date": "Apr 2022",
+    "location": "Bhubaneswar"
+  },
+  {
+    "id": "foundling-donations",
+    "title": "Donations for foundling home",
+    "type": "Fundraisers",
+    "summary": "Books, notebooks, masks and essentials for children since 2020.",
+    "cover": "/work-images/acointier-v2-2-1.jpeg",
+    "raised": "",
+    "goal": "",
+    "date": "Nov 2020",
+    "location": "Bhubaneswar"
+  },
+  {
+    "id": "revive-similipal",
+    "title": "Revive Similipal",
+    "type": "Collaborations",
+    "summary": "5000 saplings across 30+ villages with Youth for Sustainability.",
+    "cover": "/work-images/Acointier-Inayaat-1.jpeg",
+    "date": "2021",
+    "location": "Similipal, Odisha"
+  },
+  {
+    "id": "clean-beach-india",
+    "title": "Clean Beach India",
+    "type": "Collaborations",
+    "summary": "Multi-city coastal cleanups and long-term community plans.",
+    "cover": "/work-images/Acointier-Inayaat-2-1.jpeg",
+    "date": "Jun 2022",
+    "location": "Odisha & Andhra Pradesh"
+  },
+  {
+    "id": "small-business",
+    "title": "Small Business Project",
+    "type": "Virtual",
+    "summary": "Showcasing local makers and entrepreneurs across our platforms.",
+    "cover": "/work-images/acointier-v2-4-1.jpeg",
+    "date": "2021–2024",
+    "location": "Online"
+  },
+  {
+    "id": "pride-month",
+    "title": "Pride Month Awareness",
+    "type": "Virtual",
+    "summary": "Celebrating identity and spreading awareness with volunteer-led posts.",
+    "cover": "/work-images/acointier-v2-2-1.jpeg",
+    "date": "Jun (Annual)",
+    "location": "Online"
+  }
+]
+
+
