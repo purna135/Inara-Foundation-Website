@@ -10,6 +10,8 @@ import Projects from '@/components/Projects';
 import Events from '@/components/Events';
 import Team from '@/components/Team';
 import Testimonials from '@/components/Testimonials';
+import CTA from '@/components/CTA';
+import CTA2 from '@/components/CTA2';
 
 // Content data is separated for easy CMS replacement later
 const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
@@ -88,17 +90,10 @@ export default function HomePage() {
       <Testimonials />
 
       {/* Call to action */}
-      <Section className="relative">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-500/20 to-brand-400/10 rounded-3xl" />
-        <div className="surface-card p-10 text-center">
-          <h2 className="font-display text-3xl">Join the movement</h2>
-          <p className="mt-3 text-neutral-700">Volunteer, donate, or partner with us to create lasting change.</p>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <Link href="/contact"><Button variant="secondary">Volunteer</Button></Link>
-            <Link href="/donate"><Button variant="primary">Donate</Button></Link>
-          </div>
-        </div>
-      </Section>
+      <CTA />
+
+      {/* Simple CTA 2 */}
+      {/* <CTA2 /> */}
     </main>
   );
 }
