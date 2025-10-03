@@ -1,5 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import Button from './Button';
@@ -30,6 +31,8 @@ export default function Projects() {
   const itemsPerPage = 3;
   const pageCount = Math.ceil(filtered.length / itemsPerPage);
   const pageItems = filtered.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage);
+  const prev = () => setPage((p) => Math.max(0, p - 1));
+  const next = () => setPage((p) => Math.min(pageCount - 1, p + 1));
 
   return (
     <Section className="bg-white" size="dense">
@@ -46,7 +49,7 @@ export default function Projects() {
               onClick={() => { setTab(t); setPage(0); }}
               className={`group relative rounded-full px-4 py-2 text-sm ring-1 transition-all cursor-pointer ${
                 tab === t
-                  ? 'bg-gradient-to-r from-brand-500 to-brand-400 text-neutral-950 ring-brand-400 shadow-sm'
+                  ? 'bg-gradient-to-r from-brand-400 to-brand-300 text-neutral-950 ring-brand-400 shadow-sm'
                   : 'bg-white text-neutral-700 ring-neutral-200 hover:bg-brand-50 hover:text-brand-700'
               }`}
             >
@@ -105,12 +108,18 @@ export default function Projects() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Pagination dots if needed */}
+        {/* Navigation + Pagination */}
         {pageCount > 1 && (
-          <div className="mt-6 flex justify-center gap-2">
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button onClick={prev} aria-label="Previous" className="rounded-full px-3 py-1 text-sm ring-1 ring-neutral-300 text-neutral-700 hover:bg-neutral-50 disabled:opacity-50" disabled={page === 0}>
+              <ArrowLeft size={18} />
+            </button>
             {Array.from({ length: pageCount }).map((_, i) => (
               <button key={i} onClick={() => setPage(i)} aria-label={`Go to page ${i + 1}`} className={`h-2.5 w-8 rounded-full transition-all ${i === page ? 'bg-gradient-to-r from-brand-500 to-brand-400' : 'bg-neutral-300 hover:bg-neutral-400'}`} />
             ))}
+            <button onClick={next} aria-label="Next" className="rounded-full px-3 py-1 text-sm ring-1 ring-neutral-300 text-neutral-700 hover:bg-neutral-50 disabled:opacity-50" disabled={page === pageCount - 1}>
+              <ArrowRight size={18} />
+            </button>
           </div>
         )}
     </Section>

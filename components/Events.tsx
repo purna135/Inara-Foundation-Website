@@ -4,7 +4,8 @@
  import events from "@/data/events.json";
  import Section from "./Section";
  import { CalendarDays, MapPin, Clock, ArrowRight, ArrowLeft, ChevronRight } from "lucide-react";
- import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type EventItem = {
   id: string;
@@ -54,11 +55,16 @@ export default function Events() {
       </div>
 
       <div className="mt-8 space-y-4">
+        <AnimatePresence mode="wait">
         {items.map((event, index) => {
           const isReversed = index % 2 !== 0;
           return (
-            <article
+            <motion.article
               key={event.id}
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -20, opacity: 0 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
               className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:ring-brand-300/50"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-brand-50/20 to-transparent" />
@@ -167,9 +173,10 @@ export default function Events() {
                   </div>
                 </div>
               </div>
-            </article>
+            </motion.article>
           );
         })}
+        </AnimatePresence>
       </div>
       {/* Pagination */}
       {totalPages > 1 && (
