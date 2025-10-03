@@ -9,6 +9,7 @@ import Stats from '@/components/Stats';
 import Projects from '@/components/Projects';
 import Events from '@/components/Events';
 import Team from '@/components/Team';
+import Testimonials from '@/components/Testimonials';
 
 // Content data is separated for easy CMS replacement later
 const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
@@ -82,6 +83,9 @@ export default function HomePage() {
 
       {/* Team */}
       <Team />
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Call to action */}
       <Section className="relative">
