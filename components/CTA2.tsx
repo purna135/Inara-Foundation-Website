@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Section from "./Section";
-import { HeartHandshake, Heart } from 'lucide-react';
+import { HeartHandshake, Heart } from "lucide-react";
 
 export default function CTA2() {
   return (
@@ -26,12 +26,12 @@ export default function CTA2() {
             <div className="mt-5">
               <Link href="/contact">
                 <span className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm focus-ring">
-                    <Heart size={18} className="mr-2"/> Become a Volunteer
+                  <Heart size={18} className="mr-2" /> Become a Volunteer
                 </span>
               </Link>
               <Link href="/about" className="ml-3">
                 <span className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-sm font-semibold text-teal-900 ring-1 ring-black/10 hover:bg-white">
-                <HeartHandshake size={18} className="mr-2"/> Partner with Us
+                  <HeartHandshake size={18} className="mr-2" /> Partner with Us
                 </span>
               </Link>
             </div>
@@ -41,7 +41,7 @@ export default function CTA2() {
             {/* <div className="pointer-events-none absolute bottom-[-6px] right-[-18%] h-80 w-[600px] sm:h-96 sm:w-[760px] lg:right-[-28%] lg:h-[440px] lg:w-[900px]"> */}
             <div className="pointer-events-none absolute w-[100%] h-[400px] top-[-150px]">
               <Image
-                src="/volunteers.png"
+                src="/volunteers-2.png"
                 alt="Volunteers"
                 fill
                 className="object-contain drop-shadow-2xl"

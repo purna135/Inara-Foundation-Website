@@ -73,7 +73,7 @@ export default function WorkImagesCollege() {
     <div className="p-4">
       <div className="absolute -bottom-70 inset-0 -z-10 pointer-events-none">
         <img
-          src="/odisha-map.png"
+          src="/images/odisha-map.png"
           alt=""
           aria-hidden
           className="h-full w-full object-contain opacity-8 grayscale"

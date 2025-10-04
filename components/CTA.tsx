@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Section from "./Section";
-import { HeartHandshake, Heart } from 'lucide-react';
+import { HeartHandshake, Heart } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -20,33 +20,34 @@ export default function CTA() {
               Ready to make an impact?
             </h3>
             <p className="mt-2 text-sm text-neutral-900">
-              Join Inara Foundation and turn compassion into action.
-              Believe in yourself, and believe in the change you can create.
+              Join Inara Foundation and turn compassion into action. Believe in
+              yourself, and believe in the change you can create.
             </p>
             <div className="mt-5">
               <Link href="/contact">
                 <span className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm focus-ring">
-                    <Heart size={18} className="mr-2"/> Become a Volunteer
+                  <Heart size={18} className="mr-2" /> Become a Volunteer
                 </span>
               </Link>
               <Link href="/about" className="ml-3">
                 <span className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-sm font-semibold text-brand-900 ring-1 ring-black/10 hover:bg-white">
-                <HeartHandshake size={18} className="mr-2"/> Partner with Us
+                  <HeartHandshake size={18} className="mr-2" /> Partner with Us
                 </span>
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="pointer-events-none absolute w-[100%] h-[400px] top-[-150px]">
+          <div className="relative flex justify-center md:justify-end">
+            <div className="absolute top-[-118px] left-[-10px] z-10 scale-120">
               <Image
-                src="/volunteers.png"
+                src="/images/volunteers.png"
                 alt="Volunteers"
-                fill
+                width={500}
+                height={400}
                 className="object-contain drop-shadow-2xl"
               />
             </div>
             {/* Spacer keeps card height stable */}
-            <div className="h-40 sm:h-48 md:h-56" />
+            <div className="h-48 sm:h-56 md:h-64" />
           </div>
         </div>
       </div>
