@@ -1,38 +1,73 @@
 [
   {
-    "id": "david",
-    "quote": "Stay informed about our upcoming events and campaigns. From community outreach to environmental drives, there are plenty of ways to get involved and support our cause. We prioritize your security and transparency.",
-    "name": "David Ade Smith",
-    "role": "Business Student",
-    "avatar": "/work-images/Acointier-Inayaat-2-1.jpeg"
-  },
-  {
-    "id": "emma",
-    "quote": "Volunteering with Inara has been deeply fulfilling. The team is thoughtful, organized, and committed to creating real change across communities.",
-    "name": "Emma Rodriguez",
+    "id": "kiran-kirti-rath",
+    "quote": "Inara has tremendously helped me in my personal growth. It is a comfort zone and a home away from home where I can express myself and give back.",
+    "name": "Kiran Kirti Rath",
     "role": "Volunteer",
-    "avatar": "/work-images/acointier-v2-4-1.jpeg"
+    "avatar": "/testimonials.jpg"
   },
   {
-    "id": "sophia",
-    "quote": "I appreciate the focus on dignity and inclusion in every project. The impact is visible and the process is transparent.",
-    "name": "Sophia Turner",
-    "role": "Donor",
-    "avatar": "/work-images/Acointier-Inayaat-1.jpeg"
+    "id": "saddicha-bal",
+    "quote": "I learned a great deal from my colleagues and the projects we undertook together. The people are the most impressive aspect and I made many friends here.",
+    "name": "Saddicha Bal",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
   },
   {
-    "id": "aisha",
-    "quote": "Inara's volunteers are kind and efficient. The projects are well planned and truly community-first.",
-    "name": "Aisha Khan",
-    "role": "Coordinator",
-    "avatar": "/work-images/Acointier-Inayaat-2-1.jpeg"
+    "id": "samyak-chhotaray",
+    "quote": "Inara is a consoling place where everyone is free to speak, learn and progress. It helped me improve my character and socializing.",
+    "name": "Samyak Chhotaray",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
   },
   {
-    "id": "sam",
-    "quote": "I trust Inara with my donations because of their transparency and impact-focused updates.",
-    "name": "Sam Patel",
-    "role": "Donor",
-    "avatar": "/work-images/acointier-v2-2-1.jpeg"
+    "id": "soumya-suman",
+    "quote": "Inara has made me a better person, from the orphanage project to Project Amrit. I gained valuable experience and friends for life.",
+    "name": "Soumya Suman",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "sankalpa-swain",
+    "quote": "Participating in various projects gave me the opportunity to help those in need and be a better person. The amazing people I met feel like family.",
+    "name": "Sankalpa Swain",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "roshni",
+    "quote": "Inara has inspired me to be a better person—meeting new people, helping those in need, and exchanging smiles are life’s greatest assets.",
+    "name": "Roshni",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "avishikta",
+    "quote": "Being part of Inara keeps me connected to Odisha and fills me with pride. I’m grateful for the opportunity to be part of our impactful work.",
+    "name": "Avishikta",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "debashree-darshana-giri",
+    "quote": "From meeting new people to animal shelters and monthly activities, this journey has been full of memories. Inara became a source of comfort during difficult times.",
+    "name": "Debashree Darshana Giri",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "anshul-amrit",
+    "quote": "I finally got to do what I always wanted—visiting orphanages and animal shelters. Inara gave me the perfect platform and new friends.",
+    "name": "Anshul Amrit",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
+  },
+  {
+    "id": "subham-sarthak-das",
+    "quote": "Inara helped me meet amazing individuals who motivated me to exceed my limits and has been instrumental in my growth every day.",
+    "name": "Subham Sarthak Das",
+    "role": "Volunteer",
+    "avatar": "/testimonials.jpg"
   }
 ]
 

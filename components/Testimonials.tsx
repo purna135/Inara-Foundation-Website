@@ -43,13 +43,9 @@ export default function Testimonials() {
   return (
     <Section className="bg-white" size="dense">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm font-semibold text-brand-700">Testimonial</p>
-        <h2 className="mt-1 font-display text-3xl sm:text-4xl">
-          Our Client Say
-        </h2>
-        <p className="mt-2 text-neutral-700">
-          Hear from those whose lives have been touched by your generosity.
-        </p>
+        <p className="text-sm font-semibold text-brand-700">Testimonials</p>
+        <h2 className="mt-1 font-display text-3xl sm:text-4xl">What our volunteers say</h2>
+        <p className="mt-2 text-neutral-700">Real words from Inara volunteers about their experience and growth.</p>
       </div>
 
       <div
