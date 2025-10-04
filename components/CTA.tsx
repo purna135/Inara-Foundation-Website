@@ -3,7 +3,7 @@ import Image from "next/image";
 import Section from "./Section";
 import { HeartHandshake, Heart } from 'lucide-react';
 
-export default function CTA2() {
+export default function CTA() {
   return (
     <Section size="dense">
       <div className="relative rounded-2xl ring-1 ring-neutral-200 shadow-sm bg-gradient-to-r from-brand-400 to-brand-500">
@@ -20,8 +20,8 @@ export default function CTA2() {
               Ready to make an impact?
             </h3>
             <p className="mt-2 text-sm text-neutral-900">
-              Join Inara Foundation and turn compassion into action across
-              social welfare, animal care and environmental projects.
+              Join Inara Foundation and turn compassion into action.
+              Believe in yourself, and believe in the change you can create.
             </p>
             <div className="mt-5">
               <Link href="/contact">
@@ -37,8 +37,6 @@ export default function CTA2() {
             </div>
           </div>
           <div className="relative">
-            {/* Oversized illustration that bleeds outside the card */}
-            {/* <div className="pointer-events-none absolute bottom-[-6px] right-[-18%] h-80 w-[600px] sm:h-96 sm:w-[760px] lg:right-[-28%] lg:h-[440px] lg:w-[900px]"> */}
             <div className="pointer-events-none absolute w-[100%] h-[400px] top-[-150px]">
               <Image
                 src="/volunteers.png"
