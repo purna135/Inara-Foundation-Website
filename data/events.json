@@ -9,7 +9,7 @@
     "location": "Bhubaneswar, Odisha",
     "fullAddress": "Xavier University Campus, Bhubaneswar, Odisha",
     "category": "Education",
-    "cover": "/work-images/Acointier-Inayaat-2-1.jpeg",
+    "cover": "/dummy-images/event-1.jpeg",
     "description": "Join us for an interactive educational workshop focused on improving learning outcomes for underprivileged children through innovative teaching methods."
   },
   {
@@ -22,7 +22,7 @@
     "location": "Cuttack, Odisha",
     "fullAddress": "SCB Medical College Campus, Cuttack, Odisha",
     "category": "Community",
-    "cover": "/work-images/Acointier-Inayaat-1.jpeg",
+    "cover": "/dummy-images/event-2.jpg",
     "description": "A community outreach program providing essential supplies and healthcare support to children in need across Cuttack district."
   },
   {
@@ -34,7 +34,7 @@
     "time": "07:00 am – 5:00 pm",
     "location": "Bhubaneswar, Odisha",
     "category": "Education",
-    "cover": "/work-images/acointier-v2-4-1.jpeg",
+    "cover": "/dummy-images/event-1.jpeg",
     "description": "Discover innovative learning techniques and tools that make education more accessible and engaging for students of all ages."
   }
 ,
@@ -48,7 +48,7 @@
     "location": "Puri Beach, Odisha",
     "fullAddress": "Puri Beach, Near Swargadwar, Puri, Odisha",
     "category": "Environment",
-    "cover": "/work-images/acointier-v2-4-1.jpeg",
+    "cover": "/dummy-images/event-2.jpg",
     "description": "Participate in our beach clean-up and tree plantation drive to promote environmental awareness and sustainability in the community."
   },
   {
@@ -61,7 +61,7 @@
     "location": "Sambalpur, Odisha",
     "fullAddress": "Town Hall, Sambalpur, Odisha",
     "category": "Health",
-    "cover": "/work-images/acointier-v2-4-1.jpeg",
+    "cover": "/dummy-images/event-1.jpeg",
     "description": "Join our health camp for free check-ups, wellness workshops, and expert talks to raise awareness about preventive healthcare."
   }
 ]

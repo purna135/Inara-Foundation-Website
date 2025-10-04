@@ -4,35 +4,35 @@
     "quote": "Inara has tremendously helped me in my personal growth. It is a comfort zone and a home away from home where I can express myself and give back.",
     "name": "Kiran Kirti Rath",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "saddicha-bal",
     "quote": "I learned a great deal from my colleagues and the projects we undertook together. The people are the most impressive aspect and I made many friends here.",
     "name": "Saddicha Bal",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "samyak-chhotaray",
     "quote": "Inara is a consoling place where everyone is free to speak, learn and progress. It helped me improve my character and socializing.",
     "name": "Samyak Chhotaray",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "soumya-suman",
     "quote": "Inara has made me a better person, from the orphanage project to Project Amrit. I gained valuable experience and friends for life.",
     "name": "Soumya Suman",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "sankalpa-swain",
     "quote": "Participating in various projects gave me the opportunity to help those in need and be a better person. The amazing people I met feel like family.",
     "name": "Sankalpa Swain",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "roshni",
@@ -46,7 +46,7 @@
     "quote": "Being part of Inara keeps me connected to Odisha and fills me with pride. I’m grateful for the opportunity to be part of our impactful work.",
     "name": "Avishikta",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "debashree-darshana-giri",
@@ -60,14 +60,14 @@
     "quote": "I finally got to do what I always wanted—visiting orphanages and animal shelters. Inara gave me the perfect platform and new friends.",
     "name": "Anshul Amrit",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   },
   {
     "id": "subham-sarthak-das",
     "quote": "Inara helped me meet amazing individuals who motivated me to exceed my limits and has been instrumental in my growth every day.",
     "name": "Subham Sarthak Das",
     "role": "Volunteer",
-    "avatar": "/testimonials.jpg"
+    "avatar": "/dummy-images/testimonials.jpg"
   }
 ]
 
