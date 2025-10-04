@@ -1,46 +1,46 @@
 [
   {
-    "id": "sarah",
-    "name": "Sarah Mitchell",
-    "role": "Director of Community Outreach",
+    "id": "swetapadma-chhotaray",
+    "name": "Swetapadma Chhotaray",
+    "role": "Founder",
     "avatar": "/profile.png",
     "socials": {
-      "facebook": "https://facebook.com",
-      "instagram": "https://instagram.com",
-      "linkedin": "https://linkedin.com"
+      "facebook": "https://facebook.com/inara",
+      "instagram": "https://instagram.com/inara",
+      "linkedin": "https://linkedin.com/company/inara"
     }
   },
   {
-    "id": "aisha",
-    "name": "Aisha Khan",
-    "role": "Volunteer Coordinator",
+    "id": "anshul-amrit-swain",
+    "name": "Anshul Amrit Swain",
+    "role": "Board Member",
     "avatar": "/profile.png",
     "socials": {
-      "facebook": "https://facebook.com",
-      "instagram": "https://instagram.com",
-      "x": "https://twitter.com"
+      "facebook": "https://facebook.com/inara",
+      "instagram": "https://instagram.com/inara",
+      "linkedin": "https://linkedin.com/company/inara"
     }
   },
   {
-    "id": "emma",
-    "name": "Emma Rodriguez",
-    "role": "Marketing Specialist",
+    "id": "shruti-kanungo",
+    "name": "Shruti Kanungo",
+    "role": "Board Member",
     "avatar": "/profile.png",
     "socials": {
-      "instagram": "https://instagram.com",
-      "linkedin": "https://linkedin.com",
-      "x": "https://twitter.com"
+      "facebook": "https://facebook.com/inara",
+      "instagram": "https://instagram.com/inara",
+      "linkedin": "https://linkedin.com/company/inara"
     }
   },
   {
-    "id": "sophia",
-    "name": "Sophia Turner",
-    "role": "Fundraising Manager",
+    "id": "nehal-khosla",
+    "name": "Nehal Khosla",
+    "role": "Board Member",
     "avatar": "/profile.png",
     "socials": {
-      "facebook": "https://facebook.com",
-      "linkedin": "https://linkedin.com",
-      "x": "https://twitter.com"
+      "facebook": "https://facebook.com/inara",
+      "instagram": "https://instagram.com/inara",
+      "linkedin": "https://linkedin.com/company/inara"
     }
   }
 ]
