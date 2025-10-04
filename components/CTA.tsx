@@ -8,7 +8,7 @@ export default function CTA() {
     <Section size="dense">
       <div className="relative rounded-2xl ring-1 ring-neutral-200 shadow-sm bg-gradient-to-r from-brand-400 to-brand-500">
         <div className="grid items-center gap-6 px-6 py-8 sm:px-10 md:grid-cols-2">
-          <div className="max-w-lg">
+          <div className="max-w-lg order-2 md:order-1">
             <div className="inline-flex items-center gap-2 rounded-full bg-neutral-900/10 px-3 py-1 text-xs font-medium text-neutral-900 backdrop-blur-sm mb-2">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-900 opacity-75"></span>
@@ -36,8 +36,8 @@ export default function CTA() {
               </Link>
             </div>
           </div>
-          <div className="relative flex justify-center md:justify-end">
-            <div className="absolute top-[-118px] left-[-10px] z-10 scale-120">
+          <div className="relative flex justify-center md:justify-end order-1 md:order-2">
+            <div className="absolute top-[-120px] left-[-10px] z-10 scale-100 md:scale-120">
               <Image
                 src="/images/volunteers.png"
                 alt="Volunteers"

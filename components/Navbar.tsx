@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Instagram, Linkedin, Twitter, Facebook, Users } from "lucide-react";
-import Button from "./Button";
+import { AnimatePresence, motion } from "framer-motion";
 
 const links = [
   { href: "/", label: "Home" },
@@ -103,27 +103,36 @@ export default function Navbar() {
           </svg>
         </button>
       </nav>
-      {open && (
-        <div className="md:hidden border-t border-neutral-200 bg-white/95">
-          <div className="container-px mx-auto max-w-[1200px] py-4 flex flex-col gap-4">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-sm text-neutral-700 hover:text-brand-700"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden border-top border-neutral-200 bg-white/95 shadow-sm"
+            aria-hidden={!open}
+          >
+            <div className="container-px mx-auto max-w-[1200px] py-4 flex flex-col gap-4">
+              {links.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm text-neutral-700 hover:text-brand-700"
+                  onClick={() => setOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              ))}
+              <Link href="/contact" onClick={() => setOpen(false)}>
+                <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
+                  Join Us <Users size={16} />
+                </span>
               </Link>
-            ))}
-            <Link href="/contact" onClick={() => setOpen(false)}>
-              <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
-                Join Us <Users size={16} />
-              </span>
-            </Link>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

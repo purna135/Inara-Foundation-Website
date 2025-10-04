@@ -90,9 +90,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-grid" />
       )}
       <div className="container-px mx-auto max-w-[1200px] mt-12 mb-8 sm:mt-16 sm:mb-12 relative">
-        <div className="grid items-center gap-8 lg:grid-cols-2">
+        <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2">
           {/* Text area */}
-          <div className="relative flex min-h-[360px] sm:min-h-[420px] flex-col justify-end pb-20">
+          <div className="relative flex min-h-[300px] sm:min-h-[420px] flex-col justify-end pb-12 sm:pb-20 order-2 lg:order-1 mt-3 lg:mt-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -152,8 +152,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Visual area (placeholder until images are provided) */}
-          <div className="relative">
+          {/* Visual area */}
+          <div className="relative order-1 lg:order-2">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id + '-visual'}

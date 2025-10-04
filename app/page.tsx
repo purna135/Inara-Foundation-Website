@@ -110,7 +110,7 @@ export default function HomePage() {
 
           {/* Right: our work */}
           <div className="flex items-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 md:gap-y-12">
               {HIGHLIGHTS.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex items-start gap-3">
                   <div className="mt-1.5 grid h-10 w-15 place-items-center rounded-lg bg-brand-50 ring-2 ring-brand-200">

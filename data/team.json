@@ -3,7 +3,7 @@
     "id": "swetapadma-chhotaray",
     "name": "Swetapadma Chhotaray",
     "role": "Founder",
-    "avatar": "/dummy-images/profile.png",
+    "avatar": "/dummy-images/sweta.png",
     "socials": {
       "facebook": "https://facebook.com/inara",
       "instagram": "https://instagram.com/inara",
@@ -11,10 +11,10 @@
     }
   },
   {
-    "id": "anshul-amrit-swain",
-    "name": "Anshul Amrit Swain",
+    "id": "pratik-kumar-sahoo",
+    "name": "Pratik Kumar Sahoo",
     "role": "Board Member",
-    "avatar": "/dummy-images/profile.png",
+    "avatar": "/dummy-images/pratik.png",
     "socials": {
       "facebook": "https://facebook.com/inara",
       "instagram": "https://instagram.com/inara",
@@ -25,7 +25,7 @@
     "id": "shruti-kanungo",
     "name": "Shruti Kanungo",
     "role": "Board Member",
-    "avatar": "/dummy-images/profile.png",
+    "avatar": "/dummy-images/shruti.png",
     "socials": {
       "facebook": "https://facebook.com/inara",
       "instagram": "https://instagram.com/inara",
@@ -33,10 +33,10 @@
     }
   },
   {
-    "id": "nehal-khosla",
-    "name": "Nehal Khosla",
+    "id": "subham-sarthak-das",
+    "name": "Subham Sarthak Das",
     "role": "Board Member",
-    "avatar": "/dummy-images/profile.png",
+    "avatar": "/dummy-images/subham.png",
     "socials": {
       "facebook": "https://facebook.com/inara",
       "instagram": "https://instagram.com/inara",

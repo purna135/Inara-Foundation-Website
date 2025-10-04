@@ -70,8 +70,8 @@ export default function WorkImagesCollege() {
   ];
 
   return (
-    <div className="p-4">
-      <div className="absolute -bottom-70 inset-0 -z-10 pointer-events-none">
+    <div className="p-0 md:p-4 mt-8 md:mt-0">
+      <div className="absolute -bottom-185 md:-bottom-70 inset-0 -z-10 pointer-events-none">
         <img
           src="/images/odisha-map.png"
           alt=""
@@ -80,7 +80,7 @@ export default function WorkImagesCollege() {
         />
       </div>
 
-      <div className="relative w-full h-[380px]">
+      <div className="relative w-full h-[160px] md:h-[380px]">
         {dots.map((dot, index) => (
           <div
             key={`dot-${index}`}
