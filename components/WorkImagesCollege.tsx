@@ -71,7 +71,7 @@ export default function WorkImagesCollege() {
 
   return (
     <div className="p-4">
-      <div className="absolute -bottom-32 inset-0 -z-10 pointer-events-none">
+      <div className="absolute -bottom-70 inset-0 -z-10 pointer-events-none">
         <img
           src="/odisha-map.png"
           alt=""
