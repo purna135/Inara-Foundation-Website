@@ -31,8 +31,8 @@ const slidesData: Slide[] = [
     primaryCta: { label: 'Volunteer with us', href: '/contact' },
     secondaryCta: { label: 'Learn about Inara', href: '/about' },
     imageAlt: 'Inara Foundation community',
-    imageSrc: '/hero-images/hero-image-1.png',
-    bgSrc: '/hero-images/hero-bg-image-1.png',
+    imageSrc: '/hero-images/hero-image-1.PNG',
+    bgSrc: '/hero-images/hero-bg-image-1.PNG',
     rightNote: 'Turning efforts into measurable, lasting difference.',
   },
   {
