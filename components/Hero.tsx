@@ -22,30 +22,30 @@ type Slide = {
 
 const slidesData: Slide[] = [
   {
+    id: 'main',
+    eyebrow: 'Inara Foundation',
+    title: 'Empathy That Echoes, Change That Lasts',
+    highlight: 'Echoes',
+    description:
+      'Together, we turn compassion into action and build a kinder world.',
+    primaryCta: { label: 'Volunteer with us', href: '/contact' },
+    secondaryCta: { label: 'Learn about Inara', href: '/about' },
+    imageAlt: 'Inara Foundation community',
+    imageSrc: '/hero-images/hero-image-1.png',
+    bgSrc: '/hero-images/hero-bg-image-1.png',
+    rightNote: 'Turning efforts into measurable, lasting difference.',
+  },
+  {
     id: 'planet',
     eyebrow: 'For people and planet',
     title: 'Care for animals and the environment',
     highlight: 'Care',
     description:
-      'Pran‑E, Clean Beach India, and more—volunteer-driven efforts to protect lives, habitats, and hope.',
-    primaryCta: { label: 'Volunteer with us', href: '/contact' },
-    secondaryCta: { label: 'Learn about Inara', href: '/about' },
-    imageAlt: 'Environment visual placeholder',
-    imageSrc: '/hero-images/hero-1.png',
-    rightNote: 'They have feelings too...',
-  },
-  {
-    id: 'mission',
-    eyebrow: 'We believe',
-    title: 'Do good for every living being',
-    highlight: 'Do good',
-    description:
-      'Join hands to create kinder communities through social and animal welfare, environmental stewardship, and inclusive initiatives.',
+      'Pran-E, Clean Beach India, and more—volunteer-driven efforts to protect lives, habitats, and hope.',
     primaryCta: { label: 'Join the journey', href: '/contact' },
     secondaryCta: { label: 'Explore our work', href: '/programs' },
-    imageAlt: 'Inara visual placeholder',
+    imageAlt: 'Environment and animal welfare',
     imageSrc: '/hero-images/hero-2.png',
-    // bgSrc: '/hero-images/hero-bg-1.jpg',
     rightNote: 'Community-first initiatives',
   },
   {
@@ -54,10 +54,10 @@ const slidesData: Slide[] = [
     title: 'Connect. Understand. Grow together',
     highlight: 'Connect',
     description:
-      'From Acoinitier circles to citywide service days, Inara helps people meet with empathy and turn compassion into action.',
+      'From youth circles to citywide service days, Inara helps people meet with empathy and turn compassion into action.',
     primaryCta: { label: 'See programs', href: '/programs' },
     secondaryCta: { label: 'Our impact', href: '/impact' },
-    imageAlt: 'Project visual placeholder',
+    imageAlt: 'Community engagement',
     imageSrc: '/hero-images/hero-3.png',
     rightNote: 'Interactive circles & service days',
   },
@@ -89,7 +89,7 @@ export default function Hero() {
       ) : (
         <div className="absolute inset-0 bg-grid" />
       )}
-      <div className="container-px mx-auto max-w-[1200px] mt-12 mb-8 sm:mt-16 sm:mb-12 relative">
+      <div className="container-px mx-auto max-w-[1200px] py-20 sm:py-28 relative">
         <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2">
           {/* Text area */}
           <div className="relative flex min-h-[300px] sm:min-h-[420px] flex-col justify-end pb-12 sm:pb-20 order-2 lg:order-1 mt-3 lg:mt-0">

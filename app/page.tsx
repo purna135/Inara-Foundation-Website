@@ -21,23 +21,23 @@ import CTA2 from "@/components/CTA2";
 const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
   {
     icon: Droplets,
-    title: "Food and water",
-    desc: "Relief drives and support for essential needs.",
+    title: "Project Amrit",
+    desc: "Providing essential relief during crises.",
   },
   {
     icon: Leaf,
-    title: "Environment",
-    desc: "Beach cleanups, tree planting, awareness drives.",
-  },
-  {
-    icon: Hammer,
-    title: "Build and repair",
-    desc: "Community improvements with safety and dignity.",
+    title: "Pran-e",
+    desc: "Advocating for animal welfare and safety.",
   },
   {
     icon: GraduationCap,
-    title: "Education",
-    desc: "Support for learning, materials, and mentorship.",
+    title: "Project Happiness",
+    desc: "Raising awareness and promoting well-being.",
+  },
+  {
+    icon: Hammer,
+    title: "Support Programs",
+    desc: "Cancer shelter visits and blood donation camps.",
   },
 ];
 
@@ -53,54 +53,25 @@ export default function HomePage() {
           <div>
             <p className="text-sm font-semibold text-brand-700">What we do</p>
             <h2 className="mt-2 font-display text-4xl sm:text-5xl">
-              Various ways we help
+              A collective movement for holistic welfare
             </h2>
-            <p className="mt-4 max-w-xl text-neutral-700">
-              Inara Foundation channels compassion into action across people,
-              animals, and the planet. We design hands‑on projects that are
-              practical, inclusive, and sustainable.
+            <p className="mt-4 max-w-xl text-lg italic text-brand-600">
+              "We believe no cause is too small, and no impact is too distant."
             </p>
-            <div className="mt-4 max-w-xl">
-              <p className="text-md font-semibold tracking-wide text-brand-700">
-                Inara's Moto
-              </p>
-              <ul className="mt-3 space-y-2 text-sm text-neutral-700">
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-200">
-                    <CheckCircle size={10} />
-                  </span>
-                  <span>
-                    We aim to make life better for all the living beings!
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-200">
-                    <CheckCircle size={10} />
-                  </span>
-                  <span>
-                    Join us to make a change inside out – volunteer, donate or
-                    get in touch today!
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-200">
-                    <CheckCircle size={10} />
-                  </span>
-                  <span>
-                    Experience joy, laughter, and love with the Inara community!
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-200">
-                    <CheckCircle size={10} />
-                  </span>
-                  <span>
-                    Work on your preferred projects with a team of passionate
-                    volunteers!
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <p className="mt-4 max-w-xl text-neutral-700">
+              At <strong>Inara</strong>, we are a collective movement for holistic welfare, turning
+              compassion into real change. From supporting underprivileged children and caring for vulnerable
+              animals to protecting the environment and empowering local
+              entrepreneurs, we work hand in hand with diverse communities to create
+              sustainable progress.
+            </p>
+            <p className="mt-3 max-w-xl text-neutral-700">
+              We don't just advocate for change — <strong>we make it happen.</strong>
+            </p>
+            <p className="mt-3 max-w-xl text-neutral-700">
+              Together, we're building a kinder, stronger, and more compassionate
+              world.
+            </p>
             <div className="mt-8">
               <Link href="/about">
                 <Button>About Inara</Button>
@@ -134,6 +105,9 @@ export default function HomePage() {
         <Stats />
       </Section>
 
+      {/* Call to action */}
+      <CTA />
+      
       {/* Projects */}
       <Projects />
 
@@ -145,9 +119,6 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <Testimonials />
-
-      {/* Call to action */}
-      <CTA />
 
       {/* Simple CTA 2 */}
       {/* <CTA2 /> */}

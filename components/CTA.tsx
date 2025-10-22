@@ -5,7 +5,7 @@ import { HeartHandshake, Heart } from "lucide-react";
 
 export default function CTA() {
   return (
-    <Section size="dense">
+    <Section size="dense" className="lg:pb-8">
       <div className="relative rounded-2xl ring-1 ring-neutral-200 shadow-sm bg-gradient-to-r from-brand-400 to-brand-500">
         <div className="grid items-center gap-6 px-6 py-8 sm:px-10 md:grid-cols-2">
           <div className="max-w-lg order-2 md:order-1">
@@ -20,8 +20,7 @@ export default function CTA() {
               Ready to make an impact?
             </h3>
             <p className="mt-2 text-sm text-neutral-900">
-              Join Inara Foundation and turn compassion into action. Believe in
-              yourself, and believe in the change you can create.
+              Join Inara Foundation and turn compassion into action. Together, we're building a kinder, stronger, and more compassionate world.
             </p>
             <div className="mt-5">
               <Link href="/contact">
