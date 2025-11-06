@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
+import FadeIn from "@/components/FadeIn";
 import Hero from "@/components/Hero";
 import {
   Droplets,
@@ -50,54 +51,60 @@ export default function HomePage() {
       <Section className="bg-white pb-10 sm:pb-12 lg:pb-10">
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Left: about */}
-          <div>
-            <p className="text-sm font-semibold text-brand-700">What we do</p>
-            <h2 className="mt-2 font-display text-4xl sm:text-5xl">
-              A collective movement for holistic welfare
-            </h2>
-            <p className="mt-4 max-w-xl text-lg italic text-brand-600">
-              "We believe no cause is too small, and no impact is too distant."
-            </p>
-            <p className="mt-4 max-w-xl text-neutral-700">
-              At <strong>Inara</strong>, we are a collective movement for holistic welfare, turning
-              compassion into real change. From supporting underprivileged children and caring for vulnerable
-              animals to protecting the environment and empowering local
-              entrepreneurs, we work hand in hand with diverse communities to create
-              sustainable progress.
-            </p>
-            <p className="mt-3 max-w-xl text-neutral-700">
-              We don't just advocate for change — <strong>we make it happen.</strong>
-            </p>
-            <p className="mt-3 max-w-xl text-neutral-700">
-              Together, we're building a kinder, stronger, and more compassionate
-              world.
-            </p>
-            <div className="mt-8">
-              <Link href="/about">
-                <Button>About Inara</Button>
-              </Link>
+          <FadeIn direction="left">
+            <div>
+              <p className="text-sm font-semibold text-brand-700">What we do</p>
+              <h2 className="mt-2 font-display text-4xl sm:text-5xl">
+                A collective movement for holistic welfare
+              </h2>
+              <p className="mt-4 max-w-xl text-lg italic text-brand-600">
+                "We believe no cause is too small, and no impact is too distant."
+              </p>
+              <p className="mt-4 max-w-xl text-neutral-700">
+                At <strong>Inara</strong>, we are a collective movement for holistic welfare, turning
+                compassion into real change. From supporting underprivileged children and caring for vulnerable
+                animals to protecting the environment and empowering local
+                entrepreneurs, we work hand in hand with diverse communities to create
+                sustainable progress.
+              </p>
+              <p className="mt-3 max-w-xl text-neutral-700">
+                We don't just advocate for change — <strong>we make it happen.</strong>
+              </p>
+              <p className="mt-3 max-w-xl text-neutral-700">
+                Together, we're building a kinder, stronger, and more compassionate
+                world.
+              </p>
+              <div className="mt-8">
+                <Link href="/about">
+                  <Button>About Inara</Button>
+                </Link>
+              </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right: our work */}
           <div className="flex items-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 md:gap-y-12">
-              {HIGHLIGHTS.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex items-start gap-3">
-                  <div className="mt-1.5 grid h-10 w-15 place-items-center rounded-lg bg-brand-50 ring-2 ring-brand-200">
-                    <Icon className="text-brand-700" size={20} />
+              {HIGHLIGHTS.map(({ icon: Icon, title, desc }, index) => (
+                <FadeIn key={title} direction="right" delay={index * 0.1}>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1.5 grid h-10 w-15 place-items-center rounded-lg bg-brand-50 ring-2 ring-brand-200">
+                      <Icon className="text-brand-700" size={20} />
+                    </div>
+                    <div>
+                      <p className="font-semibold">{title}</p>
+                      <p className="text-sm text-neutral-600 mt-1">{desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold">{title}</p>
-                    <p className="text-sm text-neutral-600 mt-1">{desc}</p>
-                  </div>
-                </div>
+                </FadeIn>
               ))}
             </div>
           </div>
         </div>
         {/* Bottom: Work images */}
-        <WorkImagesCollege />
+        <FadeIn delay={0.4}>
+          <WorkImagesCollege />
+        </FadeIn>
       </Section>
 
       {/* Stats */}
@@ -106,7 +113,9 @@ export default function HomePage() {
       </Section>
       
       {/* Projects */}
-      <Projects />
+      <FadeIn>
+        <Projects />
+      </FadeIn>
 
       {/* Upcoming Events */}
       {/* <Events /> */}
@@ -115,10 +124,14 @@ export default function HomePage() {
       {/* <Team /> */}
 
       {/* Testimonials */}
-      <Testimonials />
+      <FadeIn>
+        <Testimonials />
+      </FadeIn>
 
       {/* Call to action */}
-      <CTA />
+      <FadeIn>
+        <CTA />
+      </FadeIn>
 
       {/* Simple CTA 2 */}
       {/* <CTA2 /> */}

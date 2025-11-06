@@ -1,6 +1,7 @@
 "use client";
 import Section from '@/components/Section';
 import Button from '@/components/Button';
+import FadeIn from '@/components/FadeIn';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Users, Heart, Instagram, Linkedin, Facebook, Twitter } from 'lucide-react';
 import Link from 'next/link';
@@ -28,16 +29,22 @@ export default function ContactPage() {
 
         <div className="container-px relative mx-auto max-w-[1200px] py-20 sm:py-28">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
-              <Users size={16} className="text-brand-600" />
-              Get in Touch
-            </div>
-            <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-              Let's Make a <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Difference</span> Together
-            </h1>
-            <p className="mt-6 text-xl text-neutral-700">
-              Whether you want to volunteer, partner with us, or learn more about our work—we'd love to hear from you.
-            </p>
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
+                <Users size={16} className="text-brand-600" />
+                Get in Touch
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+                Let's Make a <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Difference</span> Together
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-6 text-xl text-neutral-700">
+                Whether you want to volunteer, partner with us, or learn more about our work—we'd love to hear from you.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -47,15 +54,18 @@ export default function ContactPage() {
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">
           {/* Left: Contact Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div>
-              <h2 className="font-display text-3xl text-neutral-900">Connect with Inara</h2>
-              <p className="mt-2 text-neutral-600">We're here to answer any questions and help you get started.</p>
-            </div>
+            <FadeIn direction="left">
+              <div>
+                <h2 className="font-display text-3xl text-neutral-900">Connect with Inara</h2>
+                <p className="mt-2 text-neutral-600">We're here to answer any questions and help you get started.</p>
+              </div>
+            </FadeIn>
 
             {/* Contact Cards */}
             <div className="space-y-4">
               {/* Email Card */}
-              <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
+              <FadeIn direction="left" delay={0.1}>
+                <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
                 <div className="absolute -inset-0.5 -z-10 rounded-2xl bg-gradient-to-r from-brand-500/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-lg">
@@ -72,9 +82,11 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+              </FadeIn>
 
               {/* Phone Card */}
-              <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
+              <FadeIn direction="left" delay={0.2}>
+                <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
                 <div className="absolute -inset-0.5 -z-10 rounded-2xl bg-gradient-to-r from-brand-500/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-lg">
@@ -91,9 +103,11 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+              </FadeIn>
 
               {/* Location Card */}
-              <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
+              <FadeIn direction="left" delay={0.3}>
+                <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200">
                 <div className="absolute -inset-0.5 -z-10 rounded-2xl bg-gradient-to-r from-brand-500/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-lg">
@@ -107,10 +121,12 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+              </FadeIn>
             </div>
 
             {/* Social Media */}
-            <div className="rounded-2xl border border-neutral-200 bg-gradient-to-br from-brand-50/50 to-white p-6 shadow-sm">
+            <FadeIn direction="left" delay={0.4}>
+              <div className="rounded-2xl border border-neutral-200 bg-gradient-to-br from-brand-50/50 to-white p-6 shadow-sm">
               <h3 className="font-semibold text-neutral-900">Follow Our Journey</h3>
               <div className="mt-4 flex gap-3">
                 <Link
@@ -151,11 +167,13 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
+            </FadeIn>
           </div>
 
           {/* Right: Contact Form */}
-          <div id="contact-form" className="lg:col-span-3">
-            <div className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm lg:p-10">
+          <div className="lg:col-span-3">
+            <FadeIn direction="right" delay={0.2}>
+              <div id="contact-form" className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm lg:p-10">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-br from-brand-200/30 to-transparent blur-3xl" />
               
               <div className="relative">
@@ -265,6 +283,7 @@ export default function ContactPage() {
                 )}
               </div>
             </div>
+            </FadeIn>
           </div>
         </div>
       </Section>

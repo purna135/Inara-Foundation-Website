@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, use } from 'react';
 import Section from '@/components/Section';
+import FadeIn from '@/components/FadeIn';
 import {
   Calendar,
   MapPin,
@@ -92,32 +93,34 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         {/* Project Title Overlay */}
         <div className="absolute inset-0 flex items-end">
           <div className="container-px mx-auto max-w-[1200px] w-full pb-12">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-lg backdrop-blur-sm">
-                {project.type}
-              </div>
-              <h1 className="mt-4 font-display text-4xl text-white sm:text-5xl lg:text-6xl">
-                {project.title}
-              </h1>
-              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-white/90">
-                <div className="flex items-center gap-2">
-                  <Calendar size={16} />
-                  <span>{project.date}</span>
+            <FadeIn direction="up">
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-lg backdrop-blur-sm">
+                  {project.type}
                 </div>
-                {project.location && (
+                <h1 className="mt-4 font-display text-4xl text-white sm:text-5xl lg:text-6xl">
+                  {project.title}
+                </h1>
+                <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-white/90">
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} />
-                    <span>{project.location}</span>
+                    <Calendar size={16} />
+                    <span>{project.date}</span>
                   </div>
-                )}
-                {project.participants && (
-                  <div className="flex items-center gap-2">
-                    <Users size={16} />
-                    <span>{project.participants}</span>
-                  </div>
-                )}
+                  {project.location && (
+                    <div className="flex items-center gap-2">
+                      <MapPin size={16} />
+                      <span>{project.location}</span>
+                    </div>
+                  )}
+                  {project.participants && (
+                    <div className="flex items-center gap-2">
+                      <Users size={16} />
+                      <span>{project.participants}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -179,20 +182,22 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           {/* Left: Main Content */}
           <div className="lg:col-span-2 space-y-10">
             {/* Summary Card */}
-            <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-8 shadow-sm">
-              <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-brand-100/50 blur-3xl" aria-hidden />
-              <div className="relative">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-lg">
-                    <Sparkles size={24} />
+            <FadeIn>
+              <div className="relative overflow-hidden rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-8 shadow-sm">
+                <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-brand-100/50 blur-3xl" aria-hidden />
+                <div className="relative">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-lg">
+                      <Sparkles size={24} />
+                    </div>
+                    <h2 className="font-display text-2xl text-neutral-900">Project Overview</h2>
                   </div>
-                  <h2 className="font-display text-2xl text-neutral-900">Project Overview</h2>
+                  <p className="mt-4 text-lg leading-relaxed text-neutral-700">
+                    {project.summary}
+                  </p>
                 </div>
-                <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-                  {project.summary}
-                </p>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Full Story */}
             <div>

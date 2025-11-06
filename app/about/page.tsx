@@ -1,5 +1,6 @@
 import Section from "@/components/Section";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
 import {
   Award,
   Building2,
@@ -17,10 +18,10 @@ export const metadata = { title: "About" };
 import CTA from "@/components/CTA";
 
 const QUICK_STATS = [
-  { label: "Volunteers", value: "50+", icon: Users },
+  { label: "Volunteers", value: "300+", icon: Users },
   { label: "Projects", value: "25+", icon: Target },
-  { label: "Lives and animals impacted", value: "5k+", icon: Heart },
-  { label: "Years active", value: "4+", icon: Calendar },
+  { label: "Lives impacted", value: "10k+", icon: Heart },
+  { label: "Years active", value: "5+", icon: Calendar },
 ];
 
 const PRINCIPLES = [
@@ -99,26 +100,34 @@ export default function AboutPage() {
 
         <div className="container-px relative mx-auto max-w-[1200px] py-20 sm:py-28">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
-              <Sparkles size={16} className="text-brand-600" />
-              Since 2020
-            </div>
-            <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-              About <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Inara Foundation</span>
-            </h1>
-            <p className="mt-6 text-xl text-neutral-700">
-              We are a youth-led movement where compassion turns into meaningful change for people, animals, and the planet.
-            </p>
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
+                <Sparkles size={16} className="text-brand-600" />
+                Since 2020
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+                About <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Inara Foundation</span>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-6 text-xl text-neutral-700">
+                We are a youth-led movement where compassion turns into meaningful change for people, animals, and the planet.
+              </p>
+            </FadeIn>
 
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {QUICK_STATS.map((stat) => (
-                <div key={stat.label} className="group relative">
-                  <div className="surface-card flex h-full flex-col items-center justify-center gap-2 p-6 text-center transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
-                    <stat.icon className="text-brand-600" size={24} />
-                    <div className="font-display text-3xl text-brand-700">{stat.value}</div>
-                    <div className="text-sm text-neutral-600">{stat.label}</div>
+              {QUICK_STATS.map((stat, idx) => (
+                <FadeIn key={stat.label} delay={0.3 + idx * 0.1}>
+                  <div className="group relative">
+                    <div className="surface-card flex h-full flex-col items-center justify-center gap-2 p-6 text-center transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+                      <stat.icon className="text-brand-600" size={24} />
+                      <div className="font-display text-3xl text-brand-700">{stat.value}</div>
+                      <div className="text-sm text-neutral-600">{stat.label}</div>
+                    </div>
                   </div>
-                </div>
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -128,7 +137,8 @@ export default function AboutPage() {
       <Section className="bg-white">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Who We Are */}
-          <div className="group relative">
+          <FadeIn direction="left" className="h-full">
+            <div className="group relative h-full">
             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 blur transition-all duration-300 group-hover:opacity-20" />
             <div className="relative surface-card p-8 lg:p-10 h-full">
               <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400/10 to-brand-500/10 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
@@ -157,9 +167,11 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </FadeIn>
 
           {/* Origin Story */}
-          <div className="group relative">
+          <FadeIn direction="right" delay={0.2} className="h-full">
+            <div className="group relative h-full">
             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-400 opacity-0 blur transition-all duration-300 group-hover:opacity-20" />
             <div className="relative surface-card bg-gradient-to-br from-brand-50/50 to-white p-8 lg:p-10 h-full">
               <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200">
@@ -192,6 +204,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+          </FadeIn>
         </div>
       </Section>
 
@@ -202,18 +215,21 @@ export default function AboutPage() {
         <div className="absolute bottom-[-10%] left-[-15%] h-96 w-96 rounded-full bg-gradient-to-tr from-brand-500/20 to-transparent blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-brand-200 ring-1 ring-white/10 backdrop-blur-sm">
-              <Target size={16} className="text-brand-200" />
-              Vision & mission
+          <FadeIn>
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-brand-200 ring-1 ring-white/10 backdrop-blur-sm">
+                <Target size={16} className="text-brand-200" />
+                Vision & mission
+              </div>
+              <h2 className="mt-6 font-display text-4xl text-white sm:text-5xl">
+                Building dignity, resilience, and compassion
+              </h2>
             </div>
-            <h2 className="mt-6 font-display text-4xl text-white sm:text-5xl">
-              Building dignity, resilience, and compassion
-            </h2>
-          </div>
+          </FadeIn>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+            <FadeIn direction="left" delay={0.2} className="h-full">
+              <div className="group relative h-full overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-500/30 to-transparent opacity-100 transition duration-300 group-hover:opacity-0" />
               <div className="relative">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-400 text-white">
@@ -225,8 +241,10 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </FadeIn>
 
-            <div className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+            <FadeIn direction="right" delay={0.3} className="h-full">
+              <div className="group relative h-full overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-400/30 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
               <div className="relative">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white">
@@ -241,11 +259,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </FadeIn>
           </div>
 
-          <div className="mt-10 rounded-2xl bg-white/5 p-8 text-center text-neutral-200 ring-1 ring-white/10">
-            Through collaboration, innovation, and dedicated youth action, we provide a credible platform for collective impact and shared joy.
-          </div>
+          <FadeIn delay={0.4}>
+            <div className="mt-10 rounded-2xl bg-white/5 p-8 text-center text-neutral-200 ring-1 ring-white/10">
+              Through collaboration, innovation, and dedicated youth action, we provide a credible platform for collective impact and shared joy.
+            </div>
+          </FadeIn>
         </div>
       </Section>
 
@@ -255,22 +276,25 @@ export default function AboutPage() {
         <div className="absolute bottom-16 right-10 h-72 w-72 rounded-full bg-brand-200/30 blur-3xl" aria-hidden />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
-              <Shield size={16} className="text-brand-600" />
-              Our guiding principles
+          <FadeIn>
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
+                <Shield size={16} className="text-brand-600" />
+                Our guiding principles
+              </div>
+              <h2 className="mt-6 font-display text-4xl text-neutral-900 sm:text-5xl">
+                Decisions rooted in empathy and accountability
+              </h2>
+              <p className="mt-4 text-neutral-600">
+                Every project is crafted with intention, listening, and deep respect for communities.
+              </p>
             </div>
-            <h2 className="mt-6 font-display text-4xl text-neutral-900 sm:text-5xl">
-              Decisions rooted in empathy and accountability
-            </h2>
-            <p className="mt-4 text-neutral-600">
-              Every project is crafted with intention, listening, and deep respect for communities.
-            </p>
-          </div>
+          </FadeIn>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PRINCIPLES.map((principle, index) => (
-              <div key={principle.title} className="group relative">
+              <FadeIn key={principle.title} delay={index * 0.1}>
+                <div className="group relative">
                 <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-500 opacity-0 blur-xl transition duration-500 group-hover:opacity-25" />
                 <div className="relative h-full overflow-hidden rounded-2xl border border-neutral-200/60 bg-white p-6 shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:border-brand-200 group-hover:shadow-lg">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white">
@@ -286,6 +310,7 @@ export default function AboutPage() {
                   <p className="mt-2 text-sm text-neutral-600">{principle.description}</p>
                 </div>
               </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -295,12 +320,13 @@ export default function AboutPage() {
       <Section className="bg-white">
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">
           {/* Left Column */}
-          <div className="lg:col-span-2">
-            <div className="sticky top-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-50 to-brand-100 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200 shadow-sm">
-                <Building2 size={16} className="text-brand-600" />
-                Legal Status
-              </div>
+          <FadeIn direction="left" className="lg:col-span-2">
+            <div>
+              <div className="sticky top-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-50 to-brand-100 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200 shadow-sm">
+                  <Building2 size={16} className="text-brand-600" />
+                  Legal Status
+                </div>
               <h2 className="mt-6 font-display text-4xl sm:text-5xl bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
                 Organisational Overview
               </h2>
@@ -335,11 +361,13 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
 
           {/* Right Column - What is Section 8 */}
-          <div className="lg:col-span-3">
-            <div className="group relative overflow-hidden rounded-2xl">
+          <FadeIn direction="right" delay={0.2} className="lg:col-span-3">
+            <div>
+              <div className="group relative overflow-hidden rounded-2xl">
               {/* Dark background with pattern like Vision & Mission */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" />
               <div className="absolute inset-0 bg-grid opacity-10" />
@@ -419,40 +447,51 @@ export default function AboutPage() {
                 <div className="mt-8 h-1 w-full rounded-full bg-gradient-to-r from-brand-400 via-brand-300 to-brand-500" />
               </div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </Section>
 
       {/* Why join us */}
       <Section className="bg-neutral-900">
         <div className="mx-auto max-w-4xl text-center text-white">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200 ring-1 ring-white/10">
-            Why join us
-          </div>
-          <h2 className="mt-5 font-display text-3xl sm:text-4xl">
-            Volunteering at Inara is a journey of empathy, creativity, and growth
-          </h2>
-          <p className="mt-3 text-neutral-200">
-            We create warm, inclusive spaces where young people can experiment, lead, and build community while changing lives.
-          </p>
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200 ring-1 ring-white/10">
+              Why join us
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="mt-5 font-display text-3xl sm:text-4xl">
+              Volunteering at Inara is a journey of empathy, creativity, and growth
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="mt-3 text-neutral-200">
+              We create warm, inclusive spaces where young people can experiment, lead, and build community while changing lives.
+            </p>
+          </FadeIn>
 
           <div className="mt-10 grid gap-6 text-left sm:grid-cols-2">
-            {WHY_JOIN.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            {WHY_JOIN.map((item, index) => (
+              <FadeIn key={item.title} delay={0.3 + index * 0.1}>
+                <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
                 <h3 className="font-semibold text-brand-200">{item.title}</h3>
                 <p className="mt-2 text-sm text-neutral-200">{item.description}</p>
               </div>
+              </FadeIn>
             ))}
           </div>
 
-          <div className="mt-10 flex justify-center">
-            <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
-              <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-lg ring-1 ring-brand-500/20 transition-all hover:from-brand-300 hover:to-brand-400 hover:shadow-xl focus-ring">
-                <Users size={18} />
-                Become a Volunteer
-              </span>
-            </Link>
-          </div>
+          <FadeIn delay={0.7}>
+            <div className="mt-10 flex justify-center">
+              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+                <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-lg ring-1 ring-brand-500/20 transition-all hover:from-brand-300 hover:to-brand-400 hover:shadow-xl focus-ring">
+                  <Users size={18} />
+                  Become a Volunteer
+                </span>
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </Section>
     </main>

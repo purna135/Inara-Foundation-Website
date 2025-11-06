@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo } from 'react';
 import Section from '@/components/Section';
+import FadeIn from '@/components/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, MapPin, Users, ArrowRight, Sparkles } from 'lucide-react';
@@ -28,16 +29,22 @@ export default function ProgramsPage() {
 
         <div className="container-px relative mx-auto max-w-[1200px] py-20 sm:py-28">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
-              <Sparkles size={16} className="text-brand-600" />
-              Our Work
-            </div>
-            <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-              Projects That <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Create Impact</span>
-            </h1>
-            <p className="mt-6 text-xl text-neutral-700">
-              From interactive workshops to fundraising initiatives, each project turns compassion into meaningful action.
-            </p>
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
+                <Sparkles size={16} className="text-brand-600" />
+                Our Work
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+                Projects That <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Create Impact</span>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-6 text-xl text-neutral-700">
+                From interactive workshops to fundraising initiatives, each project turns compassion into meaningful action.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -51,11 +58,13 @@ export default function ProgramsPage() {
               { label: 'Lives Touched', value: '10,000+' },
               { label: 'Volunteer Hours', value: '3,000+' },
               { label: 'Partner Organizations', value: '10+' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-display text-3xl text-brand-600">{stat.value}</div>
-                <div className="mt-1 text-sm text-neutral-600">{stat.label}</div>
-              </div>
+            ].map((stat, index) => (
+              <FadeIn key={stat.label} delay={index * 0.1}>
+                <div className="text-center">
+                  <div className="font-display text-3xl text-brand-600">{stat.value}</div>
+                  <div className="mt-1 text-sm text-neutral-600">{stat.label}</div>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -173,25 +182,27 @@ export default function ProgramsPage() {
 
       {/* CTA Section */}
       <Section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" size="dense">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 p-8 sm:p-12">
-          <div className="absolute inset-0 bg-grid opacity-20" />
-          <div className="relative mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl text-neutral-900 sm:text-4xl">
-              Want to be part of the change?
-            </h2>
-            <p className="mt-3 text-neutral-900">
-              Join us as a volunteer and help create lasting impact in our community.
-            </p>
-            <div className="mt-6">
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
-                <span className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-neutral-800">
-                  <Users size={16} />
-                  Become a Volunteer
-                </span>
-              </Link>
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 p-8 sm:p-12">
+            <div className="absolute inset-0 bg-grid opacity-20" />
+            <div className="relative mx-auto max-w-2xl text-center">
+              <h2 className="font-display text-3xl text-neutral-900 sm:text-4xl">
+                Want to be part of the change?
+              </h2>
+              <p className="mt-3 text-neutral-900">
+                Join us as a volunteer and help create lasting impact in our community.
+              </p>
+              <div className="mt-6">
+                <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-neutral-800">
+                    <Users size={16} />
+                    Become a Volunteer
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </Section>
     </main>
   );
