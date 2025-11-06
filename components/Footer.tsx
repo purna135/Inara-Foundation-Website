@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <Image
-              src="/inara-logo-gold.png"
+              src="/inara-logo-white.png"
               width={140}
               height={32}
               alt="Inara Foundation"

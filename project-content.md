@@ -17,14 +17,6 @@ RAKSHA BANDHAN WORKSHOP AT INARA : On July 27, participants and volunteers at In
 The workshop encouraged a strong sense of community with enthusiasm and appreciation flowing freely among all participants.
 
 
-HAPPINESS PROJECT V5.: From August 11 to 18, 2025, Inara Foundation organized the fifth edition of the Happiness Project : a week-long initiative designed to nurture mental well-being through simple, mindful activities.
-
-Each day introduced a small yet meaningful challenge aimed at boosting happiness and encouraging self-care. The project began with a few guiding “soft constants,” including hydration goals, gratitude journaling, and a daily step count challenge. These gentle practices formed the foundation for the week ahead. 
-
-The first day focused on creativity through an artistic activity, followed by a decluttering challenge on the second day. On the third day, participants wrote heartfelt letters of encouragement to themselves, while the fourth day invited everyone to explore their culinary creativity.
-
-The week concluded with a virtual gathering that brought together all participants and volunteers to reflect on their experiences, share stories, and celebrate the spirit of positivity the project inspired.
-
 PROJECT AMRIT : From June 3 to 5, during the peak of summer heat, Inara collaborated with People for Animals to bring relief to both people and animals through Project Amrit. Water containers were set up across the city to help birds and stray animals stay hydrated in the scorching weather. 
 
 Throughout the three days, Inara volunteers distributed refreshments to traffic officers and security guards enduring long hours in the sun. On the second day, they also shared a healthy, homemade summer drink with auto drivers, bus drivers, and commuters, a simple gesture that carried immense warmth and gratitude. 
@@ -65,12 +57,3 @@ CANCER SHELTER VISITS : At the Inara Foundation, our regular visits to the CanKi
 Cheers and applause from our volunteers made every child feel seen and valued, and the day ended on a sweet note with homemade waffles lovingly prepared by one of our volunteers. We continued the celebration with creative collage-making, games, crafts, and dancing, filling every corner with laughter and joy. The children made bracelets and other crafts, adding their own spark of creativity to each piece. 
 
 Our visits culminated in a Rakhi-Making Workshop on July 24, where children and parents came together to craft beautiful rakhis with love. These were later sent to the brave hearts of the Indian Army, spreading the children’s happiness far beyond the shelter. This ongoing journey of connection, creativity, and care continues to reaffirm our belief that small acts of kindness can make a world of difference.
-
-
-Kalinga Literary Festival :
-
-Kalinga Literary Festival is an prestigious annual event that focuses to reignite a love for literature and encourages reading and writing habits, especially among the youth. The festival is a national platform that invites authors and speakers all around the nation, bridging the gap between English and Indian regional literature.
-
-
-In 2025, Kalinga Literary Festival held at Mayfair heartfully gave Inara's volunteers a learning space for the literature lovers and book enthusiasts. Inara volunteers with immense dedication and responsibility helped Kalinga Literary Festival by outsourcing volunteers, becoming POCs in various segments of the event, logistics, social media management, backstage and crowd management.
-This collaboration gave an opportunity for the Inara volunteers to take responsibilites, handle a full fledged 3 day event and gave confidence to take up leadership roles in events.

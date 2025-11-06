@@ -19,7 +19,7 @@ type Project = {
 };
 
 // Data separated for easy future CMS migration
-export const PROJECTS: Project[] = projectsData as any as Project[];
+export const PROJECTS: Project[] = (projectsData as any[]).slice(0, 9) as any as Project[];
 
 const TABS: Array<Project["type"] | "All"> = [
   "All",
@@ -93,7 +93,7 @@ export default function Projects() {
           {pageItems.map((p) => (
             <article
               key={p.id}
-              className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200 hover:bg-brand-50"
+              className="flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200 hover:bg-brand-50"
             >
               <div className="relative">
                 <Image
@@ -119,14 +119,14 @@ export default function Projects() {
                   </div>
                 )}
               </div>
-              <div className="p-6 pt-10">
+              <div className="flex flex-col flex-1 p-6 pt-10">
                 <p className="text-xs font-medium text-brand-700">#{p.type}</p>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 <p className="mt-2 line-clamp-2 text-sm text-neutral-600">
                   {p.summary}
                 </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <Link href={`/projects/${p.id}`}>
+                <div className="mt-auto pt-4 flex items-center justify-between">
+                  <Link href={`/projects/${(p as any).slug || p.id}`}>
                     <Button variant="secondary">Learn more</Button>
                   </Link>
                   <span className="text-sm text-neutral-500">

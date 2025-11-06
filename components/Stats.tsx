@@ -42,9 +42,9 @@ function AnimatedNumber({ value, suffix = '', start = 0, duration = 1200 }: { va
 export default function Stats() {
   const stats: Stat[] = useMemo(
     () => [
-      { label: 'Volunteers', value: 50, suffix: '+', icon: Users },
+      { label: 'Volunteers', value: 300, suffix: '+', icon: Users },
       { label: 'Projects delivered', value: 25, suffix: '+', icon: Layers },
-      { label: 'People & animals reached', value: 5, suffix: 'k+', icon: HeartHandshake },
+      { label: 'People & animals reached', value: 10, suffix: 'k+', icon: HeartHandshake },
       { label: 'Since', value: 2020, icon: Calendar },
     ],
     []
