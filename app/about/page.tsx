@@ -20,7 +20,7 @@ import CTA from "@/components/CTA";
 const QUICK_STATS = [
   { label: "Volunteers", value: "300+", icon: Users },
   { label: "Projects", value: "25+", icon: Target },
-  { label: "Lives impacted", value: "10k+", icon: Heart },
+  { label: "Lives and animals impacted", value: "10k+", icon: Heart },
   { label: "Years active", value: "5+", icon: Calendar },
 ];
 
@@ -119,8 +119,8 @@ export default function AboutPage() {
 
             <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {QUICK_STATS.map((stat, idx) => (
-                <FadeIn key={stat.label} delay={0.3 + idx * 0.1}>
-                  <div className="group relative">
+                <FadeIn key={stat.label} delay={0.3 + idx * 0.1} className="h-full">
+                  <div className="group relative h-full">
                     <div className="surface-card flex h-full flex-col items-center justify-center gap-2 p-6 text-center transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
                       <stat.icon className="text-brand-600" size={24} />
                       <div className="font-display text-3xl text-brand-700">{stat.value}</div>
