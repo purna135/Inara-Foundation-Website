@@ -91,10 +91,10 @@ export default function Hero() {
       ) : (
         <div className="absolute inset-0 bg-grid" />
       )}
-      <div className="container-px mx-auto max-w-[1200px] py-20 sm:py-28 relative">
+      <div className="container-px mx-auto max-w-[1200px] py-12 sm:py-16 relative">
         <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2">
           {/* Text area */}
-          <div className="relative flex min-h-[300px] sm:min-h-[420px] flex-col justify-end pb-12 sm:pb-20 order-2 lg:order-1 mt-3 lg:mt-0">
+          <div className="relative flex h-[60vh] sm:h-[65vh] lg:h-[70vh] xl:h-[500px] flex-col justify-end pb-12 sm:pb-16 order-2 lg:order-1 mt-3 lg:mt-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -102,6 +102,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
+                className="absolute bottom-12 sm:bottom-20 left-0 right-0"
               >
                 {active.eyebrow && (
                   <p className="text-sm font-semibold text-brand-700">{active.eyebrow}</p>
@@ -117,7 +118,7 @@ export default function Hero() {
                   ))}
                 </h1>
                 <p className="mt-5 max-w-xl text-neutral-700">{active.description}</p>
-                <div className="mt-8 flex items-center gap-4">
+                <div className="mt-8 flex items-center gap-4 flex-wrap">
                   <Link href={active.primaryCta.href}>
                     <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm focus-ring hover:from-brand-300 hover:to-brand-400">
                       {active.primaryCta.label}
