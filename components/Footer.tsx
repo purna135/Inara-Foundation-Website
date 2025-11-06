@@ -46,7 +46,7 @@ export default function Footer() {
                 Programs
               </Link>
             </li>
-            <li className="flex items-center gap-2">
+            {/* <li className="flex items-center gap-2">
               <span className="text-brand-500">›</span>
               <Link
                 href="/impact"
@@ -54,7 +54,7 @@ export default function Footer() {
               >
                 Impact
               </Link>
-            </li>
+            </li> */}
             <li className="flex items-center gap-2">
               <span className="text-brand-500">›</span>
               <Link
