@@ -1,44 +1,120 @@
-import Section from '@/components/Section';
-import { Heart, Target, Shield, Users, Building2, CheckCircle, Sparkles, Award, Calendar } from 'lucide-react';
+import Section from "@/components/Section";
+import {
+  Award,
+  Building2,
+  Calendar,
+  Handshake,
+  Heart,
+  Shield,
+  Sparkles,
+  Target,
+  Users,
+  CheckCircle,
+} from "lucide-react";
 
-export const metadata = { title: 'About' };
+export const metadata = { title: "About" };
+
+const QUICK_STATS = [
+  { label: "Volunteers", value: "50+", icon: Users },
+  { label: "Projects", value: "25+", icon: Target },
+  { label: "Lives and animals impacted", value: "5k+", icon: Heart },
+  { label: "Years active", value: "4+", icon: Calendar },
+];
+
+const PRINCIPLES = [
+  {
+    title: "Turn empathy into action",
+    description: "Provide tangible support where it is needed most—no effort is ever too small.",
+    icon: Heart,
+  },
+  {
+    title: "Uphold dignity",
+    description: "Respect every individual and community we meet across all our initiatives.",
+    icon: Award,
+  },
+  {
+    title: "Focus on overlooked communities",
+    description: "Prioritise regions and groups that are often ignored or under-resourced.",
+    icon: Users,
+  },
+  {
+    title: "Collaborate for greater impact",
+    description: "Partner with organisations and citizen groups to amplify change together.",
+    icon: Handshake,
+  },
+  {
+    title: "Maintain transparency",
+    description: "Keep volunteers, donors, and partners informed and engaged at every step.",
+    icon: Shield,
+  },
+  {
+    title: "Engage deeply with community needs",
+    description: "Listen, learn, and act with care—letting people lead the solutions that shape their lives.",
+    icon: Sparkles,
+  },
+];
+
+const WHY_JOIN = [
+  {
+    title: "Healthy working environment",
+    description:
+      "We centre the well-being of every volunteer. Personal breaks are respected, and mental health is encouraged through initiatives like The Happiness Project.",
+  },
+  {
+    title: "Leadership pathways",
+    description:
+      "Volunteers take ownership of projects, gaining hands-on experience in planning, coordination, and storytelling.",
+  },
+  {
+    title: "Flexible schedules",
+    description:
+      "Contribute at your own pace. We honour the true spirit of volunteering—adaptable, mindful, and pressure-free.",
+  },
+  {
+    title: "Networking & community",
+    description:
+      "Engage with passionate individuals, partners, and change-makers who open doors to new perspectives and opportunities.",
+  },
+  {
+    title: "Teamwork & diversity",
+    description:
+      "Work with people from different cities, cultures, and disciplines—gaining empathy and collective strength.",
+  },
+  {
+    title: "Personal growth & fulfillment",
+    description:
+      "Discover your voice, practice empathy, and experience the unmatched satisfaction of bringing a smile to someone’s day.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <main>
-      {/* Hero Section with Gradient */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-brand-50/30">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        {/* Decorative gradient blobs */}
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-brand-300/30 to-brand-500/20 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-gradient-to-tr from-brand-400/20 to-brand-200/30 blur-3xl" />
-        
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-brand-50/40">
+        <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
+        <div className="absolute -top-28 right-[-20%] h-96 w-96 rounded-full bg-gradient-to-br from-brand-400/25 to-brand-500/10 blur-3xl" />
+        <div className="absolute -bottom-24 left-[-10%] h-96 w-96 rounded-full bg-gradient-to-tr from-brand-300/20 to-transparent blur-3xl" />
+
         <div className="container-px relative mx-auto max-w-[1200px] py-20 sm:py-28">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm ring-1 ring-brand-200/50 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm ring-1 ring-brand-200/60">
               <Sparkles size={16} className="text-brand-600" />
-              <span className="text-sm font-semibold text-brand-700">Since 2020</span>
+              Since 2020
             </div>
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight">
-              About <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Inara</span>
+            <h1 className="mt-6 font-display text-5xl tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+              About <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">Inara Foundation</span>
             </h1>
-            <p className="mt-6 text-xl text-neutral-700 max-w-2xl mx-auto">
-              A youth-led movement turning compassion into meaningful change, one initiative at a time.
+            <p className="mt-6 text-xl text-neutral-700">
+              We are a youth-led movement where compassion turns into meaningful change for people, animals, and the planet.
             </p>
-            
-            {/* Quick Stats */}
-            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-3xl mx-auto">
-              {[
-                { label: 'Volunteers', value: '50+', icon: Users },
-                { label: 'Projects', value: '25+', icon: Target },
-                { label: 'Beneficiaries', value: '5k+', icon: Heart },
-                { label: 'Years Active', value: '4+', icon: Calendar },
-              ].map((stat) => (
+
+            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
+              {QUICK_STATS.map((stat) => (
                 <div key={stat.label} className="group relative">
-                  <div className="surface-card p-6 text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    <stat.icon className="mx-auto mb-2 text-brand-600" size={24} />
-                    <div className="text-3xl font-bold text-brand-600">{stat.value}</div>
-                    <div className="mt-1 text-sm text-neutral-600">{stat.label}</div>
+                  <div className="surface-card flex h-full flex-col items-center justify-center gap-2 p-6 text-center transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
+                    <stat.icon className="text-brand-600" size={24} />
+                    <div className="font-display text-3xl text-brand-700">{stat.value}</div>
+                    <div className="text-sm text-neutral-600">{stat.label}</div>
                   </div>
                 </div>
               ))}
@@ -47,7 +123,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Core & Origin Story - Modern Cards */}
       <Section className="bg-white">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Who We Are */}
@@ -118,173 +193,98 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Vision & Mission - Modern Card with Gradient */}
+      {/* Vision & mission */}
       <Section className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-gradient-to-bl from-brand-400/20 to-transparent blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-gradient-to-tr from-brand-500/20 to-transparent blur-3xl" />
-        
+        <div className="absolute inset-0 bg-grid opacity-10" aria-hidden />
+        <div className="absolute top-[-10%] right-[-15%] h-96 w-96 rounded-full bg-gradient-to-bl from-brand-400/20 to-transparent blur-3xl" />
+        <div className="absolute bottom-[-10%] left-[-15%] h-96 w-96 rounded-full bg-gradient-to-tr from-brand-500/20 to-transparent blur-3xl" />
+
         <div className="relative mx-auto max-w-4xl">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-brand-300 ring-1 ring-white/20 backdrop-blur-sm">
-              <Target size={16} className="text-brand-400" />
-              Vision & Mission
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-brand-200 ring-1 ring-white/10 backdrop-blur-sm">
+              <Target size={16} className="text-brand-200" />
+              Vision & mission
             </div>
-            <h2 className="mt-6 font-display text-4xl sm:text-5xl text-white">
-              Our Vision & Mission
+            <h2 className="mt-6 font-display text-4xl text-white sm:text-5xl">
+              Building dignity, resilience, and compassion
             </h2>
           </div>
-          
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {/* Vision Card */}
-            <div className="group relative">
-              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 opacity-50 blur transition-all duration-300 group-hover:opacity-75" />
-              <div className="relative h-full rounded-2xl bg-white/5 p-8 backdrop-blur-sm ring-1 ring-white/10">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 shadow-lg">
-                  <Sparkles size={24} className="text-white" />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/30 to-transparent opacity-100 transition duration-300 group-hover:opacity-0" />
+              <div className="relative">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-400 text-white">
+                  <Sparkles size={24} />
                 </div>
-                <h3 className="font-display text-2xl text-white">Our Vision</h3>
-                <p className="mt-4 text-neutral-300 leading-relaxed">
-                  We envision a world built on <strong className="text-brand-300">dignity, resilience, and compassion</strong> — where every cause is
-                  meaningful and accessible across communities.
+                <h3 className="mt-4 font-display text-2xl text-white">Our vision</h3>
+                <p className="mt-4 text-neutral-200">
+                  We envision a world where every living being is valued and supported, where resources are accessible, and where communities feel connected and resilient.
                 </p>
               </div>
             </div>
 
-            {/* Mission Card */}
-            <div className="group relative">
-              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-400 opacity-50 blur transition-all duration-300 group-hover:opacity-75" />
-              <div className="relative h-full rounded-2xl bg-white/5 p-8 backdrop-blur-sm ring-1 ring-white/10">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-400 shadow-lg">
-                  <Target size={24} className="text-white" />
+            <div className="group relative overflow-hidden rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-400/30 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+              <div className="relative">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white">
+                  <Target size={24} />
                 </div>
-                <h3 className="font-display text-2xl text-white">Our Mission</h3>
-                <p className="mt-4 text-neutral-300 leading-relaxed">
-                  To grow as a <strong className="text-brand-300">trusted platform</strong>, inspiring change-makers through volunteering and
-                  active engagement, ensuring sustainable impact.
+                <h3 className="mt-4 font-display text-2xl text-white">Our mission</h3>
+                <p className="mt-4 text-neutral-200">
+                  We grow as a trusted platform that inspires change-makers through volunteering and active engagement—ensuring every initiative is transparent, scalable, and high-impact.
+                </p>
+                <p className="mt-4 text-neutral-200">
+                  Together, we champion education, animal welfare, environmental care, and grassroots entrepreneurship, proving that no cause is ever too distant.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Additional Mission Info */}
-          <div className="mt-8 rounded-2xl bg-white/5 p-8 backdrop-blur-sm ring-1 ring-white/10">
-            <p className="text-center text-lg text-neutral-300 leading-relaxed">
-              Our programs are <strong className="text-brand-300">transparent, scalable, and high-impact</strong> — focusing on
-              grassroots community upliftment and comprehensive animal welfare.
-              Through collaboration, innovation, and dedicated youth action, we
-              provide a credible platform for collective action.
-            </p>
+          <div className="mt-10 rounded-2xl bg-white/5 p-8 text-center text-neutral-200 ring-1 ring-white/10">
+            Through collaboration, innovation, and dedicated youth action, we provide a credible platform for collective impact and shared joy.
           </div>
         </div>
       </Section>
 
-      {/* Guiding Principles - Enhanced Design */}
-      <Section className="relative overflow-hidden bg-gradient-to-b from-white via-brand-50/20 to-white">
-        {/* Background decorative elements */}
-        <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-brand-100/40 blur-3xl" />
-        <div className="absolute bottom-20 right-10 h-72 w-72 rounded-full bg-brand-200/30 blur-3xl" />
-        
+      {/* Our guiding principles */}
+      <Section className="relative overflow-hidden bg-gradient-to-b from-white via-brand-50/30 to-white">
+        <div className="absolute top-20 left-12 h-72 w-72 rounded-full bg-brand-100/40 blur-3xl" aria-hidden />
+        <div className="absolute bottom-16 right-10 h-72 w-72 rounded-full bg-brand-200/30 blur-3xl" aria-hidden />
+
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-50 to-brand-100 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
               <Shield size={16} className="text-brand-600" />
-              Our Principles
+              Our guiding principles
             </div>
-            <h2 className="mt-6 font-display text-4xl sm:text-5xl bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
-              Guiding Principles
+            <h2 className="mt-6 font-display text-4xl text-neutral-900 sm:text-5xl">
+              Decisions rooted in empathy and accountability
             </h2>
-            <p className="mt-4 text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-              Our reflections and decisions are shaped by principles that ensure every
-              action creates meaningful impact
+            <p className="mt-4 text-neutral-600">
+              Every project is crafted with intention, listening, and deep respect for communities.
             </p>
           </div>
-          
+
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: 'Turn empathy into action',
-                desc: "Provide tangible support where it's needed most.",
-                icon: Heart,
-              },
-              {
-                title: 'Uphold dignity',
-                desc: 'Respect every individual in all our initiatives.',
-                icon: Award,
-              },
-              {
-                title: 'Focus on overlooked communities',
-                desc: 'Prioritize regions and groups that are often ignored.',
-                icon: Users,
-              },
-              {
-                title: 'Collaborate for greater impact',
-                desc: 'Partner with organizations to amplify change.',
-                icon: Target,
-              },
-              {
-                title: 'Maintain transparency',
-                desc: 'Keep our volunteers and donors informed and engaged.',
-                icon: Shield,
-              },
-              {
-                title: 'Engage deeply with community needs',
-                desc: 'Listen, learn, and act with care.',
-                icon: Sparkles,
-              },
-            ].map((principle, index) => (
+            {PRINCIPLES.map((principle, index) => (
               <div key={principle.title} className="group relative">
-                {/* Hover glow effect */}
-                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-25" />
-                
-                {/* Card */}
-                <div className="relative h-full overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ring-neutral-200/50 transition-all duration-300 group-hover:shadow-xl group-hover:ring-brand-200 group-hover:-translate-y-1">
-                  {/* Top corner accent */}
-                  <div className="absolute -top-8 -right-8 h-16 w-16 rounded-full bg-gradient-to-br from-brand-400/10 to-brand-500/5 transition-all duration-300 group-hover:scale-150" />
-                  
-                  {/* Number badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-50 to-brand-100 text-xs font-bold text-brand-600 ring-1 ring-brand-200/50 transition-all duration-300 group-hover:scale-110 group-hover:from-brand-400 group-hover:to-brand-500 group-hover:text-white group-hover:shadow-lg">
-                      {index + 1}
-                    </div>
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-500 opacity-0 blur-xl transition duration-500 group-hover:opacity-25" />
+                <div className="relative h-full overflow-hidden rounded-2xl border border-neutral-200/60 bg-white p-6 shadow-sm transition duration-300 group-hover:-translate-y-1 group-hover:border-brand-200 group-hover:shadow-lg">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white">
+                    <principle.icon size={20} />
                   </div>
-                  
-                  {/* Icon */}
-                  <div className="relative mb-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-brand-500/50">
-                      <principle.icon size={20} className="text-white" />
-                    </div>
-                    {/* Icon glow */}
-                    <div className="absolute inset-0 h-12 w-12 rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 opacity-0 blur-lg transition-all duration-300 group-hover:opacity-50" />
+                  <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-brand-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+                    Principle {index + 1}
                   </div>
-                  
-                  {/* Content */}
-                  <div className="relative">
-                    <h3 className="font-display text-lg font-semibold text-neutral-900 leading-tight transition-colors duration-300 group-hover:text-brand-700">
-                      {principle.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
-                      {principle.desc}
-                    </p>
-                  </div>
-                  
-                  {/* Bottom accent line */}
-                  <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-neutral-100 to-neutral-200 transition-all duration-300 group-hover:from-brand-400 group-hover:to-brand-500" />
+                  <h3 className="mt-3 font-display text-lg text-neutral-900">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-600">{principle.description}</p>
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom decorative element */}
-          <div className="mt-12 flex justify-center">
-            <div className="flex items-center gap-2">
-              <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-transparent via-brand-400 to-transparent" />
-              <div className="flex h-2 w-2 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-brand-500 shadow-sm">
-                <div className="h-1 w-1 rounded-full bg-white" />
-              </div>
-              <div className="h-0.5 w-8 rounded-full bg-gradient-to-r from-transparent via-brand-400 to-transparent" />
-            </div>
           </div>
         </div>
       </Section>
@@ -420,8 +420,30 @@ export default function AboutPage() {
           </div>
         </div>
       </Section>
+
+      {/* Why join us */}
+      <Section className="bg-neutral-900">
+        <div className="mx-auto max-w-4xl text-center text-white">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200 ring-1 ring-white/10">
+            Why join us
+          </div>
+          <h2 className="mt-5 font-display text-3xl sm:text-4xl">
+            Volunteering at Inara is a journey of empathy, creativity, and growth
+          </h2>
+          <p className="mt-3 text-neutral-200">
+            We create warm, inclusive spaces where young people can experiment, lead, and build community while changing lives.
+          </p>
+
+          <div className="mt-10 grid gap-6 text-left sm:grid-cols-2">
+            {WHY_JOIN.map((item) => (
+              <div key={item.title} className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+                <h3 className="font-semibold text-brand-200">{item.title}</h3>
+                <p className="mt-2 text-sm text-neutral-200">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
     </main>
   );
 }
-
-
