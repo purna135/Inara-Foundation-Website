@@ -28,11 +28,11 @@ const slidesData: Slide[] = [
     highlight: 'Echoes',
     description:
       'Together, we turn compassion into action and build a kinder world.',
-    primaryCta: { label: 'Volunteer with us', href: '/contact' },
+    primaryCta: { label: 'Volunteer with us', href: 'https://forms.gle/odBUWnLF5xS464ba7' },
     secondaryCta: { label: 'Learn about Inara', href: '/about' },
     imageAlt: 'Inara Foundation community',
     imageSrc: '/hero-images/hero-image-1.PNG',
-    bgSrc: '/hero-images/hero-bg-1.JPG',
+    bgSrc: '/hero-images/hero-bg-1.jpg',
     rightNote: 'Turning efforts into measurable, lasting difference.',
   },
   {
@@ -42,11 +42,11 @@ const slidesData: Slide[] = [
     highlight: 'Small Act',
     description:
       'Join our mission to uplift, empower, and support lives in need.',
-    primaryCta: { label: 'Join the journey', href: '/contact' },
+    primaryCta: { label: 'Join the journey', href: 'https://forms.gle/odBUWnLF5xS464ba7' },
     secondaryCta: { label: 'Explore our work', href: '/programs' },
     imageAlt: 'Your Small Act Can Make a Big Difference',
     imageSrc: '/hero-images/hero-image-2.PNG',
-    bgSrc: '/hero-images/hero-bg-2.JPG',
+    bgSrc: '/hero-images/hero-bg-2.jpg',
     rightNote: 'Your kindness makes impact possible.',
   },
   {
@@ -60,8 +60,8 @@ const slidesData: Slide[] = [
     secondaryCta: { label: 'Our impact', href: '/about' },
     imageAlt: 'Be the Voice for the Voiceless',
     imageSrc: '/hero-images/hero-image-3.PNG',
-    bgSrc: '/hero-images/hero-bg-3.JPG',
-    rightNote: 'Together, we help good grow stronger.',
+    bgSrc: '/hero-images/hero-bg-3.jpg',
+    rightNote: 'Together, we help good grow stronger.',
   },
 ];
 

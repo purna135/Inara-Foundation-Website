@@ -1,9 +1,8 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Users, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import Button from "./Button";
 import Section from "./Section";
 import projectsData from "@/data/projects.json";
 import Link from "next/link";
@@ -88,59 +87,79 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {pageItems.map((p) => (
-            <article
+            <motion.article
               key={p.id}
-              className="flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md hover:border-brand-200 hover:bg-brand-50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl hover:border-brand-200"
             >
-              <div className="relative">
+              {/* Image */}
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={p.cover}
                   alt={p.title}
-                  width={640}
-                  height={420}
-                  className="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-110"
                 />
-                {p.raised && p.goal && (
-                  <div className="absolute left-4 -bottom-6 right-4">
-                    <div className="flex items-center gap-3 rounded-full bg-white/95 px-4 py-2 ring-1 ring-brand-200 shadow-md">
-                      <div className="h-2 flex-1 rounded-full bg-neutral-200">
-                        <div
-                          className="h-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400"
-                          style={{ width: "70%" }}
-                        />
-                      </div>
-                      <span className="text-xs text-neutral-700 whitespace-nowrap">
-                        {p.raised} / {p.goal}
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-col flex-1 p-6 pt-10">
-                <p className="text-xs font-medium text-brand-700">#{p.type}</p>
-                <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 line-clamp-2 text-sm text-neutral-600">
-                  {p.summary}
-                </p>
-                <div className="mt-auto pt-4 flex items-center justify-between">
-                  <Link href={`/projects/${(p as any).slug || p.id}`}>
-                    <Button variant="secondary">Learn more</Button>
-                  </Link>
-                  <span className="text-sm text-neutral-500">
-                    50+ supporters
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                
+                {/* Type Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur-sm">
+                    {p.type}
                   </span>
                 </div>
               </div>
-              <div className="border-t border-neutral-100 bg-neutral-50 p-4 text-xs text-neutral-600">
-                <div className="flex items-center justify-between">
-                  <span>{(p as any).date || ""}</span>
-                  <span>{(p as any).location || ""}</span>
+
+              {/* Content */}
+              <div className="flex flex-col flex-1 p-6">
+                <div className="flex items-center gap-4 text-xs text-neutral-500">
+                  <div className="flex items-center gap-1">
+                    <Calendar size={14} />
+                    <span>{(p as any).date || "Coming Soon"}</span>
+                  </div>
+                  {(p as any).participants && (
+                    <div className="flex items-center gap-1">
+                      <Users size={14} />
+                      <span>{(p as any).participants}</span>
+                    </div>
+                  )}
+                </div>
+
+                <h3 className="mt-3 font-display text-xl text-neutral-900 line-clamp-2">
+                  {p.title}
+                </h3>
+
+                <p className="mt-2 text-sm text-neutral-600 line-clamp-3">
+                  {p.summary}
+                </p>
+
+                <div className="mt-auto pt-4 space-y-3">
+                  {(p as any).location && (
+                    <div className="flex items-center gap-1 text-xs text-neutral-500">
+                      <MapPin size={14} />
+                      <span className="line-clamp-1">{(p as any).location}</span>
+                    </div>
+                  )}
+
+                  <Link
+                    href={`/projects/${(p as any).slug || p.id}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3"
+                  >
+                    Read More
+                    <ArrowRight size={16} />
+                  </Link>
                 </div>
               </div>
-            </article>
+
+              {/* Hover Accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </motion.article>
           ))}
         </motion.div>
       </AnimatePresence>

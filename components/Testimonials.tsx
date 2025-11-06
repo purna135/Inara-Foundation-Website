@@ -36,7 +36,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setPage((p) => (p + 1) % totalPages), 4000);
+    const id = setInterval(() => setPage((p) => (p + 1) % totalPages), 3000);
     return () => clearInterval(id);
   }, [paused, totalPages]);
 

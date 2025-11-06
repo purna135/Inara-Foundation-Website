@@ -114,28 +114,36 @@ export default function ContactPage() {
               <h3 className="font-semibold text-neutral-900">Follow Our Journey</h3>
               <div className="mt-4 flex gap-3">
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/inara.npo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="grid h-10 w-10 place-items-center rounded-xl bg-white text-neutral-600 ring-1 ring-neutral-200 transition hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
                 >
                   <Instagram size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.facebook.com/inaraorganisation"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="grid h-10 w-10 place-items-center rounded-xl bg-white text-neutral-600 ring-1 ring-neutral-200 transition hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
                 >
                   <Facebook size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.linkedin.com/company/inara-by-sweta"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="grid h-10 w-10 place-items-center rounded-xl bg-white text-neutral-600 ring-1 ring-neutral-200 transition hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
                 >
                   <Linkedin size={18} />
                 </Link>
                 <Link
-                  href="#"
+                  href="https://x.com/inarabysweta"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Twitter"
                   className="grid h-10 w-10 place-items-center rounded-xl bg-white text-neutral-600 ring-1 ring-neutral-200 transition hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
                 >
@@ -146,7 +154,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right: Contact Form */}
-          <div className="lg:col-span-3">
+          <div id="contact-form" className="lg:col-span-3">
             <div className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm lg:p-10">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-br from-brand-200/30 to-transparent blur-3xl" />
               

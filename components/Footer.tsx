@@ -105,28 +105,36 @@ export default function Footer() {
             <Link
               aria-label="Instagram"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
-              href="#"
+              href="https://www.instagram.com/inara.npo/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Instagram size={16} />
             </Link>
             <Link
               aria-label="Facebook"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
-              href="#"
+              href="https://www.facebook.com/inaraorganisation"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Facebook size={16} />
             </Link>
             <Link
               aria-label="LinkedIn"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
-              href="#"
+              href="https://www.linkedin.com/company/inara-by-sweta"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Linkedin size={16} />
             </Link>
             <Link
               aria-label="Twitter"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
-              href="#"
+              href="https://x.com/inarabysweta"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Twitter size={16} />
             </Link>

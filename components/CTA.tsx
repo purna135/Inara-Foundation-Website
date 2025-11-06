@@ -23,12 +23,12 @@ export default function CTA() {
               Join Inara Foundation and turn compassion into action. Together, we're building a kinder, stronger, and more compassionate world.
             </p>
             <div className="mt-5">
-              <Link href="/contact">
+              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2 text-sm font-semibold text-white shadow-sm focus-ring">
                   <Heart size={18} className="mr-2" /> Become a Volunteer
                 </span>
               </Link>
-              <Link href="/contact" className="ml-3">
+              <Link href="/contact#contact-form" className="ml-3">
                 <span className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-sm font-semibold text-brand-900 ring-1 ring-black/10 hover:bg-white">
                   <HeartHandshake size={18} className="mr-2" /> Partner with Us
                 </span>

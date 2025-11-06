@@ -47,33 +47,41 @@ export default function Navbar() {
         <div className="hidden md:flex items-center justify-end gap-4">
           <Link
             aria-label="Instagram"
-            href="#"
+            href="https://www.instagram.com/inara.npo/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors"
           >
             <Instagram size={16} />
           </Link>
           <Link
             aria-label="LinkedIn"
-            href="#"
+            href="https://www.linkedin.com/company/inara-by-sweta"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors"
           >
             <Linkedin size={16} />
           </Link>
           <Link
             aria-label="X"
-            href="#"
+            href="https://x.com/inarabysweta"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors"
           >
             <Twitter size={16} />
           </Link>
           <Link
             aria-label="Facebook"
-            href="#"
+            href="https://www.facebook.com/inaraorganisation"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors"
           >
             <Facebook size={16} />
           </Link>
-          <Link href="/contact">
+          <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-300 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm ring-1 ring-black/0 hover:from-brand-400 hover:to-brand-300 focus-ring">
               Join Us
               <Users size={16} />

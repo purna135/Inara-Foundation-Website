@@ -25,12 +25,42 @@ import projectsData from '@/data/projects.json';
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [copied, setCopied] = useState(false);
   const { slug } = use(params);
   const project = (projectsData as any[]).find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
   }
+
+  // Share functions
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareText = `Check out this amazing project: ${project.title}`;
+
+  const handleFacebookShare = () => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  };
+
+  const handleTwitterShare = () => {
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  };
+
+  const handleLinkedInShare = () => {
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   return (
     <main>
@@ -290,21 +320,42 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 Help us spread the word and inspire others to join.
               </p>
               <div className="grid grid-cols-2 gap-2">
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-[#1877F2] px-3 py-2.5 text-sm font-medium text-white transition hover:bg-[#1877F2]/90">
+                <button 
+                  onClick={handleFacebookShare}
+                  className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-brand-300 to-brand-400 px-3 py-2.5 text-sm font-medium text-neutral-950 shadow-sm transition hover:from-brand-400 hover:to-brand-500 hover:scale-105 hover:shadow-md"
+                >
                   <Facebook size={16} />
                   Share
                 </button>
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-[#1DA1F2] px-3 py-2.5 text-sm font-medium text-white transition hover:bg-[#1DA1F2]/90">
+                <button 
+                  onClick={handleTwitterShare}
+                  className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-brand-300 to-brand-400 px-3 py-2.5 text-sm font-medium text-neutral-950 shadow-sm transition hover:from-brand-400 hover:to-brand-500 hover:scale-105 hover:shadow-md"
+                >
                   <Twitter size={16} />
                   Tweet
                 </button>
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-[#0A66C2] px-3 py-2.5 text-sm font-medium text-white transition hover:bg-[#0A66C2]/90">
+                <button 
+                  onClick={handleLinkedInShare}
+                  className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-brand-300 to-brand-400 px-3 py-2.5 text-sm font-medium text-neutral-950 shadow-sm transition hover:from-brand-400 hover:to-brand-500 hover:scale-105 hover:shadow-md"
+                >
                   <Linkedin size={16} />
                   Post
                 </button>
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] px-3 py-2.5 text-sm font-medium text-white transition hover:opacity-90">
-                  <Instagram size={16} />
-                  Story
+                <button 
+                  onClick={handleCopyLink}
+                  className="relative flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-brand-300 to-brand-400 px-3 py-2.5 text-sm font-medium text-neutral-950 shadow-sm transition hover:from-brand-400 hover:to-brand-500 hover:scale-105 hover:shadow-md"
+                >
+                  {copied ? (
+                    <>
+                      <CheckCircle size={16} />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Instagram size={16} />
+                      Copy Link
+                    </>
+                  )}
                 </button>
               </div>
             </div>
@@ -324,7 +375,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
                   Be part of projects like this. Volunteer with us and create lasting impact in our communities.
                 </p>
-                <Link href="/contact" className="mt-5 block">
+                <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer" className="mt-5 block">
                   <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-3 text-sm font-semibold text-neutral-950 shadow-lg transition hover:from-brand-300 hover:to-brand-400 hover:shadow-xl">
                     <Users size={18} />
                     Become a Volunteer
@@ -339,7 +390,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
               <p className="mt-2 text-sm text-neutral-600">
                 Every contribution helps us continue making a difference.
               </p>
-              <Link href="/contact" className="mt-4 block">
+              <Link href="/contact#contact-form" className="mt-4 block">
                 <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-brand-500 bg-white px-4 py-2.5 text-sm font-semibold text-brand-700 transition hover:bg-brand-50">
                   <Heart size={16} />
                   Donate Us
