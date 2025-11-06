@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 export const metadata = { title: "About" };
+import CTA from "@/components/CTA";
 
 const QUICK_STATS = [
   { label: "Volunteers", value: "50+", icon: Users },

@@ -32,7 +32,7 @@ const slidesData: Slide[] = [
     secondaryCta: { label: 'Learn about Inara', href: '/about' },
     imageAlt: 'Inara Foundation community',
     imageSrc: '/hero-images/hero-image-1.PNG',
-    bgSrc: '/hero-images/hero-bg-image-1.PNG',
+    bgSrc: '/hero-images/hero-bg-1.JPG',
     rightNote: 'Turning efforts into measurable, lasting difference.',
   },
   {
@@ -45,7 +45,8 @@ const slidesData: Slide[] = [
     primaryCta: { label: 'Join the journey', href: '/contact' },
     secondaryCta: { label: 'Explore our work', href: '/programs' },
     imageAlt: 'Environment and animal welfare',
-    imageSrc: '/hero-images/hero-2.png',
+    imageSrc: '/hero-images/hero-image-2.PNG',
+    bgSrc: '/hero-images/hero-bg-2.JPG',
     rightNote: 'Community-first initiatives',
   },
   {
@@ -58,7 +59,8 @@ const slidesData: Slide[] = [
     primaryCta: { label: 'See programs', href: '/programs' },
     secondaryCta: { label: 'Our impact', href: '/impact' },
     imageAlt: 'Community engagement',
-    imageSrc: '/hero-images/hero-3.png',
+    imageSrc: '/hero-images/hero-image-3.PNG',
+    bgSrc: '/hero-images/hero-bg-3.JPG',
     rightNote: 'Interactive circles & service days',
   },
 ];

@@ -104,21 +104,21 @@ export default function HomePage() {
       <Section className="muted-section" size="dense">
         <Stats />
       </Section>
-
-      {/* Call to action */}
-      <CTA />
       
       {/* Projects */}
       <Projects />
 
       {/* Upcoming Events */}
-      <Events />
+      {/* <Events /> */}
 
       {/* Team */}
-      <Team />
+      {/* <Team /> */}
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* Call to action */}
+      <CTA />
 
       {/* Simple CTA 2 */}
       {/* <CTA2 /> */}

@@ -28,7 +28,7 @@ export default function CTA() {
                   <Heart size={18} className="mr-2" /> Become a Volunteer
                 </span>
               </Link>
-              <Link href="/about" className="ml-3">
+              <Link href="/contact" className="ml-3">
                 <span className="inline-flex items-center rounded-full bg-white/80 px-5 py-2 text-sm font-semibold text-brand-900 ring-1 ring-black/10 hover:bg-white">
                   <HeartHandshake size={18} className="mr-2" /> Partner with Us
                 </span>
