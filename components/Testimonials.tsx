@@ -85,6 +85,7 @@ export default function Testimonials() {
                     alt={t.name}
                     width={40}
                     height={40}
+                    quality={85}
                     className="h-10 w-10 rounded-full object-cover"
                   />
                   <div>

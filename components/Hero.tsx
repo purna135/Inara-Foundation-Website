@@ -85,7 +85,15 @@ export default function Hero() {
     <section className="relative overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       {active.bgSrc ? (
         <>
-          <Image src={active.bgSrc} alt="" fill priority className="absolute inset-0 object-cover" />
+          <Image 
+            src={active.bgSrc} 
+            alt="" 
+            fill 
+            priority 
+            sizes="100vw"
+            quality={85}
+            className="absolute inset-0 object-cover" 
+          />
           <div className="absolute inset-0 bg-white/70" />
         </>
       ) : (
@@ -168,7 +176,15 @@ export default function Hero() {
                 {/* Balanced glow behind image (equal width/height, responsive) */}
                 <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[68%] sm:w-[64%] lg:w-[80%] rounded-full bg-gradient-to-tr from-brand-500/25 to-brand-300/20 blur-2xl" />
                 <div className="relative grid place-items-center">
-                  <Image src={active.imageSrc} alt={active.imageAlt} width={580} height={420} className="h-auto w-full max-w-[400px] rounded-2xl" />
+                  <Image 
+                    src={active.imageSrc} 
+                    alt={active.imageAlt} 
+                    width={580} 
+                    height={420} 
+                    priority
+                    quality={90}
+                    className="h-auto w-full max-w-[400px] rounded-2xl" 
+                  />
                 </div>
                 {active.rightNote && (
                   <div className="pointer-events-none absolute -bottom-6 right-10 rounded-full bg-white px-4 py-2 text-xs font-medium text-neutral-700 shadow-sm ring-1 ring-neutral-200">
