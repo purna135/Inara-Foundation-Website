@@ -36,7 +36,7 @@ export default function CTA() {
             </div>
           </div>
           <div className="relative flex justify-center md:justify-end order-1 md:order-2">
-            <div className="absolute top-[-130px] sm:top-[-110px] md:top-[-120px] left-[-10px] z-10 scale-85 sm:scale-95 md:scale-120">
+            <div className="absolute top-[-100px] sm:top-[-110px] md:top-[-120px] left-[-10px] z-10 scale-85 sm:scale-95 md:scale-120">
               <Image
                 src="/images/volunteers.png"
                 alt="Volunteers"
