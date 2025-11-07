@@ -99,10 +99,10 @@ export default function Hero() {
       ) : (
         <div className="absolute inset-0 bg-grid" />
       )}
-      <div className="container-px mx-auto max-w-[1200px] py-12 sm:py-16 relative">
-        <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2">
+      <div className="container-px mx-auto max-w-[1200px] py-4 sm:py-10 lg:py-16 relative">
+        <div className="grid items-center gap-2 sm:gap-6 lg:gap-8 lg:grid-cols-2">
           {/* Text area */}
-          <div className="relative flex h-[60vh] sm:h-[65vh] lg:h-[70vh] xl:h-[500px] flex-col justify-end pb-12 sm:pb-16 order-2 lg:order-1 mt-3 lg:mt-0">
+          <div className="relative flex min-h-[300px] sm:min-h-[380px] lg:h-[70vh] xl:h-[500px] flex-col justify-end pb-8 sm:pb-16 lg:pb-20 order-2 lg:order-1">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
@@ -110,12 +110,12 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="absolute bottom-12 sm:bottom-20 left-0 right-0"
+                className="space-y-4 sm:space-y-5 text-center lg:text-left"
               >
                 {active.eyebrow && (
-                  <p className="text-sm font-semibold text-brand-700">{active.eyebrow}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-brand-700 mb-1">{active.eyebrow}</p>
                 )}
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-none -mt-1">
                   {active.title.split(active.highlight || '').map((part, idx, arr) => (
                     <span key={idx}>
                       {part}
@@ -125,12 +125,12 @@ export default function Hero() {
                     </span>
                   ))}
                 </h1>
-                <p className="mt-5 max-w-xl text-neutral-700">{active.description}</p>
-                <div className="mt-8 flex items-center gap-4 flex-wrap">
+                <p className="text-sm sm:text-base max-w-xl text-neutral-700 leading-relaxed mx-auto lg:mx-0">{active.description}</p>
+                <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 flex-wrap pt-2 sm:pt-2 mb-2 lg:mb-0">
                   <Link href={active.primaryCta.href}>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm focus-ring hover:from-brand-300 hover:to-brand-400">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-neutral-950 shadow-sm focus-ring hover:from-brand-300 hover:to-brand-400">
                       {active.primaryCta.label}
-                      <Users size={16} />
+                      <Users size={14} className="sm:w-4 sm:h-4" />
                     </span>
                   </Link>
                   {active.secondaryCta && (
@@ -143,28 +143,28 @@ export default function Hero() {
             </AnimatePresence>
 
             {/* Controls */}
-            <div className="absolute bottom-0 left-0 flex items-center gap-3">
-              <button className="rounded-full border border-neutral-300 p-2 text-neutral-700 hover:border-brand-400 hover:text-brand-700 focus-ring" aria-label="Previous" onClick={prev}>
-                <ArrowLeft size={18} />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 flex items-center gap-2 sm:gap-3">
+              <button className="rounded-full border border-neutral-300 p-1.5 sm:p-2 text-neutral-700 hover:border-brand-400 hover:text-brand-700 focus-ring" aria-label="Previous" onClick={prev}>
+                <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
               </button>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 {slides.map((s, i) => (
                   <button
                     key={s.id}
                     aria-label={`Go to slide ${i + 1}`}
                     onClick={() => setIndex(i)}
-                    className={`h-2.5 w-8 rounded-full transition-all ${i === index ? 'bg-gradient-to-r from-brand-500 to-brand-400' : 'bg-neutral-300 hover:bg-neutral-400'}`}
+                    className={`h-2 sm:h-2.5 w-6 sm:w-8 rounded-full transition-all ${i === index ? 'bg-gradient-to-r from-brand-500 to-brand-400' : 'bg-neutral-300 hover:bg-neutral-400'}`}
                   />
                 ))}
               </div>
-              <button className="rounded-full border border-neutral-300 p-2 text-neutral-700 hover:border-brand-400 hover:text-brand-700 focus-ring" aria-label="Next" onClick={next}>
-                <ArrowRight size={18} />
+              <button className="rounded-full border border-neutral-300 p-1.5 sm:p-2 text-neutral-700 hover:border-brand-400 hover:text-brand-700 focus-ring" aria-label="Next" onClick={next}>
+                <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px]" />
               </button>
             </div>
           </div>
 
           {/* Visual area */}
-          <div className="relative order-1 lg:order-2">
+          <div className="relative order-1 lg:order-2 mb-2 sm:mb-4 lg:mb-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id + '-visual'}
@@ -172,10 +172,11 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.55, ease: 'easeOut' }}
+                className="relative"
               >
                 {/* Balanced glow behind image (equal width/height, responsive) */}
-                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[68%] sm:w-[64%] lg:w-[80%] rounded-full bg-gradient-to-tr from-brand-500/25 to-brand-300/20 blur-2xl" />
-                <div className="relative grid place-items-center">
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[75%] sm:w-[68%] lg:w-[80%] rounded-full bg-gradient-to-tr from-brand-500/25 to-brand-300/20 blur-2xl" />
+                <div className="relative grid place-items-center px-4 sm:px-0">
                   <Image 
                     src={active.imageSrc} 
                     alt={active.imageAlt} 
@@ -183,11 +184,11 @@ export default function Hero() {
                     height={420} 
                     priority
                     quality={90}
-                    className="h-auto w-full max-w-[400px] rounded-2xl" 
+                    className="h-auto w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] rounded-xl sm:rounded-2xl" 
                   />
                 </div>
                 {active.rightNote && (
-                  <div className="pointer-events-none absolute -bottom-6 right-10 rounded-full bg-white px-4 py-2 text-xs font-medium text-neutral-700 shadow-sm ring-1 ring-neutral-200">
+                  <div className="pointer-events-none absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-10 rounded-full bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-neutral-700 shadow-sm ring-1 ring-neutral-200 text-center lg:text-left whitespace-nowrap">
                     {active.rightNote}
                   </div>
                 )}
