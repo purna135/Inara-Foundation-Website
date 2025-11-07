@@ -102,9 +102,9 @@ export default function HomePage() {
           </div>
         </div>
         {/* Bottom: Work images */}
-        <FadeIn delay={0.4}>
+        {/* <FadeIn delay={0.4}> */}
           <WorkImagesCollege />
-        </FadeIn>
+        {/* </FadeIn> */}
       </Section>
 
       {/* Stats */}
