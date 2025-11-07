@@ -154,9 +154,9 @@ export default function NagpurPage() {
       {/* About Nagpur Chapter */}
       <section className="relative py-20 bg-neutral-50 overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-brand-100/40 to-transparent blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-gradient-to-tr from-brand-200/30 to-transparent blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-brand-100/50 to-transparent blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-gradient-to-tr from-brand-200/40 to-transparent blur-3xl" />
         
         <div className="container-px relative mx-auto max-w-[1200px]">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
@@ -244,8 +244,8 @@ export default function NagpurPage() {
       {/* Projects Section */}
       <section className="relative py-20 bg-white overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand-100/30 to-transparent blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gradient-to-br from-brand-100/40 to-transparent blur-3xl" />
         
         <div className="container-px relative mx-auto max-w-[1200px]">
           <FadeIn>
@@ -263,95 +263,89 @@ export default function NagpurPage() {
             </div>
           </FadeIn>
 
-          <div className="space-y-20">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((project, idx) => {
               const Icon = project.icon;
-              const isEven = idx % 2 === 0;
               
               return (
-                <div
-                  key={project.id}
-                  className={`grid gap-8 lg:gap-12 lg:grid-cols-2 items-center ${
-                    !isEven ? "lg:grid-flow-dense" : ""
-                  }`}
-                >
-                  {/* Image */}
-                  <FadeIn
-                    direction={isEven ? "left" : "right"}
-                    delay={0.1}
-                    className={!isEven ? "lg:col-start-2" : ""}
-                  >
-                    <div className="relative group">
-                      <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br opacity-20 blur-2xl transition group-hover:opacity-30 from-brand-300 to-brand-500" />
-                      {project.image ? (
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 shadow-xl ring-1 ring-neutral-900/5">
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover transition duration-500 group-hover:scale-105"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                          />
+                <FadeIn key={project.id} delay={idx * 0.1}>
+                  <div className="group relative h-full">
+                    {/* Hover Glow Effect */}
+                    <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${project.color} opacity-0 blur transition duration-500 group-hover:opacity-20`} />
+                    
+                    <div className="relative h-full flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-neutral-900/5 transition duration-300 group-hover:shadow-xl">
+                      {/* Image Section */}
+                      <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+                        {project.image ? (
+                          <>
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className="object-cover transition duration-500 group-hover:scale-110"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            {/* Gradient Overlay on Hover */}
+                            <div className={`absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100`} />
+                          </>
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200">
+                            <div className="text-center">
+                              <Icon className="mx-auto mb-2 text-neutral-400" size={40} />
+                              <p className="text-xs text-neutral-500">Coming Soon</p>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Icon Badge */}
+                        <div className={`absolute top-4 left-4 rounded-xl bg-gradient-to-br ${project.color} p-2.5 shadow-lg`}>
+                          <Icon className="text-white" size={20} />
                         </div>
-                      ) : (
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-xl ring-1 ring-neutral-900/5 flex items-center justify-center">
-                          <div className="text-center">
-                            <Icon className="mx-auto mb-4 text-neutral-400" size={48} />
-                            <p className="text-sm text-neutral-500">Project in progress</p>
+                      </div>
+
+                      {/* Content Section */}
+                      <div className="flex flex-1 flex-col p-6">
+                        <h3 className="font-display text-xl font-bold text-neutral-900 mb-3 line-clamp-2 group-hover:text-brand-600 transition-colors">
+                          {project.title}
+                        </h3>
+                        
+                        <p className="text-sm text-neutral-600 leading-relaxed mb-4 line-clamp-3">
+                          {project.description}
+                        </p>
+
+                        {/* Highlights */}
+                        <div className="space-y-1.5 mb-4">
+                          {project.highlights.map((highlight, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <div className="mt-1 rounded-full bg-brand-100 p-0.5">
+                                <div className="h-1 w-1 rounded-full bg-brand-600" />
+                              </div>
+                              <span className="text-xs text-neutral-600 leading-snug">{highlight}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Impact Badge */}
+                        <div className="rounded-lg bg-gradient-to-br from-brand-50 to-brand-100 p-4 mt-auto">
+                          <div className="flex items-start gap-2">
+                            <Sparkles className="text-brand-600 mt-0.5 flex-shrink-0" size={16} />
+                            <div>
+                              <div className="text-xs font-semibold text-brand-700 mb-1">
+                                Impact
+                              </div>
+                              <div className="text-xs text-neutral-700">
+                                {project.impact}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      )}
+                      </div>
+
+                      {/* Hover Border Effect */}
+                      <div className={`absolute inset-0 rounded-2xl ring-2 ring-transparent transition duration-300 group-hover:ring-brand-300/50`} />
                     </div>
-                  </FadeIn>
-
-                  {/* Content */}
-                  <FadeIn
-                    direction={isEven ? "right" : "left"}
-                    delay={0.2}
-                    className={!isEven ? "lg:col-start-1 lg:row-start-1" : ""}
-                  >
-                    <div>
-                      <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${project.color} p-3 shadow-lg mb-6`}>
-                        <Icon className="text-white" size={24} />
-                      </div>
-                      
-                      <h3 className="font-display text-2xl font-bold text-neutral-900 mb-4">
-                        {project.title}
-                      </h3>
-                      
-                      <p className="text-neutral-700 mb-6 leading-relaxed">
-                        {project.description}
-                      </p>
-
-                      <div className="rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 p-6 mb-6">
-                        <div className="flex items-start gap-3">
-                          <div className="rounded-lg bg-white p-2 shadow-sm">
-                            <Sparkles className="text-brand-600" size={20} />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-neutral-900 mb-1">
-                              Impact
-                            </div>
-                            <div className="text-sm text-neutral-700">
-                              {project.impact}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        {project.highlights.map((highlight, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className="mt-1 rounded-full bg-brand-100 p-1">
-                              <div className="h-1.5 w-1.5 rounded-full bg-brand-600" />
-                            </div>
-                            <span className="text-sm text-neutral-600">{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </FadeIn>
-                </div>
+                  </div>
+                </FadeIn>
               );
             })}
           </div>
