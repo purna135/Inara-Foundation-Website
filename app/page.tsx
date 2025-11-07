@@ -11,6 +11,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import WorkImagesCollege from "@/components/WorkImagesCollege";
+import WorkImagesMobile from "@/components/WorkImagesMobile";
 import Stats from "@/components/Stats";
 import Projects from "@/components/Projects";
 import Events from "@/components/Events";
@@ -101,10 +102,14 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        {/* Bottom: Work images */}
-        {/* <FadeIn delay={0.4}> */}
+        
+        {/* Bottom: Work images - Desktop */}
+        <div className="hidden lg:block">
           <WorkImagesCollege />
-        {/* </FadeIn> */}
+        </div>
+        
+        {/* Bottom: Work images - Mobile */}
+        <WorkImagesMobile />
       </Section>
 
       {/* Stats */}
