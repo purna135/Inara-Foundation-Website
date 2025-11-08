@@ -19,6 +19,32 @@ import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import CTA2 from "@/components/CTA2";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Join Inara Foundation in turning compassion into action. We believe no cause is too small, and no impact is too distant. Together, we're building a kinder, stronger, and more compassionate world.",
+  openGraph: {
+    type: "website",
+    url: "https://inarafoundation.in",
+    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
+    description: "A youth-led Section 8 non-profit in India. From supporting underprivileged children to caring for animals and protecting the environment - we work hand in hand with communities to create sustainable progress.",
+    images: [
+      {
+        url: "/website-thumbnail-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Inara Foundation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
+    description: "A youth-led Section 8 non-profit in India. From supporting underprivileged children to caring for animals and protecting the environment - we work hand in hand with communities to create sustainable progress.",
+    images: ["/website-thumbnail-image.png"],
+  },
+};
 
 const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
   {

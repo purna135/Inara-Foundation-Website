@@ -13,8 +13,32 @@ import {
   Users,
   CheckCircle,
 } from "lucide-react";
+import { Metadata } from "next";
 
-export const metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn about Inara Foundation's journey from a passion project to a credible Section 8 organization. Learn about our vision, mission, and commitment to holistic welfare through transparent, youth-driven community action.",
+  openGraph: {
+    type: "website",
+    url: "https://inarafoundation.in/about",
+    title: "About Inara Foundation - Our Story, Vision & Mission",
+    description: "From a simple wish to help children to a registered Section 8 non-profit. Discover how Inara Foundation grew into a trusted platform for community upliftment, animal welfare, and youth-led social change across India.",
+    images: [
+      {
+        url: "/website-thumbnail-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Inara Foundation Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Inara Foundation - Our Story, Vision & Mission",
+    description: "From a simple wish to help children to a registered Section 8 non-profit. Discover how Inara Foundation grew into a trusted platform for community upliftment, animal welfare, and youth-led social change across India.",
+    images: ["/website-thumbnail-image.png"],
+  },
+};
 import CTA from "@/components/CTA";
 
 const QUICK_STATS = [

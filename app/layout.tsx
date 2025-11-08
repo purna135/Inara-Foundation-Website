@@ -30,7 +30,29 @@ export const metadata: Metadata = {
   icons: {
     icon: "/inara-icon.png",
   },
-  metadataBase: new URL("https://inara.local"),
+  metadataBase: new URL("https://inarafoundation.in"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://inarafoundation.in",
+    siteName: "Inara Foundation",
+    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
+    description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
+    images: [
+      {
+        url: "/website-thumbnail-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Inara Foundation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
+    description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
+    images: ["/website-thumbnail-image.png"],
+  },
 };
 
 export default function RootLayout({
