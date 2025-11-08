@@ -9,6 +9,10 @@ import {
   Hammer,
   GraduationCap,
   CheckCircle,
+  Users,
+  Heart,
+  Target,
+  ArrowRight,
 } from "lucide-react";
 import WorkImagesCollege from "@/components/WorkImagesCollege";
 import WorkImagesMobile from "@/components/WorkImagesMobile";
@@ -69,6 +73,29 @@ const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
   },
 ];
 
+const CORE_VALUES: { icon: any; title: string; desc: string }[] = [
+  {
+    icon: Users,
+    title: "Community First",
+    desc: "Hand in hand with diverse communities",
+  },
+  {
+    icon: Heart,
+    title: "Youth-Led",
+    desc: "Powered by passionate volunteers",
+  },
+  {
+    icon: Target,
+    title: "Impact Driven",
+    desc: "Measurable, lasting change",
+  },
+  {
+    icon: CheckCircle,
+    title: "Section 8 NGO",
+    desc: "Registered since Jan 4, 2023",
+  },
+];
+
 export default function HomePage() {
   return (
     <main>
@@ -80,8 +107,14 @@ export default function HomePage() {
           {/* Left: about */}
           <FadeIn direction="left">
             <div>
-              <p className="text-sm font-semibold text-brand-700">What we do</p>
-              <h2 className="mt-2 font-display text-4xl sm:text-5xl">
+              <p className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-semibold text-brand-700">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                </span>
+                What we do
+              </p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">
                 A collective movement for holistic welfare
               </h2>
               <p className="mt-4 max-w-xl text-lg italic text-brand-600">
@@ -101,26 +134,33 @@ export default function HomePage() {
                 Together, we're building a kinder, stronger, and more compassionate
                 world.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-row items-center gap-3 flex-wrap">
                 <Link href="/about">
-                  <Button>About Inara</Button>
+                  <Button>Learn Our Story</Button>
+                </Link>
+                <Link href="/programs">
+                  <span className="inline-flex items-center gap-2 rounded-full border-2 border-brand-500 bg-transparent px-6 py-2.5 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50 whitespace-nowrap">
+                    View Our Programs
+                    <ArrowRight size={16} />
+                  </span>
                 </Link>
               </div>
             </div>
           </FadeIn>
 
-          {/* Right: our work */}
+          {/* Right: Core values - 2x2 Grid */}
           <div className="flex items-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 md:gap-y-12">
-              {HIGHLIGHTS.map(({ icon: Icon, title, desc }, index) => (
-                <FadeIn key={title} direction="right" delay={index * 0.1}>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1.5 grid h-10 w-15 place-items-center rounded-lg bg-brand-50 ring-2 ring-brand-200">
-                      <Icon className="text-brand-700" size={20} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+              {CORE_VALUES.map((value, index) => (
+                <FadeIn key={value.title} direction="right" delay={0.1 * (index + 1)}>
+                  <div className="group flex flex-row items-center gap-3 sm:gap-4 p-4 sm:p-5 sm:flex-col sm:text-center rounded-2xl bg-gradient-to-br from-brand-50 via-white to-brand-50/50 border border-brand-200/50 shadow-sm hover:shadow-lg hover:border-brand-300 transition-all duration-300">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-500 text-white shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                      <value.icon size={20} className="sm:hidden" />
+                      <value.icon size={22} className="hidden sm:block" />
                     </div>
-                    <div>
-                      <p className="font-semibold">{title}</p>
-                      <p className="text-sm text-neutral-600 mt-1">{desc}</p>
+                    <div className="flex-1 text-left sm:text-center">
+                      <p className="font-bold text-sm sm:text-base text-neutral-900">{value.title}</p>
+                      <p className="text-xs text-neutral-600 mt-1 sm:mt-1.5 leading-relaxed">{value.desc}</p>
                     </div>
                   </div>
                 </FadeIn>
@@ -129,13 +169,15 @@ export default function HomePage() {
           </div>
         </div>
         
-        {/* Bottom: Work images - Desktop */}
-        <div className="hidden lg:block">
+        {/* Bottom: Work images - Desktop & iPad */}
+        <div className="hidden md:block">
           <WorkImagesCollege />
         </div>
         
         {/* Bottom: Work images - Mobile */}
-        <WorkImagesMobile />
+        <div className="md:hidden">
+          <WorkImagesMobile />
+        </div>
       </Section>
 
       {/* Stats */}

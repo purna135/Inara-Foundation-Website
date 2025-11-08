@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     images: ["/website-thumbnail-image.png"],
   },
 };
-import CTA from "@/components/CTA";
 
 const QUICK_STATS = [
   { label: "Volunteers", value: "300+", icon: Users },
