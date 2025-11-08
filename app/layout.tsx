@@ -40,10 +40,11 @@ export const metadata: Metadata = {
     description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
     images: [
       {
-        url: "/website-thumbnail-image.png",
+        url: "/website-preview-image.jpg",
         width: 1200,
         height: 630,
         alt: "Inara Foundation",
+        type: "image/jpeg",
       },
     ],
   },
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
     description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
-    images: ["/website-thumbnail-image.png"],
+    images: ["/website-preview-image.jpg"],
   },
 };
 

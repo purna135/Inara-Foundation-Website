@@ -10,10 +10,11 @@ export const metadata: Metadata = {
     description: "Explore our initiatives spanning community welfare, animal care, and environmental protection. From Day of Service reaching 3,000+ children to regular cancer shelter visits - witness how youth volunteers create lasting impact.",
     images: [
       {
-        url: "/website-thumbnail-image.png",
+        url: "/website-preview-image.jpg",
         width: 1200,
         height: 630,
         alt: "Inara Foundation Programs",
+        type: "image/jpeg",
       },
     ],
   },
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Our Programs & Impact - Inara Foundation",
     description: "Explore our initiatives spanning community welfare, animal care, and environmental protection. From Day of Service reaching 3,000+ children to regular cancer shelter visits - witness how youth volunteers create lasting impact.",
-    images: ["/website-thumbnail-image.png"],
+    images: ["/website-preview-image.jpg"],
   },
 };
 

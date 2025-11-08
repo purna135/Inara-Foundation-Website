@@ -35,10 +35,11 @@ export const metadata: Metadata = {
     description: "A youth-led Section 8 non-profit in India. From supporting underprivileged children to caring for animals and protecting the environment - we work hand in hand with communities to create sustainable progress.",
     images: [
       {
-        url: "/website-thumbnail-image.png",
+        url: "/website-preview-image.jpg",
         width: 1200,
         height: 630,
         alt: "Inara Foundation",
+        type: "image/jpeg",
       },
     ],
   },
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
     description: "A youth-led Section 8 non-profit in India. From supporting underprivileged children to caring for animals and protecting the environment - we work hand in hand with communities to create sustainable progress.",
-    images: ["/website-thumbnail-image.png"],
+    images: ["/website-preview-image.jpg"],
   },
 };
 

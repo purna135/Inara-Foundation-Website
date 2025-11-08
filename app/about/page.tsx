@@ -25,10 +25,11 @@ export const metadata: Metadata = {
     description: "From a simple wish to help children to a registered Section 8 non-profit. Discover how Inara Foundation grew into a trusted platform for community upliftment, animal welfare, and youth-led social change across India.",
     images: [
       {
-        url: "/website-thumbnail-image.png",
+        url: "/website-preview-image.jpg",
         width: 1200,
         height: 630,
         alt: "Inara Foundation Team",
+        type: "image/jpeg",
       },
     ],
   },
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Inara Foundation - Our Story, Vision & Mission",
     description: "From a simple wish to help children to a registered Section 8 non-profit. Discover how Inara Foundation grew into a trusted platform for community upliftment, animal welfare, and youth-led social change across India.",
-    images: ["/website-thumbnail-image.png"],
+    images: ["/website-preview-image.jpg"],
   },
 };
 
