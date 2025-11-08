@@ -168,8 +168,16 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <Target size={20} />
               </div>
               <div>
-                <div className="text-xs text-neutral-500">Type</div>
-                <div className="text-sm font-semibold text-neutral-900">{project.type}</div>
+                <div className="text-xs text-neutral-500">
+                  {project.type === 'Collaborations' && (project as any).collaborator 
+                    ? 'Collaboration with' 
+                    : 'Type'}
+                </div>
+                <div className="text-sm font-semibold text-neutral-900">
+                  {project.type === 'Collaborations' && (project as any).collaborator 
+                    ? (project as any).collaborator 
+                    : project.type}
+                </div>
               </div>
             </div>
           </div>

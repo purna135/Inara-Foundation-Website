@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const MOBILE_IMAGES = [
@@ -9,24 +9,37 @@ const MOBILE_IMAGES = [
   { src: "/collage-image/image-5.jpg", alt: "Community engagement" },
   { src: "/collage-image/image-6.jpg", alt: "Social initiative" },
   { src: "/collage-image/image-7.jpg", alt: "Outreach programs" },
-  { src: "/collage-image/image-8.jpg", alt: "Cultural events" },
-  { src: "/collage-image/image-9.jpg", alt: "Educational activities" },
   { src: "/collage-image/image-10.jpg", alt: "Support programs" },
-  { src: "/collage-image/image-11.jpg", alt: "Volunteer training" },
   { src: "/collage-image/image-12.jpg", alt: "Community bonding" },
   { src: "/collage-image/image-13.jpg", alt: "Project initiatives" },
   { src: "/collage-image/image-14.jpg", alt: "Team building" },
-  { src: "/collage-image/image-16.jpg", alt: "Social welfare" },
-  { src: "/collage-image/image-17.jpg", alt: "Community impact" },
 ];
+
+const AUTO_CHANGE_INTERVAL = 3000; // 3 seconds
 
 export default function WorkImagesMobile() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-change images
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % MOBILE_IMAGES.length);
+    }, AUTO_CHANGE_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <div className="mt-8 lg:hidden">
       {/* Main Featured Image */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 shadow-lg">
+      <div 
+        className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 shadow-lg"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <Image
           src={MOBILE_IMAGES[activeIndex].src}
           alt={MOBILE_IMAGES[activeIndex].alt}
@@ -51,7 +64,11 @@ export default function WorkImagesMobile() {
           {MOBILE_IMAGES.map((image, index) => (
             <motion.button
               key={index}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index);
+                setIsPaused(true);
+                setTimeout(() => setIsPaused(false), 5000); // Resume after 5 seconds
+              }}
               className={`relative aspect-square overflow-hidden rounded-lg transition-all flex-shrink-0 w-16 h-16 ${
                 activeIndex === index
                   ? "ring-2 ring-brand-500 scale-105"
@@ -77,7 +94,11 @@ export default function WorkImagesMobile() {
         {MOBILE_IMAGES.map((_, index) => (
           <button
             key={index}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {
+              setActiveIndex(index);
+              setIsPaused(true);
+              setTimeout(() => setIsPaused(false), 5000); // Resume after 5 seconds
+            }}
             className={`h-1.5 rounded-full transition-all ${
               activeIndex === index
                 ? "w-6 bg-brand-500"

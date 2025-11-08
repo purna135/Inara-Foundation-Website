@@ -4,6 +4,7 @@
     "title": "Day of Service",
     "slug": "day-of-service",
     "type": "Collaborations",
+    "collaborator": "Bakul Foundation",
     "date": "March 30 & September 21, 2025",
     "location": "Hatiasuni, Ishaneswar & Dhirukuti slums",
     "participants": "3,000+ children across 20 slum areas",
@@ -23,14 +24,15 @@
   },
   {
     "id": "raja-celebration",
-    "title": "Raja Celebration at Adruta Fondling Home",
+    "title": "Raja Celebration at Raja Rani Slum",
     "slug": "raja-celebration",
-    "type": "Interactive",
+    "type": "Collaborations",
+    "collaborator": "Aashra Foundation",
     "date": "June 13, 2024",
-    "location": "Adruta Fondling Home, Bhubaneswar",
+    "location": "Raja Rani Slum, Bhubaneswar",
     "participants": "30 girls",
-    "summary": "Celebrated Raja festival with underprivileged girls, fostering joy and inclusion through cultural celebration.",
-    "description": "On 13 June 2025, volunteers of Inara Foundation celebrated Raja with 30 girls at Adruta Fondling Home, fostering joy and inclusion. This festival of womanhood offered underprivileged children a chance to feel recognized and valued. We distributed Raja kits with bangles, bindis, combs, clips, and ribbons. Children also received Poda Pitha, fruits, traditional sweets and handwritten notes with warm wishes. Our volunteers ensured every child felt included and valued. The day was filled with laughter and excitement as children enjoyed the cultural celebration. Through such initiatives, we aim to spread happiness, promote inclusivity and empower young girls so that no child is left out during festive occasions.",
+    "summary": "Celebrated Raja festival with underprivileged girls in collaboration with Aashra Foundation, fostering joy and inclusion.",
+    "description": "On 13 June 2025, volunteers of Inara Foundation, in collaboration with Aashra Foundation, celebrated Raja with 30 girls at Raja Rani Slum, fostering joy and inclusion. This festival of womanhood offered underprivileged children a chance to feel recognized and valued. We distributed Raja kits with bangles, bindis, combs, clips, and ribbons. Children also received Poda Pitha, fruits, traditional sweets and handwritten notes with warm wishes. Our volunteers ensured every child felt included and valued. The day was filled with laughter and excitement as children enjoyed the cultural celebration. Through such initiatives, we aim to spread happiness, promote inclusivity and empower young girls so that no child is left out during festive occasions. We are grateful to Aashra Foundation for their partnership in making this celebration meaningful.",
     "cover": "/project-images/RAJA CELEBRATION AT ADRUTA FONDLING HOME/PHOTO-2025-11-02-22-51-13.jpg",
     "images": [
       "/project-images/RAJA CELEBRATION AT ADRUTA FONDLING HOME/PHOTO-2025-11-02-22-51-13.jpg",
@@ -42,6 +44,7 @@
     ],
     "highlights": [
       "30 girls participated",
+      "Collaboration with Aashra Foundation",
       "Raja kits distributed with bangles, bindis, combs, clips, and ribbons",
       "Traditional sweets and Poda Pitha served",
       "Handwritten notes with warm wishes"
@@ -147,15 +150,16 @@
     ]
   },
   {
-    "id": "iiit-cancer-shelter-visit",
-    "title": "IIIT Bhubaneswar Cancer Shelter Visit",
-    "slug": "iiit-cancer-shelter-visit",
+    "id": "storytelling-cancer-shelter",
+    "title": "Storytelling at the Cancer Shelter",
+    "slug": "storytelling-cancer-shelter",
     "type": "Collaborations",
+    "collaborator": "Bakul Foundation",
     "date": "January 18, 2025",
     "location": "CanKids Cancer Shelter, SUM Hospital, Bhubaneswar",
-    "participants": "Inara & IIIT volunteers",
-    "summary": "Collaborative visit bringing joy and moments of connection to children at cancer shelter.",
-    "description": "On January 18, 2025, Inara Foundation volunteers, along with students from IIIT Bhubaneswar, spent a beautiful day at the CanKids Cancer Shelter near SUM Hospital, Bhubaneswar, as part of the Vishist 2025 initiative. Volunteers from both Inara and IIIT Bhubaneswar came together to engage with the children, bringing smiles and moments of joy that brightened the day. The visit was filled with excitement, stories, and gentle moments of connection that touched many hearts. From creative interactions to simply being present, the day was a reminder that even the smallest acts of care can mean so much. This collaborative effort reflects a shared belief that everyone deserves the chance to give, to care, and to make a difference. Inara Foundation continues to cherish such moments, where compassion feels real and hope feels closer.",
+    "participants": "Children and families",
+    "summary": "Weekly storytelling sessions bringing laughter, creativity, and hope to young warriors battling cancer.",
+    "description": "At the CanKids Shelter, Inara Foundation volunteers have made it a weekly ritual to spend time with young warriors battling cancer and their families. Each visit fills the space with laughter, creativity, and hope - turning ordinary afternoons into moments of healing and joy. A special storytelling session led by Sujit Mahapatra, founder of Bakul Foundation, brought extra warmth to the shelter. His words sparked imagination and happiness, touching not only the children but also every volunteer present. We're deeply grateful to CanKids Kidscan for their trust and continued collaboration, and to our volunteers whose compassion and dedication make each visit meaningful. The CanKids Shelter continues to be a place where resilience shines, and every story shared becomes a step toward healing.",
     "cover": "/project-images/IIIT BHUBANESWAR CANCER SHELTER VISIT _/PHOTO-2025-05-15-23-04-33.jpg",
     "images": [
       "/project-images/IIIT BHUBANESWAR CANCER SHELTER VISIT _/PHOTO-2025-05-15-23-04-33.jpg",
@@ -165,10 +169,10 @@
       "/project-images/IIIT BHUBANESWAR CANCER SHELTER VISIT _/PHOTO-2025-05-15-23-04-38.jpg"
     ],
     "highlights": [
-      "Part of Vishist 2025 initiative",
-      "Collaboration with IIIT Bhubaneswar",
-      "Creative interactions with children",
-      "Stories and moments of connection"
+      "Weekly storytelling sessions",
+      "Led by Sujit Mahapatra from Bakul Foundation",
+      "Moments of healing and joy",
+      "Collaboration with CanKids Kidscan"
     ]
   },
   {

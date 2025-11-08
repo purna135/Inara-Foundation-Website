@@ -63,7 +63,7 @@ const PROJECTS = [
     title: "Acointier: Building Bonds",
     description: "A team-building event around Friendship Day at a cozy new café, featuring charades, friendship band exchanges, and meaningful conversations to strengthen the volunteer community.",
     impact: "Fostered strong bonds among new volunteers",
-    image: "/Inara-nagpur/acointier.jpeg",
+    image: "/Inara-nagpur/acointier.jpg",
     icon: Handshake,
     color: "from-brand-300 to-brand-400",
     highlights: [
