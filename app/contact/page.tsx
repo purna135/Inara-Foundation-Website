@@ -7,16 +7,58 @@ import { Mail, Phone, MapPin, Send, Users, Heart, Instagram, Linkedin, Facebook,
 import Link from 'next/link';
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setStatus('success');
+    setStatus('idle');
+    setErrorMessage('');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Validate form data
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+    const subject = formData.get('subject') as string;
+
+    if (!name || !email || !message) {
+      setStatus('error');
+      setErrorMessage('Please fill in all required fields.');
       setIsSubmitting(false);
-    }, 1000);
+      return;
+    }
+
+    // Map form fields to Google Form entry IDs
+    const googleFormData = new FormData();
+    googleFormData.append('entry.1828006402', name);
+    googleFormData.append('entry.555278571', email);
+    googleFormData.append('entry.1475863885', subject || '');
+    googleFormData.append('entry.204782108', message);
+
+    try {
+      // Submit to Google Form
+      const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfiJBblNaGJJI6WA_8bJ5546ne01qRbrnfx4ZHKVhoCp9k6oA/formResponse', {
+        method: 'POST',
+        body: googleFormData,
+        mode: 'no-cors', // Google Forms requires no-cors mode
+      });
+
+      // Since we're using no-cors mode, we can't read the response
+      // but if we reach here without error, the submission likely succeeded
+      setStatus('success');
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+      setErrorMessage('Unable to send your message. Please check your internet connection and try again, or contact us directly via email.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -197,14 +239,27 @@ export default function ContactPage() {
                       Thanks for reaching out. We've received your message and will get back to you soon.
                     </p>
                     <button
-                      onClick={() => setStatus(null)}
-                      className="mt-6 text-sm font-semibold text-brand-600 hover:text-brand-700"
+                      onClick={() => setStatus('idle')}
+                      className="mt-6 text-sm font-semibold text-brand-600 hover:text-brand-700 transition"
                     >
                       Send another message
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                    {/* Error Message */}
+                    {status === 'error' && (
+                      <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-center">
+                        <div className="flex items-center justify-center gap-2 text-red-800">
+                          <svg className="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-sm font-semibold">Error</span>
+                        </div>
+                        <p className="mt-2 text-sm text-red-700">{errorMessage}</p>
+                      </div>
+                    )}
+
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-neutral-700">
@@ -212,10 +267,12 @@ export default function ContactPage() {
                         </label>
                         <input
                           id="name"
+                          name="name"
                           type="text"
                           required
                           placeholder="Sweta Padma"
                           className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 placeholder:text-neutral-400 focus-ring transition hover:border-brand-200"
+                          suppressHydrationWarning
                         />
                       </div>
                       <div>
@@ -224,10 +281,12 @@ export default function ContactPage() {
                         </label>
                         <input
                           id="email"
+                          name="email"
                           type="email"
                           required
                           placeholder="sweta@gmail.com"
                           className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 placeholder:text-neutral-400 focus-ring transition hover:border-brand-200"
+                          suppressHydrationWarning
                         />
                       </div>
                     </div>
@@ -238,9 +297,11 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="subject"
+                        name="subject"
                         type="text"
                         placeholder="How can we help you?"
                         className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 placeholder:text-neutral-400 focus-ring transition hover:border-brand-200"
+                        suppressHydrationWarning
                       />
                     </div>
 
@@ -250,10 +311,12 @@ export default function ContactPage() {
                       </label>
                       <textarea
                         id="message"
+                        name="message"
                         required
                         rows={6}
                         placeholder="Tell us more about your inquiry..."
                         className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 placeholder:text-neutral-400 focus-ring transition hover:border-brand-200 resize-none"
+                        suppressHydrationWarning
                       />
                     </div>
 
