@@ -507,11 +507,17 @@ export default function AboutPage() {
           </div>
 
           <FadeIn delay={0.7}>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-lg ring-1 ring-brand-500/20 transition-all hover:from-brand-300 hover:to-brand-400 hover:shadow-xl focus-ring">
                   <Users size={18} />
                   Become a Volunteer
+                </span>
+              </Link>
+              <Link href="/donate">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20 focus-ring">
+                  <Heart size={18} />
+                  Support Our Mission
                 </span>
               </Link>
             </div>

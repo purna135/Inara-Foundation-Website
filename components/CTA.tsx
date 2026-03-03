@@ -25,12 +25,12 @@ export default function CTA() {
             <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row gap-3">
               <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm focus-ring w-full sm:w-auto">
-                  <Heart size={18} className="mr-2" /> Become a Volunteer
+                  <HeartHandshake size={18} className="mr-2" /> Become a Volunteer
                 </span>
               </Link>
-              <Link href="/contact#contact-form">
+              <Link href="/donate">
                 <span className="inline-flex items-center justify-center rounded-full bg-white/80 px-5 py-2.5 text-sm font-semibold text-brand-900 ring-1 ring-black/10 hover:bg-white w-full sm:w-auto">
-                  <HeartHandshake size={18} className="mr-2" /> Partner with Us
+                  <Heart size={18} className="mr-2" /> Support Our Work
                 </span>
               </Link>
             </div>

@@ -290,8 +290,15 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                   This project is part of Inara Foundation's commitment to creating lasting positive change in our communities. Through dedicated volunteers and generous supporters, we continue to touch lives and spread compassion.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4">
+                  <Link
+                    href="/donate"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-2.5 text-sm font-semibold text-neutral-950 shadow-sm transition hover:from-brand-300 hover:to-brand-400"
+                  >
+                    Support Our Work
+                    <ArrowLeft size={16} className="rotate-180" />
+                  </Link>
                   <Link href="/about" className="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 transition text-sm font-semibold">
-                    Learn More About Our Mission
+                    About Our Mission
                     <ArrowLeft size={16} className="rotate-180" />
                   </Link>
                 </div>

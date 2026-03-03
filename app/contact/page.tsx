@@ -369,10 +369,10 @@ export default function ContactPage() {
                   Learn More About Us
                 </span>
               </Link>
-              <Link href="/projects">
+              <Link href="/donate">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-6 py-3 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-black/10 transition hover:bg-white">
                   <Heart size={16} />
-                  View Our Projects
+                  Support Our Work
                 </span>
               </Link>
             </div>

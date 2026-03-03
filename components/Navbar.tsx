@@ -11,6 +11,7 @@ const links = [
   { href: "/projects", label: "Our Work" },
   { href: "/nagpur", label: "Nagpur" },
   { href: "/contact", label: "Contact" },
+  { href: "/donate", label: "Donate" },
 ];
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="group relative text-sm font-medium text-neutral-700 transition-colors hover:text-brand-700"
+              className="group relative whitespace-nowrap text-sm font-medium text-neutral-700 transition-colors hover:text-brand-700"
             >
               <span>{l.label}</span>
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-500 to-brand-400 transition-all duration-300 group-hover:w-full" />
@@ -132,7 +133,7 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link href="/contact" onClick={() => setOpen(false)}>
+              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                 <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
                   Join Us <Users size={16} />
                 </span>

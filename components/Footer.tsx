@@ -58,6 +58,15 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <span className="text-brand-500">›</span>
               <Link
+                href="/donate"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+              >
+                Donate
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-brand-500">›</span>
+              <Link
                 href="/contact"
                 className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
               >
