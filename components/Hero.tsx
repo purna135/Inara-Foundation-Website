@@ -87,7 +87,7 @@ export default function Hero() {
         <>
           <Image 
             src={active.bgSrc} 
-            alt="" 
+            alt="Inara Foundation volunteers making a difference in the community" 
             fill 
             priority 
             sizes="100vw"

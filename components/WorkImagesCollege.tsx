@@ -1,26 +1,26 @@
 "use client";
 import React, { useState } from "react";
 
-type CollageImage = { src: string };
+type CollageImage = { src: string; alt: string };
 
 const WORK_IMAGES: CollageImage[] = [
-  { src: "/collage-image/image-1.jpg" },
-  { src: "/collage-image/image-2.jpg" },
-  { src: "/collage-image/image-3.jpg" },
-  { src: "/collage-image/image-4.jpg" },
-  { src: "/collage-image/image-5.jpg" },
-  { src: "/collage-image/image-6.jpg" },
-  { src: "/collage-image/image-7.jpg" },
-  { src: "/collage-image/image-8.jpg" },
-  { src: "/collage-image/image-9.jpg" },
-  { src: "/collage-image/image-10.jpg" },
-  { src: "/collage-image/image-11.jpg" },
-  { src: "/collage-image/image-12.jpg" },
-  { src: "/collage-image/image-13.jpg" },
-  { src: "/collage-image/image-14.jpg" },
-  { src: "/collage-image/image-15.png" },
-  { src: "/collage-image/image-16.jpg" },
-  { src: "/collage-image/image-17.jpg" },
+  { src: "/collage-image/image-1.jpg", alt: "Volunteers engaging with children during community outreach" },
+  { src: "/collage-image/image-2.jpg", alt: "Inara Foundation team at a cancer shelter visit" },
+  { src: "/collage-image/image-3.jpg", alt: "Students participating in an Inara educational workshop" },
+  { src: "/collage-image/image-4.jpg", alt: "Volunteers distributing supplies during Project Amrit" },
+  { src: "/collage-image/image-5.jpg", alt: "Children creating art during a hospital creativity session" },
+  { src: "/collage-image/image-6.jpg", alt: "Inara volunteers celebrating Holi with Sahaya kids" },
+  { src: "/collage-image/image-7.jpg", alt: "Community engagement during a Day of Service event" },
+  { src: "/collage-image/image-8.jpg", alt: "Volunteers crafting Rakhis at the Raksha Bandhan workshop" },
+  { src: "/collage-image/image-9.jpg", alt: "Inara Foundation team bonding at a community event" },
+  { src: "/collage-image/image-10.jpg", alt: "Children smiling during a storytelling session" },
+  { src: "/collage-image/image-11.jpg", alt: "Volunteers serving refreshments during summer relief" },
+  { src: "/collage-image/image-12.jpg", alt: "Raja festival celebration with underprivileged children" },
+  { src: "/collage-image/image-13.jpg", alt: "Inara volunteers at a tree plantation drive" },
+  { src: "/collage-image/image-14.jpg", alt: "Group photo of Inara Foundation volunteers" },
+  { src: "/collage-image/image-15.png", alt: "Volunteers interacting with residents at a care home" },
+  { src: "/collage-image/image-16.jpg", alt: "Children enjoying games during a community activity" },
+  { src: "/collage-image/image-17.jpg", alt: "Inara Foundation volunteers spreading smiles" },
 ];
 
 export default function WorkImagesCollege() {
@@ -74,8 +74,8 @@ export default function WorkImagesCollege() {
       <div className="absolute -bottom-185 md:-bottom-70 inset-0 -z-10 pointer-events-none">
         <img
           src="/images/odisha-map.png"
-          alt=""
-          aria-hidden
+          alt="Map of Odisha highlighting Inara Foundation's areas of work"
+          aria-hidden="true"
           className="h-full w-full object-contain opacity-8 grayscale"
         />
       </div>
@@ -116,7 +116,7 @@ export default function WorkImagesCollege() {
           >
             <img
               src={image.src}
-              alt={`Collage image ${index + 1}`}
+              alt={image.alt}
               className="w-full h-auto object-cover rounded-lg border-3 border-brand-300 transition-all duration-300 grayscale hover:grayscale-0"
               style={{ aspectRatio: "1/1" }}
             />
