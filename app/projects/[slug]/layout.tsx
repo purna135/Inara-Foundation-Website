@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const projectUrl = `https://inarafoundation.in/projects/${slug}`;
-  const projectImage = project.cover || '/website-thumbnail-image.png';
+  const projectImage = project.cover || '/website-preview-image.jpg';
 
   return {
     title: project.title,
