@@ -6,7 +6,6 @@ type FadeInProps = {
   children: ReactNode;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
-  fullWidth?: boolean;
   className?: string;
 };
 
@@ -14,7 +13,6 @@ export default function FadeIn({
   children,
   delay = 0,
   direction = 'up',
-  fullWidth = false,
   className = '',
 }: FadeInProps) {
   const directionOffset = {
@@ -35,7 +33,7 @@ export default function FadeIn({
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={fullWidth ? className : `${className}`}
+      className={className}
     >
       {children}
     </motion.div>

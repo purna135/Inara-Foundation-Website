@@ -4,10 +4,6 @@ import Button from "@/components/Button";
 import FadeIn from "@/components/FadeIn";
 import Hero from "@/components/Hero";
 import {
-  Droplets,
-  Leaf,
-  Hammer,
-  GraduationCap,
   CheckCircle,
   Users,
   Heart,
@@ -18,11 +14,8 @@ import WorkImagesCollege from "@/components/WorkImagesCollege";
 import WorkImagesMobile from "@/components/WorkImagesMobile";
 import Stats from "@/components/Stats";
 import Projects from "@/components/Projects";
-import Events from "@/components/Events";
-import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
-import CTA2 from "@/components/CTA2";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,29 +43,6 @@ export const metadata: Metadata = {
     images: ["/website-preview-image.jpg"],
   },
 };
-
-const HIGHLIGHTS: { icon: any; title: string; desc: string }[] = [
-  {
-    icon: Droplets,
-    title: "Project Amrit",
-    desc: "Providing essential relief during crises.",
-  },
-  {
-    icon: Leaf,
-    title: "Pran-e",
-    desc: "Advocating for animal welfare and safety.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Project Happiness",
-    desc: "Raising awareness and promoting well-being.",
-  },
-  {
-    icon: Hammer,
-    title: "Support Programs",
-    desc: "Cancer shelter visits and blood donation camps.",
-  },
-];
 
 const CORE_VALUES: { icon: any; title: string; desc: string }[] = [
   {
@@ -191,24 +161,13 @@ export default function HomePage() {
         <Projects />
       </FadeIn>
 
-      {/* Upcoming Events */}
-      {/* <Events /> */}
-
-      {/* Team */}
-      {/* <Team /> */}
-
-      {/* Testimonials */}
       <FadeIn>
         <Testimonials />
       </FadeIn>
 
-      {/* Call to action */}
       <FadeIn>
         <CTA />
       </FadeIn>
-
-      {/* Simple CTA 2 */}
-      {/* <CTA2 /> */}
     </main>
   );
 }
