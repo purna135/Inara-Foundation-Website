@@ -301,9 +301,9 @@ export default function DonatePage() {
                     <ArrowRight size={16} />
                   </span>
                 </Link>
-                <Link href="/impact">
+                <Link href="/projects">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3">
-                    See our impact
+                    See our projects
                     <ArrowRight size={16} />
                   </span>
                 </Link>
