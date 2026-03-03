@@ -8,7 +8,7 @@ import { Calendar, MapPin, Users, ArrowRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import projectsData from '@/data/projects.json';
 
-export default function ProgramsPage() {
+export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<string>('All');
   
   const projects = projectsData as any[];
@@ -23,7 +23,7 @@ export default function ProgramsPage() {
     <main>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-brand-50/40">
-        <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
+        <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
         <div className="absolute -top-28 right-[-20%] h-96 w-96 rounded-full bg-gradient-to-br from-brand-400/25 to-brand-500/10 blur-3xl" />
         <div className="absolute -bottom-24 left-[-10%] h-96 w-96 rounded-full bg-gradient-to-tr from-brand-300/20 to-transparent blur-3xl" />
 
@@ -72,7 +72,6 @@ export default function ProgramsPage() {
 
       {/* Filter Tabs & Projects Grid */}
       <Section className="bg-white">
-        {/* Filter Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-3">
           {filters.map((filter) => (
             <button
@@ -89,7 +88,6 @@ export default function ProgramsPage() {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -107,7 +105,6 @@ export default function ProgramsPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl hover:border-brand-200"
               >
-                {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={project.cover}
@@ -116,8 +113,6 @@ export default function ProgramsPage() {
                     className="object-cover transition duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  
-                  {/* Type Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur-sm">
                       {project.type}
@@ -125,7 +120,6 @@ export default function ProgramsPage() {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
                   <div className="flex items-center gap-4 text-xs text-neutral-500">
                     <div className="flex items-center gap-1">
@@ -166,7 +160,6 @@ export default function ProgramsPage() {
                   </div>
                 </div>
 
-                {/* Hover Accent */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </motion.article>
             ))}
@@ -184,7 +177,7 @@ export default function ProgramsPage() {
       <Section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" size="dense">
         <FadeIn>
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-400 to-brand-500 p-8 sm:p-12">
-            <div className="absolute inset-0 bg-grid opacity-20" />
+            <div className="absolute inset-0 bg-grid opacity-20" aria-hidden="true" />
             <div className="relative mx-auto max-w-2xl text-center">
               <h2 className="font-display text-3xl text-neutral-900 sm:text-4xl">
                 Want to be part of the change?
@@ -192,11 +185,16 @@ export default function ProgramsPage() {
               <p className="mt-3 text-neutral-900">
                 Join us as a volunteer and help create lasting impact in our community.
               </p>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
                 <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
                   <span className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-neutral-800">
                     <Users size={16} />
                     Become a Volunteer
+                  </span>
+                </Link>
+                <Link href="/donate">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-6 py-3 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-black/10 transition hover:bg-white">
+                    Support Our Work
                   </span>
                 </Link>
               </div>
@@ -207,5 +205,3 @@ export default function ProgramsPage() {
     </main>
   );
 }
-
-

@@ -29,7 +29,7 @@ const slidesData: Slide[] = [
     description:
       'From slum corners to open hearts, each moment shared becomes a bridge of kindness, learning, and hope.',
     primaryCta: { label: 'Volunteer with us', href: 'https://forms.gle/odBUWnLF5xS464ba7' },
-    secondaryCta: { label: 'Explore our work', href: '/programs' },
+    secondaryCta: { label: 'Explore our work', href: '/projects' },
     imageAlt: 'Compassion in Action, Light That Endures',
     imageSrc: '/hero-images/hero-image-1.PNG',
     bgSrc: '/hero-images/hero-bg-1.jpg',
@@ -56,7 +56,7 @@ const slidesData: Slide[] = [
     highlight: 'Kindness',
     description:
       'Each visit reaffirms our belief in the enduring strength of compassion, where small acts spark lasting hope.',
-    primaryCta: { label: 'See programs', href: '/programs' },
+    primaryCta: { label: 'See projects', href: '/projects' },
     secondaryCta: { label: 'Our impact', href: '/about' },
     imageAlt: 'Kindness That Heals, Connections That Last',
     imageSrc: '/hero-images/hero-image-3.png',

@@ -116,9 +116,9 @@ export default function NagpurPage() {
                   Join Nagpur Chapter
                 </span>
               </Link>
-              <Link href="/programs">
+              <Link href="/projects">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur transition-all hover:bg-white/20 focus-ring">
-                  Explore All Programs
+                  Explore All Projects
                   <ArrowRight size={18} />
                 </span>
               </Link>

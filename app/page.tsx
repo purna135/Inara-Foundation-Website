@@ -109,9 +109,9 @@ export default function HomePage() {
                 <Link href="/about">
                   <Button>Learn Our Story</Button>
                 </Link>
-                <Link href="/programs">
+                <Link href="/projects">
                   <span className="inline-flex items-center gap-2 rounded-full border-2 border-brand-500 bg-transparent px-6 py-2.5 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50 whitespace-nowrap">
-                    View Our Programs
+                    View Our Projects
                     <ArrowRight size={16} />
                   </span>
                 </Link>

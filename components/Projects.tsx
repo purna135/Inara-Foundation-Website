@@ -10,14 +10,11 @@ import Link from "next/link";
 type Project = {
   id: string;
   title: string;
-  type: "Interactive" | "Fundraisers" | "Collaborations" | "Virtual";
+  type: "Interactive" | "Fundraisers" | "Collaborations";
   summary: string;
   cover: string;
-  raised?: string;
-  goal?: string;
 };
 
-// Data separated for easy future CMS migration
 export const PROJECTS: Project[] = (projectsData as any[]).slice(0, 9) as any as Project[];
 
 const TABS: Array<Project["type"] | "All"> = [
@@ -25,7 +22,6 @@ const TABS: Array<Project["type"] | "All"> = [
   "Interactive",
   "Fundraisers",
   "Collaborations",
-  "Virtual",
 ];
 
 export default function Projects() {

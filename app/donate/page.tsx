@@ -64,7 +64,7 @@ const IMPACT_AREAS = [
     icon: TreePine,
     title: "Environment & Relief",
     description:
-      "Enable summer relief drives, clean-up initiatives, and animal welfare programs across Odisha.",
+      "Enable summer relief drives, clean-up initiatives, and animal welfare projects across Odisha.",
   },
   {
     icon: Gift,
@@ -120,7 +120,7 @@ export default function DonatePage() {
                     Donate Now
                   </span>
                 </a>
-                <Link href="/programs">
+                <Link href="/projects">
                   <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-700 shadow-sm ring-1 ring-neutral-200 transition hover:bg-neutral-50 hover:text-brand-700">
                     See Our Work
                     <ArrowRight size={16} />
@@ -294,10 +294,16 @@ export default function DonatePage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-6">
                 <Link href="/about">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3">
-                    Learn more about our organisation
+                    About our organisation
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+                <Link href="/impact">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3">
+                    See our impact
                     <ArrowRight size={16} />
                   </span>
                 </Link>
@@ -365,10 +371,10 @@ export default function DonatePage() {
                   Partner with Us
                 </span>
               </Link>
-              <Link href="/programs">
+              <Link href="/projects">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-6 py-3 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-black/10 transition hover:bg-white">
                   <Sparkles size={16} />
-                  Explore Our Programs
+                  Explore Our Projects
                 </span>
               </Link>
             </div>

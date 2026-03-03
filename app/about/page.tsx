@@ -380,7 +380,7 @@ export default function AboutPage() {
                 </p>
                 <p className="text-neutral-700 leading-relaxed">
                   As a Section 8 platform, we are dedicated to executing high-impact
-                  programs in community upliftment and animal welfare, ensuring every
+                  projects in community upliftment and animal welfare, ensuring every
                   initiative delivers meaningful social change.
                 </p>
               </div>

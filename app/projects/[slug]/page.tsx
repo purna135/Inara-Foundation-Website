@@ -81,7 +81,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         <div className="absolute top-0 left-0 right-0 z-10 border-b border-white/10 bg-black/20 backdrop-blur-sm">
           <div className="container-px mx-auto max-w-[1200px] py-4">
             <Link
-              href="/programs"
+              href="/projects"
               className="inline-flex items-center gap-2 text-sm text-white/90 transition hover:text-white"
             >
               <ArrowLeft size={16} />
@@ -497,7 +497,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/programs">
+          <Link href="/projects">
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-8 py-4 text-base font-semibold text-neutral-950 shadow-lg transition hover:from-brand-300 hover:to-brand-400 hover:shadow-xl">
               View All Projects
               <ArrowLeft size={18} className="rotate-180" />

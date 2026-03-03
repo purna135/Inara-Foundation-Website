@@ -40,10 +40,10 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <span className="text-brand-500">›</span>
               <Link
-                href="/programs"
+                href="/projects"
                 className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
               >
-                Programs
+                Projects
               </Link>
             </li>
             <li className="flex items-center gap-2">
