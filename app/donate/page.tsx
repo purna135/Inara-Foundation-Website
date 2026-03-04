@@ -21,7 +21,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Donate",
   description:
-    "Support Inara Foundation's mission to create meaningful change. Your contribution helps fund community projects, animal welfare initiatives, and youth-led programs across India.",
+    "Support Inara Foundation's mission to create meaningful change. Your contribution funds community projects, animal welfare, and youth-led programs.",
+  alternates: {
+    canonical: "/donate",
+  },
   openGraph: {
     type: "website",
     url: "https://inarafoundation.in/donate",

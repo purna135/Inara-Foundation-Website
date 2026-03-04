@@ -257,6 +257,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                     <button
                       key={index}
                       onClick={() => setSelectedImage(index + 1)}
+                      aria-label={`View ${project.title} photo ${index + 2}`}
                       className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2"
                     >
                       <Image

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 type CollageImage = { src: string; alt: string };
 
@@ -72,11 +73,13 @@ export default function WorkImagesCollege() {
   return (
     <div className="p-0 md:p-4 md:mt-8 md:mt-0">
       <div className="absolute -bottom-185 md:-bottom-70 inset-0 -z-10 pointer-events-none">
-        <img
+        <Image
           src="/images/odisha-map.png"
           alt="Map of Odisha highlighting Inara Foundation's areas of work"
-          aria-hidden="true"
-          className="h-full w-full object-contain opacity-8 grayscale"
+          aria-hidden={true}
+          fill
+          className="object-contain opacity-8 grayscale"
+          sizes="100vw"
         />
       </div>
 
@@ -114,11 +117,13 @@ export default function WorkImagesCollege() {
               willChange: "width, transform",
             }}
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
+              width={200}
+              height={200}
               className="w-full h-auto object-cover rounded-lg border-3 border-brand-300 transition-all duration-300 grayscale hover:grayscale-0"
-              style={{ aspectRatio: "1/1" }}
+              sizes="(max-width: 768px) 20vw, 16vw"
             />
           </div>
         ))}

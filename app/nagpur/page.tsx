@@ -17,7 +17,34 @@ import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Nagpur Chapter | Inara Foundation",
-  description: "Discover Inara Foundation's Nagpur chapter - a thriving community of 83+ volunteers creating meaningful change through compassion-driven projects in elderly care, child safety, and community building.",
+  description:
+    "Discover Inara Foundation's Nagpur chapter — 83+ volunteers creating meaningful change through projects in elderly care, child safety, and community building.",
+  alternates: {
+    canonical: "/nagpur",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://inarafoundation.in/nagpur",
+    title: "Nagpur Chapter - Inara Foundation",
+    description:
+      "A thriving community of 83+ volunteers in Nagpur creating meaningful change through compassion-driven projects in elderly care, child safety, and community building.",
+    images: [
+      {
+        url: "/website-preview-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Inara Foundation Nagpur Chapter volunteers",
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nagpur Chapter - Inara Foundation",
+    description:
+      "A thriving community of 83+ volunteers in Nagpur creating meaningful change through compassion-driven projects in elderly care, child safety, and community building.",
+    images: ["/website-preview-image.jpg"],
+  },
 };
 
 const STATS = [

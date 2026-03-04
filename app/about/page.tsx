@@ -17,7 +17,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Inara Foundation's journey from a passion project to a credible Section 8 organization. Learn about our vision, mission, and commitment to holistic welfare through transparent, youth-driven community action.",
+  description:
+    "Learn about Inara Foundation's journey from a passion project to a Section 8 non-profit. Discover our vision, mission, and youth-driven community action.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     type: "website",
     url: "https://inarafoundation.in/about",

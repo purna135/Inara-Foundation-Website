@@ -20,7 +20,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home",
-  description: "Join Inara Foundation in turning compassion into action. We believe no cause is too small, and no impact is too distant. Together, we're building a kinder, stronger, and more compassionate world.",
+  description:
+    "Join Inara Foundation in turning compassion into action. Together, we're building a kinder, stronger, and more compassionate world for communities across India.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     url: "https://inarafoundation.in",

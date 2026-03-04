@@ -62,9 +62,48 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://inarafoundation.in/#organization',
+        name: 'Inara Foundation',
+        url: 'https://inarafoundation.in',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://inarafoundation.in/inara-icon.png',
+        },
+        sameAs: [
+          'https://www.instagram.com/inara.npo/',
+          'https://www.facebook.com/inaraorganisation',
+          'https://www.linkedin.com/company/inara-by-sweta',
+          'https://x.com/inarabysweta',
+        ],
+        description:
+          'A youth-led Section 8 non-profit turning compassion into meaningful change through community upliftment, animal welfare, and environmental protection across India.',
+        foundingDate: '2020',
+        areaServed: 'India',
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://inarafoundation.in/#website',
+        url: 'https://inarafoundation.in',
+        name: 'Inara Foundation',
+        publisher: {
+          '@id': 'https://inarafoundation.in/#organization',
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="en" className={`${manrope.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         {children}
         <Footer />

@@ -2,7 +2,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Ready to make a difference? Connect with Inara Foundation to volunteer, collaborate, or support our initiatives. Join our community of passionate youth creating meaningful social impact across India.",
+  description:
+    "Connect with Inara Foundation to volunteer, collaborate, or support our initiatives. Join passionate youth creating meaningful social impact across India.",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     type: "website",
     url: "https://inarafoundation.in/contact",

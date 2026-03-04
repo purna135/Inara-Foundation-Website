@@ -127,7 +127,13 @@ export default function Hero() {
                 </h1>
                 <p className="text-sm sm:text-base max-w-xl text-neutral-700 leading-relaxed mx-auto lg:mx-0">{active.description}</p>
                 <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 flex-wrap pt-2 sm:pt-2 mb-2 lg:mb-0">
-                  <Link href={active.primaryCta.href}>
+                  <Link
+                    href={active.primaryCta.href}
+                    {...(active.primaryCta.href.startsWith('http') && {
+                      target: '_blank',
+                      rel: 'noopener noreferrer',
+                    })}
+                  >
                     <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-neutral-950 shadow-sm focus-ring hover:from-brand-300 hover:to-brand-400">
                       {active.primaryCta.label}
                       <Users size={14} className="sm:w-4 sm:h-4" />

@@ -2,7 +2,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Explore Inara Foundation's diverse initiatives - from Project Amrit's summer relief and cancer shelter visits to storytelling sessions and cultural celebrations. Every project driven by compassionate youth volunteers.",
+  description:
+    "Explore Inara Foundation's initiatives — from summer relief and cancer shelter visits to storytelling sessions. Projects driven by compassionate youth volunteers.",
+  alternates: {
+    canonical: "/projects",
+  },
   openGraph: {
     type: "website",
     url: "https://inarafoundation.in/projects",
