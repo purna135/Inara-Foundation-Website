@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Manrope, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/Navbar";
@@ -6,10 +6,11 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +31,9 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "/inara-icon.png",
+    apple: "/inara-icon.png",
   },
+  manifest: "/manifest.json",
   metadataBase: new URL("https://inarafoundation.in"),
   openGraph: {
     type: "website",
@@ -55,6 +58,10 @@ export const metadata: Metadata = {
     description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
     images: ["/website-preview-image.jpg"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#d4a745",
 };
 
 export default function RootLayout({
@@ -104,8 +111,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <Navbar />
-        {children}
+        <div id="main-content">
+          {children}
+        </div>
         <Footer />
         <Analytics />
         <SpeedInsights />

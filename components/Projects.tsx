@@ -6,16 +6,9 @@ import { useMemo, useState } from "react";
 import Section from "./Section";
 import projectsData from "@/data/projects.json";
 import Link from "next/link";
+import type { Project } from "@/types/project";
 
-type Project = {
-  id: string;
-  title: string;
-  type: "Interactive" | "Fundraisers" | "Collaborations";
-  summary: string;
-  cover: string;
-};
-
-export const PROJECTS: Project[] = (projectsData as any[]).slice(0, 9) as any as Project[];
+export const PROJECTS: Project[] = projectsData.slice(0, 9) as Project[];
 
 const TABS: Array<Project["type"] | "All"> = [
   "All",
@@ -61,7 +54,7 @@ export default function Projects() {
               setTab(t);
               setPage(0);
             }}
-            className={`group relative rounded-full px-4 py-2 text-sm ring-1 transition-all cursor-pointer ${
+            className={`group relative rounded-full px-4 py-2 text-sm ring-1 transition-all cursor-pointer focus-ring ${
               tab === t
                 ? "bg-gradient-to-r from-brand-400 to-brand-300 text-neutral-950 ring-brand-400 shadow-sm"
                 : "bg-white text-neutral-700 ring-neutral-200 hover:bg-brand-50 hover:text-brand-700"
@@ -117,12 +110,12 @@ export default function Projects() {
                 <div className="flex items-center gap-4 text-xs text-neutral-500">
                   <div className="flex items-center gap-1">
                     <Calendar size={14} />
-                    <span>{(p as any).date || "Coming Soon"}</span>
+                    <span>{p.date || "Coming Soon"}</span>
                   </div>
-                  {(p as any).participants && (
+                  {p.participants && (
                     <div className="flex items-center gap-1">
                       <Users size={14} />
-                      <span>{(p as any).participants}</span>
+                      <span>{p.participants}</span>
                     </div>
                   )}
                 </div>
@@ -136,15 +129,15 @@ export default function Projects() {
                 </p>
 
                 <div className="mt-auto pt-4 space-y-3">
-                  {(p as any).location && (
+                  {p.location && (
                     <div className="flex items-center gap-1 text-xs text-neutral-500">
                       <MapPin size={14} />
-                      <span className="line-clamp-1">{(p as any).location}</span>
+                      <span className="line-clamp-1">{p.location}</span>
                     </div>
                   )}
 
                   <Link
-                    href={`/projects/${(p as any).slug || p.id}`}
+                    href={`/projects/${p.slug || p.id}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3"
                   >
                     Read More

@@ -53,7 +53,7 @@ export default function ContactPage() {
       setStatus('success');
       form.reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      if (process.env.NODE_ENV === 'development') console.error('Error submitting form:', error);
       setStatus('error');
       setErrorMessage('Unable to send your message. Please check your internet connection and try again, or contact us directly via email.');
     } finally {

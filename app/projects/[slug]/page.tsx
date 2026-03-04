@@ -23,12 +23,13 @@ import {
   X,
 } from 'lucide-react';
 import projectsData from '@/data/projects.json';
+import type { Project } from '@/types/project';
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
   const { slug } = use(params);
-  const project = (projectsData as any[]).find((p) => p.slug === slug);
+  const project = (projectsData as Project[]).find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
@@ -59,7 +60,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      if (process.env.NODE_ENV === 'development') console.error('Failed to copy:', err);
     }
   };
 
@@ -169,13 +170,13 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
               </div>
               <div>
                 <div className="text-xs text-neutral-500">
-                  {project.type === 'Collaborations' && (project as any).collaborator 
+                  {project.type === 'Collaborations' && project.collaborator 
                     ? 'Collaboration with' 
                     : 'Type'}
                 </div>
                 <div className="text-sm font-semibold text-neutral-900">
-                  {project.type === 'Collaborations' && (project as any).collaborator 
-                    ? (project as any).collaborator 
+                  {project.type === 'Collaborations' && project.collaborator 
+                    ? project.collaborator 
                     : project.type}
                 </div>
               </div>
@@ -437,7 +438,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           </button>
           <div className="relative h-full w-full max-w-6xl">
             <Image
-              src={project.images[selectedImage]}
+              src={project.images![selectedImage]}
               alt={`${project.title} - Image ${selectedImage + 1}`}
               fill
               className="object-contain"
@@ -445,7 +446,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             />
           </div>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
-            {selectedImage + 1} / {project.images.length}
+            {selectedImage + 1} / {project.images!.length}
           </div>
         </div>
       )}
@@ -462,7 +463,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {(projectsData as any[])
+          {(projectsData as Project[])
             .filter((p) => p.slug !== project.slug)
             .slice(0, 3)
             .map((relatedProject, index) => (

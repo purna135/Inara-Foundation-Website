@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur">
       <nav className="container-px mx-auto max-w-[1200px] grid h-16 grid-cols-3 items-center">
         {/* Left: Logo only */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 focus-ring rounded-lg">
           <Image
             src="/inara-logo.png"
             alt="Inara Foundation"
@@ -36,7 +36,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="group relative whitespace-nowrap text-sm font-medium text-neutral-700 transition-colors hover:text-brand-700"
+              className="group relative whitespace-nowrap text-sm font-medium text-neutral-700 transition-colors hover:text-brand-700 focus-ring rounded"
             >
               <span>{l.label}</span>
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-brand-500 to-brand-400 transition-all duration-300 group-hover:w-full" />
@@ -51,7 +51,7 @@ export default function Navbar() {
             href="https://www.instagram.com/inara.npo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-brand-700 transition-colors"
+            className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Instagram size={16} />
           </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
             href="https://www.linkedin.com/company/inara-by-sweta"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-brand-700 transition-colors"
+            className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Linkedin size={16} />
           </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
             href="https://x.com/inarabysweta"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-brand-700 transition-colors"
+            className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Twitter size={16} />
           </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
             href="https://www.facebook.com/inaraorganisation"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-brand-700 transition-colors"
+            className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Facebook size={16} />
           </Link>
@@ -92,9 +92,10 @@ export default function Navbar() {
 
         {/* Mobile: burger on right */}
         <button
-          className="md:hidden col-start-3 justify-self-end focus-ring"
+          className="md:hidden col-start-3 justify-self-end focus-ring rounded-lg"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
+          aria-expanded={open}
         >
           <svg
             width="24"
@@ -127,13 +128,13 @@ export default function Navbar() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-sm text-neutral-700 hover:text-brand-700"
+                  className="text-sm text-neutral-700 hover:text-brand-700 focus-ring rounded"
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
                 </Link>
               ))}
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="focus-ring rounded-full">
                 <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
                   Join Us <Users size={16} />
                 </span>

@@ -7,11 +7,12 @@ import Image from 'next/image';
 import { Calendar, MapPin, Users, ArrowRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import projectsData from '@/data/projects.json';
+import type { Project } from '@/types/project';
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<string>('All');
   
-  const projects = projectsData as any[];
+  const projects = projectsData as Project[];
   const filters = ['All', 'Interactive', 'Fundraisers', 'Collaborations'];
   
   const filteredProjects = useMemo(() => {
@@ -77,7 +78,7 @@ export default function ProjectsPage() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all ${
+              className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all focus-ring ${
                 activeFilter === filter
                   ? 'bg-gradient-to-r from-brand-400 to-brand-300 text-neutral-950 shadow-md ring-1 ring-brand-500/20'
                   : 'bg-neutral-100 text-neutral-700 hover:bg-brand-50 hover:text-brand-700'

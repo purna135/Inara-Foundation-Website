@@ -32,7 +32,7 @@ export default function Footer() {
               <span className="text-brand-500">›</span>
               <Link
                 href="/about"
-                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
               >
                 About
               </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
               <span className="text-brand-500">›</span>
               <Link
                 href="/projects"
-                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
               >
                 Projects
               </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
               <span className="text-brand-500">›</span>
               <Link
                 href="/nagpur"
-                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
               >
                 Nagpur
               </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
               <span className="text-brand-500">›</span>
               <Link
                 href="/donate"
-                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
               >
                 Donate
               </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
               <span className="text-brand-500">›</span>
               <Link
                 href="/contact"
-                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                className="text-neutral-300 underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
               >
                 Contact
               </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
               <span>
                 Email:{" "}
                 <a
-                  className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                  className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
                   href="mailto:inarabysweta@gmail.com"
                 >
                   inarabysweta@gmail.com
@@ -97,7 +97,7 @@ export default function Footer() {
               <span>
                 Phone:{" "}
                 <a
-                  className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500"
+                  className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
                   href="tel:+917077046262"
                 >
                   +91 7077 046 262
@@ -113,7 +113,7 @@ export default function Footer() {
           <div className="flex gap-3 text-neutral-400">
             <Link
               aria-label="Instagram"
-              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
+              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
               href="https://www.instagram.com/inara.npo/"
               target="_blank"
               rel="noopener noreferrer"
@@ -122,7 +122,7 @@ export default function Footer() {
             </Link>
             <Link
               aria-label="Facebook"
-              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
+              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
               href="https://www.facebook.com/inaraorganisation"
               target="_blank"
               rel="noopener noreferrer"
@@ -131,7 +131,7 @@ export default function Footer() {
             </Link>
             <Link
               aria-label="LinkedIn"
-              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
+              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
               href="https://www.linkedin.com/company/inara-by-sweta"
               target="_blank"
               rel="noopener noreferrer"
@@ -140,7 +140,7 @@ export default function Footer() {
             </Link>
             <Link
               aria-label="Twitter"
-              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition"
+              className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
               href="https://x.com/inarabysweta"
               target="_blank"
               rel="noopener noreferrer"

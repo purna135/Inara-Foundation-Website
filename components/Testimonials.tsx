@@ -5,17 +5,10 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-
-type Testimonial = {
-  id: string;
-  quote: string;
-  name: string;
-  role: string;
-  avatar: string;
-};
+import type { Testimonial } from "@/types/project";
 
 export default function Testimonials() {
-  const items = data as any[] as Testimonial[];
+  const items = data as Testimonial[];
   const perPage = 3;
   const totalPages = Math.max(1, Math.ceil(items.length / perPage));
   const [page, setPage] = useState(0);

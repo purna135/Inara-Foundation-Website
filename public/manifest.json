@@ -1,0 +1,21 @@
+{
+  "name": "Inara Foundation",
+  "short_name": "Inara",
+  "description": "A youth-led Section 8 non-profit turning compassion into meaningful change.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d4a745",
+  "icons": [
+    {
+      "src": "/inara-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/inara-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

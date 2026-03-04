@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/nagpur`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = (projectsData as any[]).map((project) => ({
+  const projectRoutes: MetadataRoute.Sitemap = (projectsData as { slug: string }[]).map((project) => ({
     url: `${BASE_URL}/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

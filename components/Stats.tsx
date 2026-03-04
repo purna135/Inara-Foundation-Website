@@ -1,13 +1,13 @@
 "use client";
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Users, Layers, HeartHandshake, Calendar } from 'lucide-react';
+import { Users, Layers, HeartHandshake, Calendar, type LucideIcon } from 'lucide-react';
 
 type Stat = {
   label: string;
   value: number;
   suffix?: string;
-  icon: any;
+  icon: LucideIcon;
 };
 
 function AnimatedNumber({ value, suffix = '', start = 0, duration = 1200 }: { value: number; suffix?: string; start?: number; duration?: number }) {

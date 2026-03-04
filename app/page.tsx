@@ -9,6 +9,7 @@ import {
   Heart,
   Target,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
 import WorkImagesCollege from "@/components/WorkImagesCollege";
 import WorkImagesMobile from "@/components/WorkImagesMobile";
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CORE_VALUES: { icon: any; title: string; desc: string }[] = [
+const CORE_VALUES: { icon: LucideIcon; title: string; desc: string }[] = [
   {
     icon: Users,
     title: "Community First",

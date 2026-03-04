@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import projectsData from '@/data/projects.json';
+import type { Project } from '@/types/project';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = (projectsData as any[]).find((p) => p.slug === slug);
+  const project = (projectsData as Project[]).find((p) => p.slug === slug);
 
   if (!project) {
     return {
@@ -51,7 +52,7 @@ export default async function ProjectLayout({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = (projectsData as any[]).find((p) => p.slug === slug);
+  const project = (projectsData as Project[]).find((p) => p.slug === slug);
 
   const jsonLd = project
     ? {
