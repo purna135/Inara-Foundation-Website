@@ -6,12 +6,12 @@ import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
 export type SiteSettings = {
   email: string;
   phone: string;
-  location: string;
-  volunteerFormUrl: string;
-  instagram: string;
-  facebook: string;
-  linkedin: string;
-  twitter: string;
+  location?: string;
+  volunteerFormUrl?: string;
+  instagram?: string;
+  facebook?: string;
+  linkedin?: string;
+  twitter?: string;
 };
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {

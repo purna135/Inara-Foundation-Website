@@ -19,8 +19,9 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/client";
-import { PROJECTS_QUERY, TESTIMONIALS_QUERY, SITE_STATS_QUERY } from "@/sanity/lib/queries";
+import { PROJECTS_QUERY, TESTIMONIALS_QUERY, SITE_STATS_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { formatDateRange } from "@/lib/date";
 import type { StatsData } from "@/components/Stats";
 
 export const metadata: Metadata = {
@@ -76,22 +77,16 @@ const CORE_VALUES: { icon: LucideIcon; title: string; desc: string }[] = [
   },
 ];
 
-function formatDateRange(startDate?: string, endDate?: string, legacyDate?: string): string {
-  if (!startDate) return legacyDate || '';
-  const fmt = (d: string) =>
-    new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  if (!endDate) return fmt(startDate);
-  return `${fmt(startDate)} – ${fmt(endDate)}`;
-}
-
 export default async function HomePage() {
-  const [sanityProjects, sanityTestimonials, sanityStats] = await Promise.all([
+  const [sanityProjects, sanityTestimonials, sanityStats, sanitySettings] = await Promise.all([
     sanityFetch({ query: PROJECTS_QUERY, revalidate: 60 }),
     sanityFetch({ query: TESTIMONIALS_QUERY, revalidate: 60 }),
     sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
+    sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
   ]);
 
   const statsData = sanityStats as StatsData;
+  const volunteerFormUrl = (sanitySettings as { volunteerFormUrl?: string })?.volunteerFormUrl || '/contact';
 
   const projects = ((sanityProjects as Record<string, unknown>[]) || [])
     .slice(0, 9)
@@ -122,7 +117,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero />
+      <Hero volunteerFormUrl={volunteerFormUrl} />
 
       {/* What we do */}
       <Section className="bg-white pb-10 sm:pb-12 lg:pb-10">
@@ -211,7 +206,7 @@ export default async function HomePage() {
       </FadeIn>
 
       <FadeIn>
-        <CTA />
+        <CTA volunteerFormUrl={volunteerFormUrl} />
       </FadeIn>
     </>
   );

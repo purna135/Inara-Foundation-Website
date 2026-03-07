@@ -22,7 +22,9 @@ interface ProjectItem {
   highlights?: string[];
 }
 
-export default function ProjectsListClient({ projects }: { projects: ProjectItem[] }) {
+type StatsBar = { projects: string; livesImpacted: string };
+
+export default function ProjectsListClient({ projects, volunteerFormUrl, stats }: { projects: ProjectItem[]; volunteerFormUrl: string; stats: StatsBar }) {
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
   const filters = useMemo(() => {
@@ -72,8 +74,8 @@ export default function ProjectsListClient({ projects }: { projects: ProjectItem
         <div className="container-px mx-auto max-w-[1200px] py-8">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {[
-              { label: 'Projects Completed', value: '25+' },
-              { label: 'Lives Touched', value: '10,000+' },
+              { label: 'Projects Completed', value: stats.projects },
+              { label: 'Lives Touched', value: stats.livesImpacted },
               { label: 'Volunteer Hours', value: '3,000+' },
               { label: 'Partner Organizations', value: '10+' },
             ].map((stat, index) => (
@@ -202,7 +204,7 @@ export default function ProjectsListClient({ projects }: { projects: ProjectItem
               </p>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  href="https://forms.gle/odBUWnLF5xS464ba7"
+                  href={volunteerFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -5,12 +5,10 @@ import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import { sanityFetch } from '@/sanity/lib/client';
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
+import type { SiteSettings } from '@/app/(site)/layout';
 
 export default async function ContactPage() {
-  const settings = (await sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 })) as {
-    email: string; phone: string; location: string;
-    instagram: string; facebook: string; linkedin: string; twitter: string;
-  };
+  const settings = (await sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 })) as SiteSettings;
 
   return (
     <>
@@ -106,7 +104,7 @@ export default async function ContactPage() {
                     <div className="flex-1">
                       <h3 className="font-semibold text-neutral-900">Location</h3>
                       <p className="mt-1 text-sm text-neutral-600">
-                        {settings.location}
+                        {settings.location || 'India'}
                       </p>
                     </div>
                   </div>
@@ -120,7 +118,7 @@ export default async function ContactPage() {
                 <h3 className="font-semibold text-neutral-900">Follow Our Journey</h3>
                 <div className="mt-4 flex gap-3">
                   <Link
-                    href={settings.instagram}
+                    href={settings.instagram || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -129,7 +127,7 @@ export default async function ContactPage() {
                     <Instagram size={18} />
                   </Link>
                   <Link
-                    href={settings.facebook}
+                    href={settings.facebook || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
@@ -138,7 +136,7 @@ export default async function ContactPage() {
                     <Facebook size={18} />
                   </Link>
                   <Link
-                    href={settings.linkedin}
+                    href={settings.linkedin || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -147,7 +145,7 @@ export default async function ContactPage() {
                     <Linkedin size={18} />
                   </Link>
                   <Link
-                    href={settings.twitter}
+                    href={settings.twitter || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="X"

@@ -115,7 +115,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link
               aria-label="Instagram"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href={settings.instagram}
+              href={settings.instagram || '#'}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -124,7 +124,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link
               aria-label="Facebook"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href={settings.facebook}
+              href={settings.facebook || '#'}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -133,7 +133,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link
               aria-label="LinkedIn"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href={settings.linkedin}
+              href={settings.linkedin || '#'}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -142,7 +142,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link
               aria-label="X"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href={settings.twitter}
+              href={settings.twitter || '#'}
               target="_blank"
               rel="noopener noreferrer"
             >

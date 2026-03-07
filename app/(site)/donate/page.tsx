@@ -84,7 +84,7 @@ export default async function DonatePage() {
     sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
     sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
   ]);
-  const settings = settingsRaw as { email: string; phone: string };
+  const settings = settingsRaw as { email: string; phone: string; volunteerFormUrl?: string };
   const stats = statsRaw as { volunteers: number; volunteersSuffix: string; projects: number; projectsSuffix: string; livesImpacted: number; livesImpactedSuffix: string };
 
   const TRUST_POINTS = [
@@ -370,7 +370,7 @@ export default async function DonatePage() {
               share our story, or partner with us to amplify impact.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+              <Link href={settings.volunteerFormUrl || '/contact'} target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-neutral-800">
                   <Users size={16} />
                   Become a Volunteer

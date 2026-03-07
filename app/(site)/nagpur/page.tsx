@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/client";
+import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { 
   MapPin, 
   Users, 
@@ -102,7 +104,9 @@ const PROJECTS = [
   },
 ];
 
-export default function NagpurPage() {
+export default async function NagpurPage() {
+  const settingsRaw = await sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 });
+  const volunteerFormUrl = (settingsRaw as { volunteerFormUrl?: string })?.volunteerFormUrl || '/contact';
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -137,7 +141,7 @@ export default function NagpurPage() {
 
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap gap-4">
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+              <Link href={volunteerFormUrl} target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-500 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-lg ring-1 ring-brand-500/20 transition-all hover:from-brand-300 hover:to-brand-400 hover:shadow-xl focus-ring">
                   <Users size={18} />
                   Join Nagpur Chapter
@@ -410,7 +414,7 @@ export default function NagpurPage() {
 
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+              <Link href={volunteerFormUrl} target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-500 px-8 py-4 text-base font-semibold text-neutral-950 shadow-lg ring-1 ring-brand-500/20 transition-all hover:from-brand-300 hover:to-brand-400 hover:shadow-xl focus-ring">
                   <Users size={20} />
                   Become a Volunteer

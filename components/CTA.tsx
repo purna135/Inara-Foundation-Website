@@ -3,7 +3,7 @@ import Image from "next/image";
 import Section from "./Section";
 import { HeartHandshake, Heart } from "lucide-react";
 
-export default function CTA() {
+export default function CTA({ volunteerFormUrl }: { volunteerFormUrl: string }) {
   return (
     <Section size="dense" className="lg:pb-8">
       <div className="relative rounded-2xl ring-1 ring-neutral-200 shadow-sm bg-gradient-to-r from-brand-400 to-brand-500">
@@ -23,7 +23,7 @@ export default function CTA() {
               Join Inara Foundation and turn compassion into action. Together, we're building a kinder, stronger, and more compassionate world.
             </p>
             <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row gap-3">
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+              <Link href={volunteerFormUrl} target="_blank" rel="noopener noreferrer">
                 <span className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm focus-ring w-full sm:w-auto">
                   <HeartHandshake size={18} className="mr-2" /> Become a Volunteer
                 </span>

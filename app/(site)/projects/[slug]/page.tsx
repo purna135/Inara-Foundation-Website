@@ -19,29 +19,13 @@ import ProjectGallery from '@/components/project/ProjectGallery';
 import ShareButtons from '@/components/project/ShareButtons';
 import PortableTextBody from '@/components/project/PortableTextBody';
 import { sanityFetch } from '@/sanity/lib/client';
-import { PROJECT_BY_SLUG_QUERY, PROJECTS_QUERY, PROJECT_SLUGS_QUERY } from '@/sanity/lib/queries';
+import { PROJECT_BY_SLUG_QUERY, PROJECTS_QUERY, PROJECT_SLUGS_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
 import { urlFor } from '@/sanity/lib/image';
+import { formatDateRange } from '@/lib/date';
 
 export async function generateStaticParams() {
   const slugs = await sanityFetch({ query: PROJECT_SLUGS_QUERY, revalidate: 3600 });
   return (slugs as { slug: string }[]).map((s) => ({ slug: s.slug }));
-}
-
-function formatDateRange(startDate?: string, endDate?: string, legacyDate?: string): string {
-  if (!startDate) return legacyDate || '';
-  const fmt = (d: string) =>
-    new Date(d + 'T00:00:00').toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  if (!endDate) return fmt(startDate);
-  const start = new Date(startDate + 'T00:00:00');
-  const end = new Date(endDate + 'T00:00:00');
-  if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()) {
-    return `${start.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })} – ${end.getDate()}, ${end.getFullYear()}`;
-  }
-  return `${fmt(startDate)} – ${fmt(endDate)}`;
 }
 
 async function getProject(slug: string) {
@@ -58,6 +42,7 @@ async function getProject(slug: string) {
       p.startDate as string | undefined,
       p.endDate as string | undefined,
       p.date as string | undefined,
+      'long',
     ),
     location: p.location as string | undefined,
     participants: p.participants as string | undefined,
@@ -97,8 +82,12 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await getProject(slug);
+  const [project, settingsRaw] = await Promise.all([
+    getProject(slug),
+    sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
+  ]);
   if (!project) notFound();
+  const volunteerFormUrl = (settingsRaw as { volunteerFormUrl?: string })?.volunteerFormUrl || '/contact';
 
   const relatedProjects = await getRelatedProjects(slug);
 
@@ -328,7 +317,7 @@ export default async function ProjectDetailPage({
                   Be part of projects like this. Volunteer with us and create lasting impact.
                 </p>
                 <Link
-                  href="https://forms.gle/odBUWnLF5xS464ba7"
+                  href={volunteerFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-400 to-brand-300 px-5 py-2.5 text-sm font-semibold text-neutral-950 shadow transition hover:from-brand-300 hover:to-brand-400 hover:shadow-md"

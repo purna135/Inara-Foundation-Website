@@ -58,7 +58,9 @@ Sanity Content Lake
 
 | Content | File(s) | Notes |
 |---------|---------|-------|
-| **Volunteer form URL** | `Hero.tsx`, `CTA.tsx`, `about/page.tsx`, `donate/page.tsx`, `nagpur/page.tsx`, `projects/[slug]/page.tsx`, `projects-list-client.tsx` | Already in `siteSettings` but only consumed by Navbar/Footer. Other pages still use the hardcoded `https://forms.gle/odBUWnLF5xS464ba7` string. |
+| ~~**Volunteer form URL**~~ | ~~All pages~~ | **DONE** — Now fetched from `siteSettings.volunteerFormUrl` everywhere. |
+| ~~**Social links in JSON-LD**~~ | ~~`app/layout.tsx`~~ | **DONE** — `sameAs` and `foundingDate` now pulled from Sanity. |
+| ~~**Founded year ("Since 2020")**~~ | ~~`about/page.tsx`~~ | **DONE** — Now uses `siteStats.foundedYear`. |
 | **Hero slides** | `components/Hero.tsx` | 3 slides with titles, descriptions, CTA labels, and background images. Changes when campaigns or messaging shifts. |
 | **Nagpur chapter** | `app/(site)/nagpur/page.tsx` | Stats (83+ volunteers, 3 projects, etc.), 3 project cards, all body copy. Completely hardcoded. |
 
@@ -70,8 +72,7 @@ Sanity Content Lake
 | **Impact areas** | `app/(site)/donate/page.tsx` — `IMPACT_AREAS` array | 4 donation focus areas with icons and descriptions. |
 | **Guiding principles** | `app/(site)/about/page.tsx` — `PRINCIPLES` array | 6 philosophical principles. |
 | **Why join reasons** | `app/(site)/about/page.tsx` — `WHY_JOIN` array | 6 reasons to join as a volunteer. |
-| **CTA section** | `components/CTA.tsx` | "Join Our Community" heading, description, buttons. |
-| **Social links in JSON-LD** | `app/layout.tsx` — `sameAs` array | Hardcoded Instagram, Facebook, LinkedIn, X URLs in the Organization schema. Should pull from `siteSettings`. |
+| **CTA section copy** | `components/CTA.tsx` | "Join Our Community" heading, description text (button URL is now from Sanity). |
 
 ### Low Priority — Rarely changes, fine to keep in code
 
@@ -88,16 +89,12 @@ Sanity Content Lake
 
 ## Recommended Next Steps
 
-### Phase 1 — Quick wins (no new schemas needed)
+### ~~Phase 1~~ — COMPLETED
 
-1. **Propagate `volunteerFormUrl` from `siteSettings` to all pages.**
-   - Currently only Navbar/Footer use it from Sanity.
-   - Hero, CTA, About, Donate, Nagpur, and Project pages still hardcode the Google Forms URL.
-   - Approach: Pass `settings.volunteerFormUrl` as a prop to these components, or fetch `siteSettings` in each page that needs it.
-
-2. **Pull social links into JSON-LD from `siteSettings`.**
-   - `app/layout.tsx` has hardcoded `sameAs` URLs in the Organization JSON-LD.
-   - Fetch `siteSettings` in the root layout or pass the URLs through.
+All quick wins are done:
+- `volunteerFormUrl` propagated to every page and component.
+- JSON-LD `sameAs` and `foundingDate` pulled from Sanity.
+- "Since 2020" / "Established 2020" replaced with dynamic `foundedYear`.
 
 ### Phase 2 — New singleton schemas
 

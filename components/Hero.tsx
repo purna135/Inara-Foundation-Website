@@ -20,56 +20,54 @@ type Slide = {
   rightNote?: string;
 };
 
-const slidesData: Slide[] = [
-  {
-    id: 'main',
-    eyebrow: 'Inara Foundation',
-    title: 'Compassion in Action, Light That Endures',
-    highlight: 'Action',
-    description:
-      'From slum corners to open hearts, each moment shared becomes a bridge of kindness, learning, and hope.',
-    primaryCta: { label: 'Volunteer with us', href: 'https://forms.gle/odBUWnLF5xS464ba7' },
-    secondaryCta: { label: 'Explore our work', href: '/projects' },
-    imageAlt: 'Compassion in Action, Light That Endures',
-    imageSrc: '/hero-images/hero-image-1.PNG',
-    bgSrc: '/hero-images/hero-bg-1.jpg',
-    rightNote: 'Turning efforts into measurable, lasting difference.',
-  },
-  {
-    id: 'small-act',
-    eyebrow: 'Action that leads to change',
-    title: 'Where Every Celebration Embraces All',
-    highlight: 'Celebration',
-    description:
-      'From bangles to handwritten wishes, every gesture became a symbol of love and inclusion.',
-    primaryCta: { label: 'Join the journey', href: 'https://forms.gle/odBUWnLF5xS464ba7' },
-    secondaryCta: { label: 'Learn about Inara', href: '/about' },
-    imageAlt: 'Where Every Celebration Embraces All',
-    imageSrc: '/hero-images/hero-image-2.png',
-    bgSrc: '/hero-images/hero-bg-2.JPG',
-    rightNote: 'Your kindness makes impact possible.',
-  },
-  {
-    id: 'community',
-    eyebrow: 'Change starts with us.',
-    title: 'Kindness That Heals, Connections That Last',
-    highlight: 'Kindness',
-    description:
-      'Each visit reaffirms our belief in the enduring strength of compassion, where small acts spark lasting hope.',
-    primaryCta: { label: 'See projects', href: '/projects' },
-    secondaryCta: { label: 'Our impact', href: '/about' },
-    imageAlt: 'Kindness That Heals, Connections That Last',
-    imageSrc: '/hero-images/hero-image-3.png',
-    bgSrc: '/hero-images/hero-bg-3.JPG',
-    rightNote: 'Together, we help good grow stronger.',
-  },
-];
-
-export default function Hero() {
+export default function Hero({ volunteerFormUrl }: { volunteerFormUrl: string }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const slides = useMemo(() => slidesData, []);
+  const slides = useMemo<Slide[]>(() => [
+    {
+      id: 'main',
+      eyebrow: 'Inara Foundation',
+      title: 'Compassion in Action, Light That Endures',
+      highlight: 'Action',
+      description:
+        'From slum corners to open hearts, each moment shared becomes a bridge of kindness, learning, and hope.',
+      primaryCta: { label: 'Volunteer with us', href: volunteerFormUrl },
+      secondaryCta: { label: 'Explore our work', href: '/projects' },
+      imageAlt: 'Compassion in Action, Light That Endures',
+      imageSrc: '/hero-images/hero-image-1.PNG',
+      bgSrc: '/hero-images/hero-bg-1.jpg',
+      rightNote: 'Turning efforts into measurable, lasting difference.',
+    },
+    {
+      id: 'small-act',
+      eyebrow: 'Action that leads to change',
+      title: 'Where Every Celebration Embraces All',
+      highlight: 'Celebration',
+      description:
+        'From bangles to handwritten wishes, every gesture became a symbol of love and inclusion.',
+      primaryCta: { label: 'Join the journey', href: volunteerFormUrl },
+      secondaryCta: { label: 'Learn about Inara', href: '/about' },
+      imageAlt: 'Where Every Celebration Embraces All',
+      imageSrc: '/hero-images/hero-image-2.png',
+      bgSrc: '/hero-images/hero-bg-2.JPG',
+      rightNote: 'Your kindness makes impact possible.',
+    },
+    {
+      id: 'community',
+      eyebrow: 'Change starts with us.',
+      title: 'Kindness That Heals, Connections That Last',
+      highlight: 'Kindness',
+      description:
+        'Each visit reaffirms our belief in the enduring strength of compassion, where small acts spark lasting hope.',
+      primaryCta: { label: 'See projects', href: '/projects' },
+      secondaryCta: { label: 'Our impact', href: '/about' },
+      imageAlt: 'Kindness That Heals, Connections That Last',
+      imageSrc: '/hero-images/hero-image-3.png',
+      bgSrc: '/hero-images/hero-bg-3.JPG',
+      rightNote: 'Together, we help good grow stronger.',
+    },
+  ], [volunteerFormUrl]);
   const active = slides[index];
 
   useEffect(() => {

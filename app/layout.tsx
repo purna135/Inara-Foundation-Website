@@ -3,6 +3,8 @@ import './globals.css';
 import { Manrope, Playfair_Display } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { sanityFetch } from '@/sanity/lib/client';
+import { SITE_SETTINGS_QUERY, SITE_STATS_QUERY } from '@/sanity/lib/queries';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
 const playfair = Playfair_Display({
@@ -57,7 +59,14 @@ export const viewport: Viewport = {
   themeColor: '#d4a745',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const [settings, stats] = await Promise.all([
+    sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
+    sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
+  ]);
+  const s = settings as { instagram: string; facebook: string; linkedin: string; twitter: string } | null;
+  const st = stats as { foundedYear: number } | null;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -71,14 +80,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           url: 'https://inarafoundation.in/inara-icon.png',
         },
         sameAs: [
-          'https://www.instagram.com/inara.npo/',
-          'https://www.facebook.com/inaraorganisation',
-          'https://www.linkedin.com/company/inara-by-sweta',
-          'https://x.com/inarabysweta',
-        ],
+          s?.instagram,
+          s?.facebook,
+          s?.linkedin,
+          s?.twitter,
+        ].filter(Boolean),
         description:
           'A youth-led Section 8 non-profit turning compassion into meaningful change through community upliftment, animal welfare, and environmental protection across India.',
-        foundingDate: '2020',
+        foundingDate: String(st?.foundedYear ?? 2020),
         areaServed: 'India',
       },
       {

@@ -1,22 +1,21 @@
 import { sanityFetch } from '@/sanity/lib/client';
-import { PROJECTS_QUERY } from '@/sanity/lib/queries';
+import { PROJECTS_QUERY, SITE_SETTINGS_QUERY, SITE_STATS_QUERY } from '@/sanity/lib/queries';
 import { urlFor } from '@/sanity/lib/image';
 import ProjectsListClient from './projects-list-client';
-
-function formatDateRange(startDate?: string, endDate?: string, legacyDate?: string): string {
-  if (!startDate) return legacyDate || '';
-  const fmt = (d: string) =>
-    new Date(d + 'T00:00:00').toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  if (!endDate) return fmt(startDate);
-  return `${fmt(startDate)} – ${fmt(endDate)}`;
-}
+import { formatDateRange } from '@/lib/date';
 
 export default async function ProjectsPage() {
-  const sanityProjects = await sanityFetch({ query: PROJECTS_QUERY, revalidate: 60 });
+  const [sanityProjects, settingsRaw, statsRaw] = await Promise.all([
+    sanityFetch({ query: PROJECTS_QUERY, revalidate: 60 }),
+    sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
+    sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
+  ]);
+  const volunteerFormUrl = (settingsRaw as { volunteerFormUrl?: string })?.volunteerFormUrl || '/contact';
+  const st = statsRaw as { projects: number; projectsSuffix: string; livesImpacted: number; livesImpactedSuffix: string };
+  const statsBar = {
+    projects: `${st.projects}${st.projectsSuffix}`,
+    livesImpacted: `${st.livesImpacted}${st.livesImpactedSuffix}`,
+  };
 
   const projects = ((sanityProjects as Record<string, unknown>[]) || []).map((p) => ({
     id: p._id as string,
@@ -36,5 +35,5 @@ export default async function ProjectsPage() {
     highlights: p.highlights as string[] | undefined,
   }));
 
-  return <ProjectsListClient projects={projects} />;
+  return <ProjectsListClient projects={projects} volunteerFormUrl={volunteerFormUrl} stats={statsBar} />;
 }

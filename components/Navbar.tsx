@@ -49,7 +49,7 @@ export default function Navbar({ settings }: { settings: SiteSettings }) {
         <div className="hidden md:flex items-center justify-end gap-4">
           <Link
             aria-label="Instagram"
-            href={settings.instagram}
+            href={settings.instagram || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
@@ -58,7 +58,7 @@ export default function Navbar({ settings }: { settings: SiteSettings }) {
           </Link>
           <Link
             aria-label="LinkedIn"
-            href={settings.linkedin}
+            href={settings.linkedin || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
@@ -67,7 +67,7 @@ export default function Navbar({ settings }: { settings: SiteSettings }) {
           </Link>
           <Link
             aria-label="X"
-            href={settings.twitter}
+            href={settings.twitter || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
@@ -76,14 +76,14 @@ export default function Navbar({ settings }: { settings: SiteSettings }) {
           </Link>
           <Link
             aria-label="Facebook"
-            href={settings.facebook}
+            href={settings.facebook || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Facebook size={16} />
           </Link>
-          <Link href={settings.volunteerFormUrl} target="_blank" rel="noopener noreferrer">
+          <Link href={settings.volunteerFormUrl || '/contact'} target="_blank" rel="noopener noreferrer">
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-300 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm ring-1 ring-black/0 hover:from-brand-400 hover:to-brand-300 focus-ring">
               Join Us
               <Users size={16} />
@@ -135,7 +135,7 @@ export default function Navbar({ settings }: { settings: SiteSettings }) {
                   {l.label}
                 </Link>
               ))}
-              <Link href={settings.volunteerFormUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="focus-ring rounded-full">
+              <Link href={settings.volunteerFormUrl || '/contact'} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="focus-ring rounded-full">
                 <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
                   Join Us <Users size={16} />
                 </span>
