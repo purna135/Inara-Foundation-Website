@@ -19,8 +19,9 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/client";
-import { PROJECTS_QUERY, TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
+import { PROJECTS_QUERY, TESTIMONIALS_QUERY, SITE_STATS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import type { StatsData } from "@/components/Stats";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -84,10 +85,13 @@ function formatDateRange(startDate?: string, endDate?: string, legacyDate?: stri
 }
 
 export default async function HomePage() {
-  const [sanityProjects, sanityTestimonials] = await Promise.all([
+  const [sanityProjects, sanityTestimonials, sanityStats] = await Promise.all([
     sanityFetch({ query: PROJECTS_QUERY, revalidate: 60 }),
     sanityFetch({ query: TESTIMONIALS_QUERY, revalidate: 60 }),
+    sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
   ]);
+
+  const statsData = sanityStats as StatsData;
 
   const projects = ((sanityProjects as Record<string, unknown>[]) || [])
     .slice(0, 9)
@@ -195,7 +199,7 @@ export default async function HomePage() {
       </Section>
 
       <Section className="muted-section" size="dense">
-        <Stats />
+        <Stats data={statsData} />
       </Section>
 
       <FadeIn>

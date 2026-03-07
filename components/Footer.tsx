@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+import type { SiteSettings } from "@/app/(site)/layout";
 
-export default function Footer() {
+export default function Footer({ settings }: { settings: SiteSettings }) {
   return (
     <footer className="border-t border-white/10 bg-black">
       <div className="container-px mx-auto max-w-7xl py-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -86,9 +87,9 @@ export default function Footer() {
                 Email:{" "}
                 <a
                   className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
-                  href="mailto:inarabysweta@gmail.com"
+                  href={`mailto:${settings.email}`}
                 >
-                  inarabysweta@gmail.com
+                  {settings.email}
                 </a>
               </span>
             </li>
@@ -98,9 +99,9 @@ export default function Footer() {
                 Phone:{" "}
                 <a
                   className="underline decoration-brand-500/40 underline-offset-4 transition hover:text-white hover:decoration-brand-500 focus-ring rounded"
-                  href="tel:+917077046262"
+                  href={`tel:${settings.phone.replace(/\s/g, '')}`}
                 >
-                  +91 7077 046 262
+                  {settings.phone}
                 </a>
               </span>
             </li>
@@ -114,7 +115,7 @@ export default function Footer() {
             <Link
               aria-label="Instagram"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href="https://www.instagram.com/inara.npo/"
+              href={settings.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -123,7 +124,7 @@ export default function Footer() {
             <Link
               aria-label="Facebook"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href="https://www.facebook.com/inaraorganisation"
+              href={settings.facebook}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -132,20 +133,20 @@ export default function Footer() {
             <Link
               aria-label="LinkedIn"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href="https://www.linkedin.com/company/inara-by-sweta"
+              href={settings.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Linkedin size={16} />
             </Link>
             <Link
-              aria-label="Twitter"
+              aria-label="X"
               className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/10 hover:ring-brand-500/60 hover:text-brand-500 transition focus-ring"
-              href="https://x.com/inarabysweta"
+              href={settings.twitter}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter size={16} />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
             </Link>
           </div>
           <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-white/20 to-transparent" />

@@ -1,6 +1,8 @@
 import Section from "@/components/Section";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { sanityFetch } from "@/sanity/lib/client";
+import { SITE_STATS_QUERY } from "@/sanity/lib/queries";
 import {
   Award,
   Building2,
@@ -45,12 +47,15 @@ export const metadata: Metadata = {
   },
 };
 
-const QUICK_STATS = [
-  { label: "Volunteers", value: "300+", icon: Users },
-  { label: "Projects", value: "25+", icon: Target },
-  { label: "Lives and animals impacted", value: "10k+", icon: Heart },
-  { label: "Years active", value: "5+", icon: Calendar },
-];
+function buildQuickStats(s: { volunteers: number; volunteersSuffix: string; projects: number; projectsSuffix: string; livesImpacted: number; livesImpactedSuffix: string; foundedYear: number }) {
+  const yearsActive = new Date().getFullYear() - s.foundedYear;
+  return [
+    { label: "Volunteers", value: `${s.volunteers}${s.volunteersSuffix}`, icon: Users },
+    { label: "Projects", value: `${s.projects}${s.projectsSuffix}`, icon: Target },
+    { label: "Lives and animals impacted", value: `${s.livesImpacted}${s.livesImpactedSuffix}`, icon: Heart },
+    { label: "Years active", value: `${yearsActive}+`, icon: Calendar },
+  ];
+}
 
 const PRINCIPLES = [
   {
@@ -118,7 +123,9 @@ const WHY_JOIN = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const statsRaw = await sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 });
+  const QUICK_STATS = buildQuickStats(statsRaw as Parameters<typeof buildQuickStats>[0]);
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-brand-50/40">

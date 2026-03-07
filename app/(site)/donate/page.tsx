@@ -1,6 +1,8 @@
 import Section from "@/components/Section";
 import FadeIn from "@/components/FadeIn";
 import Link from "next/link";
+import { sanityFetch } from "@/sanity/lib/client";
+import { SITE_SETTINGS_QUERY, SITE_STATS_QUERY } from "@/sanity/lib/queries";
 import {
   Heart,
   Users,
@@ -77,14 +79,20 @@ const IMPACT_AREAS = [
   },
 ];
 
-const TRUST_POINTS = [
-  "Registered Section 8 Non-Profit (Companies Act, 2013)",
-  "Transparent fund utilization across all projects",
-  "300+ active volunteers across multiple cities",
-  "25+ projects delivered with measurable impact",
-];
+export default async function DonatePage() {
+  const [settingsRaw, statsRaw] = await Promise.all([
+    sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 }),
+    sanityFetch({ query: SITE_STATS_QUERY, revalidate: 300 }),
+  ]);
+  const settings = settingsRaw as { email: string; phone: string };
+  const stats = statsRaw as { volunteers: number; volunteersSuffix: string; projects: number; projectsSuffix: string; livesImpacted: number; livesImpactedSuffix: string };
 
-export default function DonatePage() {
+  const TRUST_POINTS = [
+    "Registered Section 8 Non-Profit (Companies Act, 2013)",
+    "Transparent fund utilization across all projects",
+    `${stats.volunteers}${stats.volunteersSuffix} active volunteers across multiple cities`,
+    `${stats.projects}${stats.projectsSuffix} projects delivered with measurable impact`,
+  ];
   return (
     <>
       {/* Hero */}
@@ -220,11 +228,11 @@ export default function DonatePage() {
                     the details and receipts.
                   </p>
                   <a
-                    href="mailto:inarabysweta@gmail.com"
+                    href={`mailto:${settings.email}`}
                     className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20"
                   >
                     <Mail size={16} />
-                    inarabysweta@gmail.com
+                    {settings.email}
                   </a>
                 </div>
               </div>
@@ -246,11 +254,11 @@ export default function DonatePage() {
                     help you get started.
                   </p>
                   <a
-                    href="tel:+917077046262"
+                    href={`tel:${settings.phone.replace(/\s/g, '')}`}
                     className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20"
                   >
                     <Phone size={16} />
-                    +91 7077 046 262
+                    {settings.phone}
                   </a>
                 </div>
               </div>
@@ -319,21 +327,21 @@ export default function DonatePage() {
               <div className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-6 text-center ring-1 ring-brand-200/50">
                 <Users size={28} className="mx-auto text-brand-600" />
                 <div className="mt-3 font-display text-3xl font-bold text-brand-700">
-                  300+
+                  {stats.volunteers}{stats.volunteersSuffix}
                 </div>
                 <div className="mt-1 text-sm text-neutral-600">Volunteers</div>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-6 text-center ring-1 ring-brand-200/50">
                 <Target size={28} className="mx-auto text-brand-600" />
                 <div className="mt-3 font-display text-3xl font-bold text-brand-700">
-                  25+
+                  {stats.projects}{stats.projectsSuffix}
                 </div>
                 <div className="mt-1 text-sm text-neutral-600">Projects</div>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-6 text-center ring-1 ring-brand-200/50">
                 <Heart size={28} className="mx-auto text-brand-600" />
                 <div className="mt-3 font-display text-3xl font-bold text-brand-700">
-                  10k+
+                  {stats.livesImpacted}{stats.livesImpactedSuffix}
                 </div>
                 <div className="mt-1 text-sm text-neutral-600">Lives Impacted</div>
               </div>

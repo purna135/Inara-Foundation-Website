@@ -1,7 +1,22 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { sanityFetch } from '@/sanity/lib/client';
+import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+export type SiteSettings = {
+  email: string;
+  phone: string;
+  location: string;
+  volunteerFormUrl: string;
+  instagram: string;
+  facebook: string;
+  linkedin: string;
+  twitter: string;
+};
+
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
+  const settings = (await sanityFetch({ query: SITE_SETTINGS_QUERY, revalidate: 300 })) as SiteSettings;
+
   return (
     <>
       <a
@@ -10,9 +25,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       >
         Skip to main content
       </a>
-      <Navbar />
+      <Navbar settings={settings} />
       <main id="main-content">{children}</main>
-      <Footer />
+      <Footer settings={settings} />
     </>
   );
 }

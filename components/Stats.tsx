@@ -39,15 +39,25 @@ function AnimatedNumber({ value, suffix = '', start = 0, duration = 1200 }: { va
   );
 }
 
-export default function Stats() {
+export type StatsData = {
+  volunteers: number;
+  volunteersSuffix: string;
+  projects: number;
+  projectsSuffix: string;
+  livesImpacted: number;
+  livesImpactedSuffix: string;
+  foundedYear: number;
+};
+
+export default function Stats({ data }: { data: StatsData }) {
   const stats: Stat[] = useMemo(
     () => [
-      { label: 'Volunteers', value: 300, suffix: '+', icon: Users },
-      { label: 'Projects delivered', value: 25, suffix: '+', icon: Layers },
-      { label: 'People & animals reached', value: 10, suffix: 'k+', icon: HeartHandshake },
-      { label: 'Since', value: 2020, icon: Calendar },
+      { label: 'Volunteers', value: data.volunteers, suffix: data.volunteersSuffix, icon: Users },
+      { label: 'Projects delivered', value: data.projects, suffix: data.projectsSuffix, icon: Layers },
+      { label: 'People & animals reached', value: data.livesImpacted, suffix: data.livesImpactedSuffix, icon: HeartHandshake },
+      { label: 'Since', value: data.foundedYear, icon: Calendar },
     ],
-    []
+    [data]
   );
 
   return (

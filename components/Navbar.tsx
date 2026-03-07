@@ -2,8 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Instagram, Linkedin, Twitter, Facebook, Users } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Users } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import type { SiteSettings } from "@/app/(site)/layout";
 
 const links = [
   { href: "/", label: "Home" },
@@ -14,7 +15,7 @@ const links = [
   { href: "/donate", label: "Donate" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ settings }: { settings: SiteSettings }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur">
@@ -48,7 +49,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center justify-end gap-4">
           <Link
             aria-label="Instagram"
-            href="https://www.instagram.com/inara.npo/"
+            href={settings.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
@@ -57,7 +58,7 @@ export default function Navbar() {
           </Link>
           <Link
             aria-label="LinkedIn"
-            href="https://www.linkedin.com/company/inara-by-sweta"
+            href={settings.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
@@ -66,23 +67,23 @@ export default function Navbar() {
           </Link>
           <Link
             aria-label="X"
-            href="https://x.com/inarabysweta"
+            href={settings.twitter}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
-            <Twitter size={16} />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
           </Link>
           <Link
             aria-label="Facebook"
-            href="https://www.facebook.com/inaraorganisation"
+            href={settings.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-brand-700 transition-colors focus-ring rounded-full"
           >
             <Facebook size={16} />
           </Link>
-          <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer">
+          <Link href={settings.volunteerFormUrl} target="_blank" rel="noopener noreferrer">
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-300 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm ring-1 ring-black/0 hover:from-brand-400 hover:to-brand-300 focus-ring">
               Join Us
               <Users size={16} />
@@ -134,7 +135,7 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link href="https://forms.gle/odBUWnLF5xS464ba7" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="focus-ring rounded-full">
+              <Link href={settings.volunteerFormUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="focus-ring rounded-full">
                 <span className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-400 px-5 py-2 text-sm font-semibold text-neutral-950 shadow-sm">
                   Join Us <Users size={16} />
                 </span>

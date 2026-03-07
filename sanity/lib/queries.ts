@@ -89,3 +89,28 @@ export const BLOG_POST_SLUGS_QUERY = defineQuery(`
     "slug": slug.current
   }
 `);
+
+export const SITE_SETTINGS_QUERY = defineQuery(`
+  *[_type == "siteSettings"][0] {
+    email,
+    phone,
+    location,
+    volunteerFormUrl,
+    instagram,
+    facebook,
+    linkedin,
+    twitter
+  }
+`);
+
+export const SITE_STATS_QUERY = defineQuery(`
+  *[_type == "siteStats"][0] {
+    volunteers,
+    volunteersSuffix,
+    projects,
+    projectsSuffix,
+    livesImpacted,
+    livesImpactedSuffix,
+    foundedYear
+  }
+`);

@@ -1,10 +1,12 @@
 import { defineField, defineType } from 'sanity';
+import { ComposeIcon } from '@sanity/icons';
 import { richTextBlocks } from './objects/richText';
 
 export default defineType({
   name: 'blogPost',
   title: 'Blog Post',
   type: 'document',
+  icon: ComposeIcon,
   groups: [
     { name: 'content', title: 'Content' },
     { name: 'seo', title: 'SEO & Meta' },

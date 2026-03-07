@@ -1,10 +1,12 @@
 import { defineField, defineType } from 'sanity';
+import { RocketIcon } from '@sanity/icons';
 import { richTextBlocks } from './objects/richText';
 
 export default defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
+  icon: RocketIcon,
   groups: [
     { name: 'content', title: 'Content' },
     { name: 'media', title: 'Media' },
