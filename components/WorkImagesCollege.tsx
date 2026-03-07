@@ -124,6 +124,7 @@ export default function WorkImagesCollege() {
               height={200}
               className="w-full h-auto object-cover rounded-lg border-3 border-brand-300 transition-all duration-300 grayscale hover:grayscale-0"
               sizes="(max-width: 768px) 20vw, 16vw"
+              style={{ aspectRatio: "1/1" }}
             />
           </div>
         ))}
