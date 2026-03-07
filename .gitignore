@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# sanity
+/sanity/extract.json
+
+# cursor
+/.cursor/

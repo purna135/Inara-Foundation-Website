@@ -1,74 +1,63 @@
-import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import { Manrope, Playfair_Display } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
+import { Manrope, Playfair_Display } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
 const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Inara Foundation",
-    template: "%s · Inara Foundation",
+    default: 'Inara Foundation',
+    template: '%s · Inara Foundation',
   },
   description:
-    "Inara Foundation is a Section 8 non-profit advancing social welfare, animal care, environment, and community development.",
-  applicationName: "Inara Foundation",
-  keywords: [
-    "NGO",
-    "Non-profit",
-    "Inara Foundation",
-    "Odisha",
-    "Social welfare",
-    "Animal welfare",
-  ],
+    'Inara Foundation is a youth-led Section 8 non-profit in India driving community welfare, animal care, and environmental action through volunteering.',
+  applicationName: 'Inara Foundation',
+  keywords: ['NGO', 'Non-profit', 'Inara Foundation', 'Odisha', 'Nagpur', 'Social welfare', 'Animal welfare', 'Youth volunteers', 'Community development', 'India charity'],
   icons: {
-    icon: "/inara-icon.png",
-    apple: "/inara-icon.png",
+    icon: '/inara-icon.png',
+    apple: '/inara-icon.png',
   },
-  manifest: "/manifest.json",
-  metadataBase: new URL("https://inarafoundation.in"),
+  manifest: '/manifest.json',
+  metadataBase: new URL('https://inarafoundation.in'),
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://inarafoundation.in",
-    siteName: "Inara Foundation",
-    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
-    description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://inarafoundation.in',
+    siteName: 'Inara Foundation',
+    title: 'Inara Foundation - Empathy That Echoes, Change That Lasts',
+    description:
+      'A youth-led non-profit turning compassion into lasting change — community upliftment, animal welfare, and environmental action across India.',
     images: [
       {
-        url: "/website-preview-image.jpg",
+        url: '/website-preview-image.jpg',
         width: 1200,
         height: 630,
-        alt: "Inara Foundation",
-        type: "image/jpeg",
+        alt: 'Inara Foundation',
+        type: 'image/jpeg',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Inara Foundation - Empathy That Echoes, Change That Lasts",
-    description: "A youth-led non-profit organization turning compassion into meaningful change through community upliftment, animal welfare, environmental protection, and volunteering initiatives across India.",
-    images: ["/website-preview-image.jpg"],
+    card: 'summary_large_image',
+    title: 'Inara Foundation - Empathy That Echoes, Change That Lasts',
+    description:
+      'A youth-led non-profit turning compassion into lasting change — community upliftment, animal welfare, and environmental action across India.',
+    images: ['/website-preview-image.jpg'],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#d4a745",
+  themeColor: '#d4a745',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -111,17 +100,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none"
-        >
-          Skip to main content
-        </a>
-        <Navbar />
-        <div id="main-content">
-          {children}
-        </div>
-        <Footer />
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

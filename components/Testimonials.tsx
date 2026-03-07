@@ -1,14 +1,19 @@
 "use client";
 import Section from "./Section";
-import data from "@/data/testimonials.json";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import type { Testimonial } from "@/types/project";
 
-export default function Testimonials() {
-  const items = data as Testimonial[];
+interface Testimonial {
+  id: string;
+  name: string;
+  quote: string;
+  role: string;
+  avatar: string;
+}
+
+export default function Testimonials({ items }: { items: Testimonial[] }) {
   const perPage = 3;
   const totalPages = Math.max(1, Math.ceil(items.length / perPage));
   const [page, setPage] = useState(0);
@@ -32,6 +37,8 @@ export default function Testimonials() {
     const id = setInterval(() => setPage((p) => (p + 1) % totalPages), 3000);
     return () => clearInterval(id);
   }, [paused, totalPages]);
+
+  if (items.length === 0) return null;
 
   return (
     <Section className="bg-white" size="dense">
@@ -61,7 +68,7 @@ export default function Testimonials() {
                 className="relative overflow-visible rounded-2xl border border-neutral-200 paper-card p-6 shadow-sm flex flex-col min-h-[220px]"
               >
                 <span className="pointer-events-none absolute -right-2 -top-9 lg:text-[160px] sm:text-[108px] leading-none text-brand-400/40">
-                  ”
+                  &ldquo;
                 </span>
                 <p
                   className="text-sm leading-relaxed text-neutral-800"
@@ -70,7 +77,7 @@ export default function Testimonials() {
                       '"Patrick Hand", "Comic Sans MS", system-ui, sans-serif',
                   }}
                 >
-                  “{t.quote}”
+                  &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mt-auto pt-5 flex items-center gap-3">
                   <Image

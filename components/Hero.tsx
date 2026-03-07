@@ -83,6 +83,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <h1 className="sr-only">Inara Foundation — Compassion in Action, Light That Endures</h1>
       {active.bgSrc ? (
         <>
           <Image 
@@ -115,7 +116,7 @@ export default function Hero() {
                 {active.eyebrow && (
                   <p className="text-xs sm:text-sm font-semibold text-brand-700 mb-1">{active.eyebrow}</p>
                 )}
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-none -mt-1">
+                <p className="font-display text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight leading-none -mt-1" role="heading" aria-level={2}>
                   {active.title.split(active.highlight || '').map((part, idx, arr) => (
                     <span key={idx}>
                       {part}
@@ -124,7 +125,7 @@ export default function Hero() {
                       )}
                     </span>
                   ))}
-                </h1>
+                </p>
                 <p className="text-sm sm:text-base max-w-xl text-neutral-700 leading-relaxed mx-auto lg:mx-0">{active.description}</p>
                 <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 flex-wrap pt-2 sm:pt-2 mb-2 lg:mb-0">
                   <Link

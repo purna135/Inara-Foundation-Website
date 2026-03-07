@@ -4,25 +4,33 @@ import { ArrowLeft, ArrowRight, Calendar, Users, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import Section from "./Section";
-import projectsData from "@/data/projects.json";
 import Link from "next/link";
-import type { Project } from "@/types/project";
 
-export const PROJECTS: Project[] = projectsData.slice(0, 9) as Project[];
+interface ProjectItem {
+  id: string;
+  title: string;
+  slug: string;
+  type: string;
+  collaborator?: string;
+  date: string;
+  location?: string;
+  participants?: string;
+  summary: string;
+  cover: string;
+}
 
-const TABS: Array<Project["type"] | "All"> = [
-  "All",
-  "Interactive",
-  "Fundraisers",
-  "Collaborations",
-];
-
-export default function Projects() {
-  const [tab, setTab] = useState<(typeof TABS)[number]>("All");
+export default function Projects({ projects }: { projects: ProjectItem[] }) {
+  const [tab, setTab] = useState("All");
   const [page, setPage] = useState(0);
+
+  const tabs = useMemo(() => {
+    const types = [...new Set(projects.map((p) => p.type).filter(Boolean))];
+    return ["All", ...types];
+  }, [projects]);
+
   const filtered = useMemo(
-    () => PROJECTS.filter((p) => (tab === "All" ? true : p.type === tab)),
-    [tab]
+    () => projects.filter((p) => (tab === "All" ? true : p.type === tab)),
+    [tab, projects]
   );
 
   const itemsPerPage = 3;
@@ -33,6 +41,8 @@ export default function Projects() {
   );
   const prev = () => setPage((p) => Math.max(0, p - 1));
   const next = () => setPage((p) => Math.min(pageCount - 1, p + 1));
+
+  if (projects.length === 0) return null;
 
   return (
     <Section className="bg-white" size="dense">
@@ -45,9 +55,8 @@ export default function Projects() {
         </h2>
       </div>
 
-      {/* Tabs */}
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3 relative z-10">
-        {TABS.map((t) => (
+        {tabs.map((t) => (
           <button
             key={t}
             onClick={() => {
@@ -68,7 +77,6 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Cards */}
       <AnimatePresence mode="wait">
         <motion.div
           key={tab + "-" + page}
@@ -87,17 +95,15 @@ export default function Projects() {
               transition={{ duration: 0.3 }}
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl hover:border-brand-200"
             >
-              {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={p.cover}
                   alt={p.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                
-                {/* Type Badge */}
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur-sm">
                     {p.type}
@@ -105,7 +111,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="flex flex-col flex-1 p-6">
                 <div className="flex items-center gap-4 text-xs text-neutral-500">
                   <div className="flex items-center gap-1">
@@ -137,7 +142,7 @@ export default function Projects() {
                   )}
 
                   <Link
-                    href={`/projects/${p.slug || p.id}`}
+                    href={`/projects/${p.slug}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700 hover:gap-3"
                   >
                     Read More
@@ -146,14 +151,12 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Hover Accent */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-brand-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.article>
           ))}
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation + Pagination */}
       {pageCount > 1 && (
         <div className="mt-6 flex items-center justify-center gap-3">
           <button

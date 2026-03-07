@@ -61,13 +61,13 @@ export default function WorkImagesCollege() {
   ];
 
   const dots = [
-    { top: "8%", left: "18%", color: "#FFA500" },
-    { top: "70%", left: "5%", color: "#FFA500" },
-    { top: "66%", left: "52%", color: "#FFA500" },
-    { top: "5%", left: "87%", color: "#000" },
-    { top: "70%", left: "85%", color: "#FFA500" },
-    { top: "80%", left: "34%", color: "#000" },
-    { top: "85%", left: "65%", color: "#000" },
+    { top: "8%", left: "18%", color: "var(--color-brand-500)" },
+    { top: "70%", left: "5%", color: "var(--color-brand-500)" },
+    { top: "66%", left: "52%", color: "var(--color-brand-500)" },
+    { top: "5%", left: "87%", color: "var(--color-neutral-900)" },
+    { top: "70%", left: "85%", color: "var(--color-brand-500)" },
+    { top: "80%", left: "34%", color: "var(--color-neutral-900)" },
+    { top: "85%", left: "65%", color: "var(--color-neutral-900)" },
   ];
 
   return (
